@@ -1,0 +1,159 @@
+{
+  "best_model": "LightGBM",
+  "rfecv_selected_features": [
+    "log_num_jobs",
+    "log_total_steps",
+    "log_shell_steps",
+    "log_action_steps",
+    "log_has_linux",
+    "log_has_macos",
+    "log_has_windows",
+    "log_num_os_types",
+    "log_early3_total_dur",
+    "log_early3_max_dur",
+    "log_early3_min_dur",
+    "log_early3_shell_count",
+    "log_early3_action_count",
+    "log_early3_avg_dur",
+    "is_main_branch",
+    "early_shell_ratio",
+    "early_dur_zscore",
+    "metadata_event_enc",
+    "metadata_actor_type_enc",
+    "metadata_repository_owner_type_enc",
+    "metadata_triggering_actor_type_enc",
+    "msg_word_count"
+  ],
+  "n_features_final": 22,
+  "smote_test_results": {
+    "accuracy": 0.8492494916570448,
+    "balanced_accuracy": 0.8492494916570448,
+    "roc_auc": 0.9145212792315806,
+    "f1_failure": 0.8291598395062443
+  },
+  "real_world_results": {
+    "accuracy": 0.8302206984477025,
+    "balanced_accuracy": 0.5315853826031531,
+    "roc_auc": 0.6835077296713541,
+    "f1_failure": 0.15116930100348852,
+    "avg_precision": 0.2700827628187491
+  },
+  "cv_results": {
+    "Logistic Regression": {
+      "accuracy": {
+        "mean": 0.582978938338385,
+        "std": 0.001722138324904512
+      },
+      "balanced_accuracy": {
+        "mean": 0.582978936869895,
+        "std": 0.0017221382293590467
+      },
+      "f1": {
+        "mean": 0.5800580070440616,
+        "std": 0.00028767128584364967
+      },
+      "roc_auc": {
+        "mean": 0.6128369125578909,
+        "std": 0.0006259065997145575
+      },
+      "precision": {
+        "mean": 0.5841739865331799,
+        "std": 0.002578594834276374
+      },
+      "recall": {
+        "mean": 0.5760266518650065,
+        "std": 0.0030566173186586487
+      }
+    },
+    "Random Forest": {
+      "accuracy": {
+        "mean": 0.7909336157420069,
+        "std": 0.0012154772643686413
+      },
+      "balanced_accuracy": {
+        "mean": 0.7909336124143055,
+        "std": 0.0012154731004730113
+      },
+      "f1": {
+        "mean": 0.7858879460922278,
+        "std": 0.0008006147404499684
+      },
+      "roc_auc": {
+        "mean": 0.8829128948262152,
+        "std": 0.00038657885367826176
+      },
+      "precision": {
+        "mean": 0.8053428020228383,
+        "std": 0.0028289313999039062
+      },
+      "recall": {
+        "mean": 0.7673618231115035,
+        "std": 0.0016316004202623824
+      }
+    },
+    "XGBoost": {
+      "accuracy": {
+        "mean": 0.8408605549375864,
+        "std": 0.0014156741236045925
+      },
+      "balanced_accuracy": {
+        "mean": 0.8408605474756851,
+        "std": 0.0014153902164415776
+      },
+      "f1": {
+        "mean": 0.8187183042131521,
+        "std": 0.0010092112136701567
+      },
+      "roc_auc": {
+        "mean": 0.9071276336961117,
+        "std": 0.0005496514679136671
+      },
+      "precision": {
+        "mean": 0.9511062827473928,
+        "std": 0.005428356116468179
+      },
+      "recall": {
+        "mean": 0.7187019075662023,
+        "std": 0.0016558055801032595
+      }
+    },
+    "LightGBM": {
+      "accuracy": {
+        "mean": 0.8508271432764062,
+        "std": 0.0005056198533757787
+      },
+      "balanced_accuracy": {
+        "mean": 0.850827143325588,
+        "std": 0.0005058809070846285
+      },
+      "f1": {
+        "mean": 0.8311230159289499,
+        "std": 0.0007130271208663907
+      },
+      "roc_auc": {
+        "mean": 0.9157895172989848,
+        "std": 0.0001588103577222447
+      },
+      "precision": {
+        "mean": 0.9576132476824256,
+        "std": 0.001404838214353954
+      },
+      "recall": {
+        "mean": 0.7341534951237468,
+        "std": 0.0015755853920711013
+      }
+    }
+  },
+  "shap_top_features": [
+    "metadata_event_enc",
+    "is_main_branch",
+    "log_num_jobs",
+    "log_early3_action_count",
+    "log_shell_steps",
+    "log_early3_shell_count",
+    "msg_word_count",
+    "metadata_repository_owner_type_enc",
+    "log_has_linux",
+    "log_num_os_types"
+  ]
+}
