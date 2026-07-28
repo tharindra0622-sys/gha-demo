@@ -3,8 +3,8 @@
 llm_agent.py
 
 Given a failing GitHub Actions run, downloads its logs, isolates the
-failing job/step's log text, and asks an LLM (Claude, via the Anthropic
-API) to diagnose the likely root cause and recommend a fix.
+failing job/step's log text, and asks an LLM (Google Gemini, via the
+Gemini API) to diagnose the likely root cause and recommend a fix.
 
 Design principle (per thesis architecture): this agent NEVER applies a
 fix automatically — it only produces a structured recommendation. A
@@ -18,7 +18,7 @@ import io
 import json
 import zipfile
 import requests
-from anthropic import Anthropic
+import google.generativeai as genai
 
 API = "https://api.github.com"
 
@@ -96,7 +96,12 @@ any change yourself. Be specific and concrete; avoid generic advice like
 
 
 def diagnose_failure(log_excerpt, run_metadata, api_key):
-    client = Anthropic(api_key=api_key)
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel(
+        model_name=os.environ.get("GEMINI_MODEL", "gemini-2.0-flash"),
+        system_instruction=DIAGNOSIS_SYSTEM_PROMPT,
+        generation_config={"response_mime_type": "application/json"},
+    )
     user_content = (
         f"Repository: {run_metadata.get('repository_name')}\n"
         f"Workflow: {run_metadata.get('workflow_path')}\n"
@@ -104,13 +109,8 @@ def diagnose_failure(log_excerpt, run_metadata, api_key):
         f"Log excerpt (most recent {len(log_excerpt)} chars):\n"
         f"```\n{log_excerpt}\n```"
     )
-    resp = client.messages.create(
-        model="claude-sonnet-4-5",
-        max_tokens=500,
-        system=DIAGNOSIS_SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_content}],
-    )
-    raw_text = resp.content[0].text.strip()
+    resp = model.generate_content(user_content)
+    raw_text = resp.text.strip()
     try:
         return json.loads(raw_text)
     except json.JSONDecodeError:
@@ -122,7 +122,7 @@ def diagnose_failure(log_excerpt, run_metadata, api_key):
         }
 
 
-def run_diagnosis(owner, repo, run_id, run_metadata, github_token, anthropic_api_key):
+def run_diagnosis(owner, repo, run_id, run_metadata, github_token, gemini_api_key):
     actual_conclusion = run_metadata.get("metadata_conclusion")
     jobs = get_jobs(owner, repo, run_id, github_token)
     job, step = find_failing_job_and_step(jobs)
@@ -144,7 +144,7 @@ def run_diagnosis(owner, repo, run_id, run_metadata, github_token, anthropic_api
             "confidence": "medium",
         }
     log_text = download_log_text_for_job(owner, repo, run_id, job, github_token)
-    diagnosis = diagnose_failure(log_text, run_metadata, anthropic_api_key)
+    diagnosis = diagnose_failure(log_text, run_metadata, gemini_api_key)
     diagnosis["failing_job"] = job.get("name")
     diagnosis["failing_step"] = step.get("name") if step else None
     return diagnosis
