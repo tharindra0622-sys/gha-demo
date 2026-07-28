@@ -123,9 +123,20 @@ def diagnose_failure(log_excerpt, run_metadata, api_key):
 
 
 def run_diagnosis(owner, repo, run_id, run_metadata, github_token, anthropic_api_key):
+    actual_conclusion = run_metadata.get("metadata_conclusion")
     jobs = get_jobs(owner, repo, run_id, github_token)
     job, step = find_failing_job_and_step(jobs)
     if not job:
+        if actual_conclusion == "success":
+            # The run actually passed — the model flagged it as risky, but
+            # there's no real error to diagnose. This is a false positive,
+            # not a broken pipeline.
+            return {
+                "root_cause": "This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",
+                "category": "false_positive",
+                "suggested_fix": "No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",
+                "confidence": "high",
+            }
         return {
             "root_cause": "No failing job found in run data (run may have failed before any job started)",
             "category": "config_error",
