@@ -1,0 +1,46 @@
+name: AIOps Failure Diagnosis
+
+on:
+  workflow_run:
+    workflows: ["Collect CI/CD Test Data"]
+    types: [completed]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # to commit diagnosis reports
+  issues: write      # to post diagnosis issues
+
+jobs:
+  diagnose:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pandas anthropic
+
+      - name: Run Control Agent (diagnose + recommend, no auto-fix)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/control_agent.py
+
+      - name: Commit diagnosis reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add aiops/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: add AIOps failure diagnosis reports [skip ci]"
+            git push
+          else
+            echo "No new diagnosis reports to commit."
+          fi
