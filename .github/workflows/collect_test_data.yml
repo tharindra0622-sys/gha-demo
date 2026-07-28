@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests pyyaml
+        run: pip install requests pyyaml joblib scikit-learn lightgbm pandas numpy
 
       - name: Extract log features from recent completed runs
         env:
@@ -33,13 +33,23 @@ jobs:
           MAX_RUNS: "20"
         run: python scripts/collect_test_data.py
 
-      - name: Commit new test data
+      - name: Score new rows with the trained model
+        run: |
+          python scripts/predict_on_new_data.py \
+            --input data/test_data.csv \
+            --output data/predictions.csv \
+            --imputer model/imputer.pkl \
+            --scaler model/scaler.pkl \
+            --model model/best_model.pkl \
+            --results-summary model/results_summary.json
+
+      - name: Commit new test data and predictions
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/test_data.csv data/state/last_checkpoint.txt
+          git add data/test_data.csv data/state/last_checkpoint.txt data/predictions.csv
           if ! git diff --cached --quiet; then
-            git commit -m "chore: append new CI/CD test-data rows [skip ci]"
+            git commit -m "chore: append new CI/CD test-data rows + predictions [skip ci]"
             git push
           else
             echo "No new rows to commit."
