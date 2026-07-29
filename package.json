@@ -1,0 +1,13 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "description": "Second demo pipeline (Node.js) for CI/CD failure prediction test data",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src --no-eslintrc --env node,es2021 --parser-options=ecmaVersion:2021 || true"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0"
+  }
+}
