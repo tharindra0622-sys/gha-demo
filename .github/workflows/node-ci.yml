@@ -1,0 +1,45 @@
+name: Node CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      inject_failure:
+        description: "Deliberately fail the test step (for generating real failure data)"
+        type: boolean
+        default: false
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [18, 20]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run tests
+        env:
+          INJECT_FAILURE: ${{ inputs.inject_failure }}
+        run: npm test
+
+      - name: Simulate build step
+        run: |
+          mkdir -p build
+          echo "console.log('built');" > build/output.js
+          echo "Build complete"
