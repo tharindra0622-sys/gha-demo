@@ -166,7 +166,7 @@ with tab5:
             ↓
     control_agent.py  → finds failed / predicted-failure runs
             ↓
-    llm_agent.py  → Gemini diagnoses root cause + suggests a fix
+    llm_agent.py  → Claude diagnoses root cause + suggests a fix
             ↓
     GitHub Issue created (recommendation only — no code auto-changed)
     ```
