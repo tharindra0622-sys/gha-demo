@@ -1,24 +1,7 @@
-"""A tiny calculator module — just enough real code to give CI something
-meaningful to lint, test, and build."""
+import requests
 
 
-def add(a, b):
-    return a + b
-
-
-def subtract(a, b):
-    return a - b
-
-
-def multiply(a, b):
-    return a * b
-
-
-def divide(a, b):
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
-
-
-def is_even(n):
-    return n % 2 == 0
+def fetch_status(url):
+    """Deliberately uses a package NOT in requirements.txt,
+    to test whether the LLM correctly diagnoses a missing dependency."""
+    return requests.get(url).status_code
