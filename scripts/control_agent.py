@@ -81,7 +81,7 @@ def main():
     args = ap.parse_args()
 
     github_token = os.environ["GITHUB_TOKEN"]
-    gemini_api_key = os.environ["GEMINI_API_KEY"]
+    anthropic_api_key = os.environ["ANTHROPIC_API_KEY"]
     owner, repo = os.environ["GITHUB_REPOSITORY"].split("/")
 
     Path(args.checkpoint).parent.mkdir(parents=True, exist_ok=True)
@@ -110,7 +110,7 @@ def main():
         try:
             diagnosis = llm_agent.run_diagnosis(
                 owner, repo, run_id, row.to_dict(),
-                github_token, gemini_api_key,
+                github_token, anthropic_api_key,
             )
         except Exception as e:
             print(f"  ! diagnosis failed: {e}")
