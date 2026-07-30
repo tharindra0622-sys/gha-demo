@@ -24,13 +24,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests pandas google-generativeai
+        run: pip install requests pandas anthropic
 
       - name: Run Control Agent (diagnose + recommend, no auto-fix)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/control_agent.py
 
       - name: Commit diagnosis reports
