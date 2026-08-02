@@ -111,8 +111,16 @@ def diagnose_failure(log_excerpt, run_metadata, api_key):
         messages=[{"role": "user", "content": user_content}],
     )
     raw_text = resp.content[0].text.strip()
+    # Claude sometimes wraps its JSON answer in a markdown code fence
+    # (```json ... ```); strip that before parsing.
+    cleaned = raw_text
+    if cleaned.startswith("```"):
+        cleaned = cleaned.split("\n", 1)[1] if "\n" in cleaned else cleaned
+        if cleaned.rstrip().endswith("```"):
+            cleaned = cleaned.rstrip()[:-3]
+    cleaned = cleaned.strip()
     try:
-        return json.loads(raw_text)
+        return json.loads(cleaned)
     except json.JSONDecodeError:
         return {
             "root_cause": "Could not parse LLM response as JSON",
