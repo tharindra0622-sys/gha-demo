@@ -92,6 +92,11 @@ def main():
         processed = set(json.loads(Path(args.checkpoint).read_text()))
 
     df = pd.read_csv(args.predictions)
+    # predictions.csv can end up with duplicate rows for the same run
+    # (e.g. if Collect runs close together). Keep only the last row per
+    # run so we never diagnose — and create a duplicate issue for — the
+    # same run twice in one pass.
+    df = df.drop_duplicates(subset="metadata_id", keep="last")
 
     needs_diagnosis = df[
         (df["metadata_conclusion"] == "failure")
