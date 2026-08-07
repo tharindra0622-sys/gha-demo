@@ -62,14 +62,24 @@ def download_log_text_for_job(owner, repo, run_id, job, token, max_chars=6000):
 
     job_name = job.get("name", "")
     with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
-        # Job logs are usually named like "<job_name>/<step>.txt" or
-        # "<n>_<job_name>.txt" at the top level.
+        names = zf.namelist()
+        # GitHub's log zip groups each job's steps under a folder named
+        # exactly after the job's display name, e.g.
+        # "test (windows-latest, 3.10)/2_Run tests.txt". Matrix jobs often
+        # share a first word ("test"), so matching on the full job name is
+        # required — matching only the first word would grab logs from the
+        # WRONG matrix job (e.g. a different OS/version combination).
         candidates = [
-            n for n in zf.namelist()
-            if n.endswith(".txt") and job_name.split(" ")[0].lower() in n.lower()
+            n for n in names
+            if n.endswith(".txt") and n.split("/")[0].strip().lower() == job_name.strip().lower()
         ]
         if not candidates:
-            candidates = [n for n in zf.namelist() if n.endswith(".txt")]
+            # Fallback: substring match on the FULL job name (still not
+            # just the first word) in case the zip uses a slightly
+            # different path format.
+            candidates = [n for n in names if n.endswith(".txt") and job_name.lower() in n.lower()]
+        if not candidates:
+            candidates = [n for n in names if n.endswith(".txt")]
         text_parts = []
         for name in candidates:
             with zf.open(name) as f:
