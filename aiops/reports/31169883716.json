@@ -99,9 +99,9 @@
     "predicted_label": 0
   },
   "diagnosis": {
-    "root_cause": "The test file is trying to import functions (add, subtract, multiply, divide, is_even) from the calculator module, but these functions are not defined or exported in src/calculator.py",
-    "category": "dependency_error",
-    "suggested_fix": "Add the missing function definitions (add, subtract, multiply, divide, is_even) to src/calculator.py. These functions are expected by tests/test_calculator.py but are currently not implemented in the calculator module.",
+    "root_cause": "The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but those functions are not defined or exported in the source file.",
+    "category": "test_failure",
+    "suggested_fix": "Add the missing function definitions (add, subtract, multiply, divide, is_even) to src/calculator.py. Based on the test file expectations at tests/test_calculator.py line 6, implement these calculator functions in the source module or verify they exist and are properly named.",
     "confidence": "high",
     "failing_job": "test (windows-latest, 3.10)",
     "failing_step": "Run tests"
