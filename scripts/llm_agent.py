@@ -14,9 +14,7 @@ pipeline itself.
 """
 
 import os
-import io
 import json
-import zipfile
 import requests
 from anthropic import Anthropic
 
@@ -51,41 +49,22 @@ def find_failing_job_and_step(jobs):
 
 
 def download_log_text_for_job(owner, repo, run_id, job, token, max_chars=6000):
-    """Downloads the full run log zip and extracts the text for the
-    failing job, truncated to the last max_chars characters (the error
-    is almost always near the end)."""
+    """Downloads the log for ONE SPECIFIC job using GitHub's dedicated
+    per-job log endpoint. This is deliberately NOT done by downloading the
+    whole run's zip and guessing which file inside it belongs to this job
+    — that approach was unreliable for matrix builds (multiple jobs with
+    similar names), since the zip's internal file/folder naming doesn't
+    always match a job's display name in a predictable way. Using the
+    job's numeric ID directly guarantees we get exactly the right job's
+    log, every time."""
+    job_id = job.get("id")
     r = requests.get(
-        f"{API}/repos/{owner}/{repo}/actions/runs/{run_id}/logs",
+        f"{API}/repos/{owner}/{repo}/actions/jobs/{job_id}/logs",
         headers=gh_headers(token), timeout=60,
     )
     r.raise_for_status()
-
-    job_name = job.get("name", "")
-    with zipfile.ZipFile(io.BytesIO(r.content)) as zf:
-        names = zf.namelist()
-        # GitHub's log zip groups each job's steps under a folder named
-        # exactly after the job's display name, e.g.
-        # "test (windows-latest, 3.10)/2_Run tests.txt". Matrix jobs often
-        # share a first word ("test"), so matching on the full job name is
-        # required — matching only the first word would grab logs from the
-        # WRONG matrix job (e.g. a different OS/version combination).
-        candidates = [
-            n for n in names
-            if n.endswith(".txt") and n.split("/")[0].strip().lower() == job_name.strip().lower()
-        ]
-        if not candidates:
-            # Fallback: substring match on the FULL job name (still not
-            # just the first word) in case the zip uses a slightly
-            # different path format.
-            candidates = [n for n in names if n.endswith(".txt") and job_name.lower() in n.lower()]
-        if not candidates:
-            candidates = [n for n in names if n.endswith(".txt")]
-        text_parts = []
-        for name in candidates:
-            with zf.open(name) as f:
-                text_parts.append(f.read().decode("utf-8", errors="ignore"))
-    full_text = "\n".join(text_parts)
-    return full_text[-max_chars:]
+    text = r.text
+    return text[-max_chars:]
 
 
 DIAGNOSIS_SYSTEM_PROMPT = """You are a CI/CD failure diagnosis assistant.
