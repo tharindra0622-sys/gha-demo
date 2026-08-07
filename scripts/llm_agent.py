@@ -141,6 +141,21 @@ def run_diagnosis(owner, repo, run_id, run_metadata, github_token, anthropic_api
             "confidence": "medium",
         }
     log_text = download_log_text_for_job(owner, repo, run_id, job, github_token)
+    print(f"  [debug] fetched {len(log_text)} chars of log for job_id={job.get('id')} ({job.get('name')})")
+    print(f"  [debug] log preview: {log_text[:300]!r}")
+    if len(log_text.strip()) < 50:
+        # The log fetch returned little/nothing — don't send this to the
+        # LLM, since it would have almost no real information to work
+        # with and could produce a plausible-sounding but ungrounded
+        # guess. Surface this honestly instead.
+        return {
+            "root_cause": f"Log retrieval returned only {len(log_text.strip())} characters for job_id={job.get('id')} — too little content to diagnose reliably. This may mean the log hasn't finished uploading yet, or the API token lacks permission to read it.",
+            "category": "unknown",
+            "suggested_fix": "Check this job's log manually in the GitHub Actions UI. If it looks normal there, this may be a timing issue — try re-running diagnosis a minute later.",
+            "confidence": "low",
+            "failing_job": job.get("name"),
+            "failing_step": step.get("name") if step else None,
+        }
     diagnosis = diagnose_failure(log_text, run_metadata, anthropic_api_key)
     diagnosis["failing_job"] = job.get("name")
     diagnosis["failing_step"] = step.get("name") if step else None
