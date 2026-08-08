@@ -1,0 +1,16 @@
+name: Network Failure Test
+
+on:
+  workflow_dispatch: {}   # manual trigger only — completely separate from CI
+
+jobs:
+  network_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Try to reach a non-existent host (simulates a real network/DNS failure)
+        run: |
+          echo "Attempting to contact an unreachable service..."
+          curl --fail --max-time 10 https://this-domain-does-not-exist-gha-demo-test.invalid
