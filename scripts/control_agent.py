@@ -25,6 +25,7 @@ import pandas as pd
 import requests
 
 import llm_agent
+import langchain_multi_tool_agent
 
 API = "https://api.github.com"
 
@@ -65,12 +66,53 @@ def format_issue_body(row, diagnosis):
 ### Root cause
 {diagnosis.get('root_cause', 'n/a')}
 
+### Evidence considered
+{', '.join(diagnosis.get('evidence_used') or diagnosis.get('tool_calls_made') or ['log text only'])}
+
 ### Suggested fix
 {diagnosis.get('suggested_fix', 'n/a')}
 
 ---
 _This issue was created automatically by the AIOps Control Agent as part of an early-prediction CI/CD research pipeline. It is a recommendation for a human to review — no code was changed._
 """
+
+
+def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_key):
+    """Finds the failing job (reusing llm_agent's logic, including its
+    false-positive handling), then — for genuine failures — hands off to
+    the multi-tool agent instead of the single-log-only diagnosis. This
+    addresses supervisor feedback that a diagnosis based on log text
+    alone is too narrow."""
+    actual_conclusion = run_metadata.get("metadata_conclusion")
+    jobs = llm_agent.get_jobs(owner, repo, run_id, github_token)
+    job, step = llm_agent.find_failing_job_and_step(jobs)
+
+    if not job:
+        if actual_conclusion == "success":
+            return {
+                "root_cause": "This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",
+                "category": "false_positive",
+                "evidence_used": [],
+                "suggested_fix": "No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",
+                "confidence": "high",
+                "failing_job": None,
+                "failing_step": None,
+            }
+        return {
+            "root_cause": "No failing job found in run data (run may have failed before any job started)",
+            "category": "config_error",
+            "evidence_used": [],
+            "suggested_fix": "Check the workflow YAML syntax — GitHub may have rejected it before scheduling any job.",
+            "confidence": "medium",
+            "failing_job": None,
+            "failing_step": step.get("name") if step else None,
+        }
+
+    diagnosis = langchain_multi_tool_agent.run_langchain_diagnosis(
+        owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
+    )
+    diagnosis["failing_step"] = step.get("name") if step else None
+    return diagnosis
 
 
 def main():
@@ -113,7 +155,7 @@ def main():
         print(f"Diagnosing run {run_id} ({row['workflow_path']})...")
 
         try:
-            diagnosis = llm_agent.run_diagnosis(
+            diagnosis = diagnose_run(
                 owner, repo, run_id, row.to_dict(),
                 github_token, anthropic_api_key,
             )
