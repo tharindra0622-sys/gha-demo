@@ -1,0 +1,16 @@
+name: Server Error Test
+
+on:
+  workflow_dispatch: {}   # manual trigger only
+
+jobs:
+  server_error_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Call an endpoint that returns a real HTTP 500 error
+        run: |
+          echo "Calling a live endpoint that deliberately returns HTTP 500..."
+          curl --fail --max-time 10 https://httpstat.us/500
