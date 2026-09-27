@@ -25,7 +25,7 @@ import pandas as pd
 import requests
 
 import llm_agent
-import langchain_multi_tool_agent
+import langchain_multi_tool_agent_v2
 
 API = "https://api.github.com"
 
@@ -108,7 +108,7 @@ def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_
             "failing_step": step.get("name") if step else None,
         }
 
-    diagnosis = langchain_multi_tool_agent.run_langchain_diagnosis(
+    diagnosis = langchain_multi_tool_agent_v2.run_langchain_diagnosis_v2(
         owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
     )
     diagnosis["failing_step"] = step.get("name") if step else None
