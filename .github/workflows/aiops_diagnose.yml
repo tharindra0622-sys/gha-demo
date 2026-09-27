@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests pandas anthropic langchain langchain-anthropic pydantic
+        run: pip install requests pandas anthropic langchain langchain-anthropic pydantic ddgs
 
       - name: Run Control Agent (diagnose + recommend, no auto-fix)
         env:
@@ -32,6 +32,12 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/control_agent.py
+
+      - name: Compile all diagnoses into one report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/compile_all_diagnoses.py --output aiops/diagnosis_report.csv
 
       - name: Commit diagnosis reports
         run: |
