@@ -1,0 +1,483 @@
+issue_number,issue_title,issue_state,created_at,run,workflow,actual_outcome,predicted_failure_probability,failing_job,failing_step,category,confidence,root_cause,evidence_considered,suggested_fix,issue_url
+102,CI Failure Diagnosis: .github/workflows/ci.yml #73,open,2026-09-27T04:04:58Z,[`#73`](tharindra0622-sys/gha-demo/36285448504/logs.zip),.github/workflows/ci.yml,failure,0.2544039073737406,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/102
+101,CI Failure Diagnosis: .github/workflows/ci.yml #72,open,2026-09-27T04:04:57Z,[`#72`](tharindra0622-sys/gha-demo/36285434783/logs.zip),.github/workflows/ci.yml,failure,0.2762510392856009,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/101
+100,CI Failure Diagnosis: .github/workflows/ci.yml #71,open,2026-09-27T04:04:56Z,[`#71`](tharindra0622-sys/gha-demo/36285414967/logs.zip),.github/workflows/ci.yml,failure,0.2425609353963788,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/100
+99,CI Failure Diagnosis: .github/workflows/ci.yml #70,open,2026-09-27T04:04:55Z,[`#70`](tharindra0622-sys/gha-demo/36285394827/logs.zip),.github/workflows/ci.yml,failure,0.2419897600796212,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/99
+98,CI Failure Diagnosis: .github/workflows/ci.yml #69,open,2026-09-27T04:04:54Z,[`#69`](tharindra0622-sys/gha-demo/36285377844/logs.zip),.github/workflows/ci.yml,failure,0.2452541703849219,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/98
+97,CI Failure Diagnosis: .github/workflows/ci.yml #68,open,2026-09-27T04:04:53Z,[`#68`](tharindra0622-sys/gha-demo/36285328708/logs.zip),.github/workflows/ci.yml,failure,0.2425609353963788,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/97
+96,CI Failure Diagnosis: .github/workflows/ci.yml #67,open,2026-09-23T03:41:10Z,[`#67`](tharindra0622-sys/gha-demo/35798061619/logs.zip),.github/workflows/ci.yml,failure,0.2582870765533995,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/96
+95,CI Failure Diagnosis: .github/workflows/ci.yml #66,open,2026-09-23T03:41:09Z,[`#66`](tharindra0622-sys/gha-demo/35798008788/logs.zip),.github/workflows/ci.yml,failure,0.2528197286888831,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/95
+94,CI Failure Diagnosis: .github/workflows/ci.yml #65,open,2026-09-23T03:41:08Z,[`#65`](tharindra0622-sys/gha-demo/35797937920/logs.zip),.github/workflows/ci.yml,failure,0.2410266633594368,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/94
+93,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #254,open,2026-09-22T11:06:15Z,[`#254`](tharindra0622-sys/gha-demo/35684043896/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/93
+92,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #249,open,2026-09-20T20:27:06Z,[`#249`](tharindra0622-sys/gha-demo/35520041487/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/92
+91,CI Failure Diagnosis: .github/workflows/ci.yml #64,open,2026-09-20T10:47:41Z,[`#64`](tharindra0622-sys/gha-demo/35498177943/logs.zip),.github/workflows/ci.yml,failure,0.4817899852594413,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/91
+90,CI Failure Diagnosis: .github/workflows/ci.yml #63,open,2026-09-20T10:47:40Z,[`#63`](tharindra0622-sys/gha-demo/35498101762/logs.zip),.github/workflows/ci.yml,failure,0.5093067752088346,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/90
+89,CI Failure Diagnosis: .github/workflows/ci.yml #62,open,2026-09-20T10:47:39Z,[`#62`](tharindra0622-sys/gha-demo/35497986304/logs.zip),.github/workflows/ci.yml,failure,0.5185005933112985,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/89
+88,CI Failure Diagnosis: .github/workflows/ci.yml #61,open,2026-09-20T10:47:37Z,[`#61`](tharindra0622-sys/gha-demo/35496552016/logs.zip),.github/workflows/ci.yml,failure,0.5185005933112985,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/88
+87,CI Failure Diagnosis: .github/workflows/ci.yml #60,open,2026-09-20T10:47:36Z,[`#60`](tharindra0622-sys/gha-demo/35495803709/logs.zip),.github/workflows/ci.yml,failure,0.5253556352191289,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/87
+86,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #247,open,2026-09-20T10:47:35Z,[`#247`](tharindra0622-sys/gha-demo/35487454888/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/86
+85,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #246,open,2026-09-20T03:47:09Z,[`#246`](tharindra0622-sys/gha-demo/35466506419/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/85
+84,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #241,open,2026-09-18T20:31:39Z,[`#241`](tharindra0622-sys/gha-demo/35365576866/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/84
+83,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #239,open,2026-09-18T10:42:36Z,[`#239`](tharindra0622-sys/gha-demo/35303653150/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/83
+82,CI Failure Diagnosis: .github/workflows/server_error_test.yml #1,open,2026-09-16T23:33:41Z,[`#1`](tharindra0622-sys/gha-demo/35162406663/logs.zip),.github/workflows/server_error_test.yml,failure,0.3725037413399028,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/82
+81,CI Failure Diagnosis: .github/workflows/ci.yml #59,open,2026-09-16T23:33:40Z,[`#59`](tharindra0622-sys/gha-demo/35162125419/logs.zip),.github/workflows/ci.yml,failure,0.2425609353963788,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/81
+80,CI Failure Diagnosis: .github/workflows/ci.yml #57,open,2026-09-16T23:33:39Z,[`#57`](tharindra0622-sys/gha-demo/35162064236/logs.zip),.github/workflows/ci.yml,failure,0.2565967384216753,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/80
+79,CI Failure Diagnosis: .github/workflows/ci.yml #58,open,2026-09-16T23:33:38Z,[`#58`](tharindra0622-sys/gha-demo/35162090380/logs.zip),.github/workflows/ci.yml,failure,0.2671286863546127,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/79
+78,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #211,open,2026-09-11T10:45:00Z,[`#211`](tharindra0622-sys/gha-demo/34558253226/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/78
+77,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #204,open,2026-09-09T16:03:12Z,[`#204`](tharindra0622-sys/gha-demo/34342561901/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/77
+76,CI Failure Diagnosis: .github/workflows/collect_test_data.yml #175,open,2026-09-07T03:17:49Z,[`#175`](tharindra0622-sys/gha-demo/34056851790/logs.zip),.github/workflows/collect_test_data.yml,failure,0.2909871898670583,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/76
+75,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #192,open,2026-09-06T15:03:02Z,[`#192`](tharindra0622-sys/gha-demo/34027342690/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/75
+74,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #181,open,2026-09-03T20:36:48Z,[`#181`](tharindra0622-sys/gha-demo/33775527810/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/74
+73,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #172,open,2026-09-01T16:11:27Z,[`#172`](tharindra0622-sys/gha-demo/33501405145/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/73
+72,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #166,open,2026-08-30T20:40:38Z,[`#166`](tharindra0622-sys/gha-demo/33321751607/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/72
+71,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #165,open,2026-08-30T16:11:56Z,[`#165`](tharindra0622-sys/gha-demo/33308855199/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,None,None,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",log text only,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/71
+70,CI Failure Diagnosis: .github/workflows/ci.yml #56,open,2026-08-27T21:53:50Z,[`#56`](tharindra0622-sys/gha-demo/33052613207/logs.zip),.github/workflows/ci.yml,failure,0.241997687378465,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/70
+69,CI Failure Diagnosis: .github/workflows/ci.yml #55,open,2026-08-27T21:53:49Z,[`#55`](tharindra0622-sys/gha-demo/33052526521/logs.zip),.github/workflows/ci.yml,failure,0.2452541703849219,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/69
+68,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #157,open,2026-08-27T21:53:48Z,[`#157`](tharindra0622-sys/gha-demo/33051740940/logs.zip),.github/workflows/aiops_diagnose.yml,failure,0.4344994291523246,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/68
+67,CI Failure Diagnosis: .github/workflows/collect_test_data.yml #138,open,2026-08-27T21:53:47Z,[`#138`](tharindra0622-sys/gha-demo/33051618461/logs.zip),.github/workflows/collect_test_data.yml,failure,0.2751557083551307,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",log text only,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/67
+66,CI Failure Diagnosis: .github/workflows/ci.yml #54,open,2026-08-27T07:56:27Z,[`#54`](tharindra0622-sys/gha-demo/33051366683/logs.zip),.github/workflows/ci.yml,failure,0.2435361571645014,"test (macos-latest, 3.10)",Run tests,test_failure,high,"The test failure is in `test_data_processor.py::test_process_pipeline`. The test is intentionally failing due to a bug in the code where `clean_records()` is not properly sanitizing data types. In `compute_average_score()` at line 39 of `src/data_processor.py`, the code attempts to add an integer and a string (`total += r['score']`), which causes a TypeError. The test comment explicitly states this test is 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' This is a legitimate test failure exposing a code bug, not a CI infrastructure issue. The commit added langchain and pydantic dependencies, but the failure is unrelated to those changes - it's an existing code defect that the test is designed to catch.","get_failure_log, get_workflow_file, search_repo_issues","Fix the `clean_records()` function in `src/data_processor.py` to properly convert all score values to integers before passing them to `compute_average_score()`. Alternatively, if the test is intentionally demonstrating a failure scenario for educational purposes, consider marking it with `@pytest.mark.xfail` or removing it from the standard test suite.",https://github.com/tharindra0622-sys/gha-demo/issues/66
+65,CI Failure Diagnosis: .github/workflows/ci.yml #53,open,2026-08-27T07:56:10Z,[`#53`](tharindra0622-sys/gha-demo/33050802654/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (ubuntu-latest, 3.10)",Run tests,test_failure,high,"The test `test_process_pipeline` is failing due to a TypeError in `src/data_processor.py` at line 39. The failure occurs in the `compute_average_score()` function when attempting to add an integer and a string (`int + str`). According to the failure log, a string value '95' sneaks through the `clean_records()` function undetected and causes the type error when the code tries to sum scores. The test comment explicitly states this is expected behavior: 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' This appears to be an intentional test case designed to catch a data validation bug in the application code, not a test infrastructure issue.","get_failure_log, get_workflow_file, search_repo_issues","Fix the `clean_records()` function in `src/data_processor.py` to properly validate and convert score values to integers before passing them to `compute_average_score()`. The function should ensure all scores are numeric types, not strings. Alternatively, make `compute_average_score()` more robust by converting values to int/float before summing.",https://github.com/tharindra0622-sys/gha-demo/issues/65
+64,CI Failure Diagnosis: .github/workflows/ci.yml #52,open,2026-08-27T07:55:50Z,[`#52`](tharindra0622-sys/gha-demo/33050349083/logs.zip),.github/workflows/ci.yml,failure,0.2425609353963788,"test (windows-latest, 3.12)",Run tests,test_failure,high,"The test `test_process_pipeline` is failing due to a deliberate bug in the test code. The function `compute_average_score()` in `src/data_processor.py` attempts to add an integer and a string (`total += r['score']`) when processing records. One of the records has a score value '95' as a string instead of an integer, causing a `TypeError: unsupported operand type(s) for +=: 'int' and 'str'`. According to the test's own docstring, this test is 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' This indicates the test is intentionally designed to expose a data validation bug.","get_failure_log, get_workflow_file, search_repo_issues","Fix the `clean_records()` function in `src/data_processor.py` to properly validate and convert score values to integers before passing them to `compute_average_score()`. Alternatively, add type conversion/validation in `compute_average_score()` itself to handle string score values. The test docstring indicates this is an intentional bug designed to be caught, so the proper fix is to ensure all score values are numeric types before arithmetic operations.",https://github.com/tharindra0622-sys/gha-demo/issues/64
+63,CI Failure Diagnosis: .github/workflows/ci.yml #54,open,2026-08-27T07:55:12Z,[`#54`](tharindra0622-sys/gha-demo/33051366683/logs.zip),.github/workflows/ci.yml,failure,0.2435361571645014,"test (macos-latest, 3.10)",Run tests,test_failure,high,"The test `test_process_pipeline` is failing due to a TypeError in `src/data_processor.py:39` where the code attempts to add an integer and a string (`total += r['score']`). The test data includes a record with a string score value ('95' instead of 95), which the `clean_records()` function fails to properly sanitize. This appears to be an intentional test case based on the test's docstring: 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' The commit message mentions adding langchain and pydantic to dependencies, but the actual failure is in existing test code related to data type validation, not dependency installation.","get_failure_log, get_workflow_file, search_repo_issues","Fix the `clean_records()` function in `src/data_processor.py` to properly convert string scores to integers, or update `compute_average_score()` to handle mixed types. The function should ensure all score values are numeric before attempting arithmetic operations. If this test is meant to be a demonstration of a failure case, consider renaming it or marking it with `@pytest.mark.xfail` to indicate it's expected to fail.",https://github.com/tharindra0622-sys/gha-demo/issues/63
+62,CI Failure Diagnosis: .github/workflows/ci.yml #53,open,2026-08-27T07:54:45Z,[`#53`](tharindra0622-sys/gha-demo/33050802654/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (ubuntu-latest, 3.10)",Run tests,test_failure,high,"The test 'test_process_pipeline' in tests/test_data_processor.py failed due to a TypeError: 'unsupported operand type(s) for +=: int and str'. The failure log shows that in src/data_processor.py line 39, the compute_average_score() function attempts to add an integer to a string when processing record scores. Specifically, record {'name': 'build_3', 'score': '95'} contains the score as a string '95' instead of an integer, which causes the addition operation to fail. According to the test's docstring, this is an expected failure scenario: 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' This indicates a bug in the clean_records() function that should have converted or filtered out string scores but didn't.","get_failure_log, get_workflow_file, search_repo_issues","Fix the clean_records() function in src/data_processor.py to ensure all score values are properly converted to integers. Add type validation or conversion logic like: r['score'] = int(r['score']) if isinstance(r['score'], str) else r['score']. Alternatively, if the test is intentionally designed to fail to demonstrate error handling, update the test expectations to assert the TypeError is raised, or remove this test if it's not meant to be part of the passing test suite.",https://github.com/tharindra0622-sys/gha-demo/issues/62
+61,CI Failure Diagnosis: .github/workflows/ci.yml #52,open,2026-08-27T07:54:29Z,[`#52`](tharindra0622-sys/gha-demo/33050349083/logs.zip),.github/workflows/ci.yml,failure,0.2425609353963788,"test (windows-latest, 3.12)",Run tests,test_failure,high,"The test `test_process_pipeline` is failing due to a TypeError in `src/data_processor.py` at line 39. The function `compute_average_score()` attempts to add an integer and a string (`total += r[""score""]`), which fails when a record contains `{'name': 'build_3', 'score': '95'}` with the score as a string '95' instead of an integer. According to the test's docstring, this is intentional: 'Expected to fail deep inside compute_average_score() due to a string sneaking through clean_records() undetected.' The `clean_records()` function is not properly validating or converting score types before they reach `compute_average_score()`. The failure log shows 7 tests passed and only this one failed.","get_failure_log, get_workflow_file","Fix the `clean_records()` function in `src/data_processor.py` to ensure all score values are converted to integers before being processed. Add type validation/conversion logic such as `record['score'] = int(record['score'])` to handle string scores that slip through. Alternatively, add defensive type checking in `compute_average_score()` to handle mixed types gracefully.",https://github.com/tharindra0622-sys/gha-demo/issues/61
+60,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #140,open,2026-08-23T12:40:40Z,[`#140`](tharindra0622-sys/gha-demo/32623558703/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/60
+59,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #110,open,2026-08-16T01:19:53Z,[`#110`](tharindra0622-sys/gha-demo/31901305245/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/59
+58,CI Failure Diagnosis: .github/workflows/network_failure_test.yml #1,open,2026-08-08T09:12:52Z,[`#1`](tharindra0622-sys/gha-demo/31250001397/logs.zip),.github/workflows/network_failure_test.yml,failure,0.3769576313256886,network_test,Try to reach a non-existent host (simulates a real network/DNS failure),network_timeout,high,"The curl command attempted to resolve a non-existent domain 'this-domain-does-not-exist-gha-demo-test.invalid' and failed with a DNS resolution error (exit code 6), which is the intended behavior of this network failure test workflow.",,"This appears to be an intentional test of network failure handling. If the workflow should pass, add '|| true' after the curl command or remove the '--fail' flag. If testing error handling, wrap the curl command in a conditional that expects failure: 'if curl --fail --max-time 10 <url>; then exit 1; else echo ""Expected failure occurred""; fi'",https://github.com/tharindra0622-sys/gha-demo/issues/58
+57,CI Failure Diagnosis: .github/workflows/ci.yml #51,open,2026-08-08T09:12:46Z,[`#51`](tharindra0622-sys/gha-demo/31249976033/logs.zip),.github/workflows/ci.yml,failure,0.2658775873067243,"test (windows-latest, 3.10)",Run tests,test_failure,high,"The test test_process_pipeline is failing because a string value '95' is not being converted to an integer in the clean_records() function, causing a TypeError when compute_average_score() attempts to add it to an integer total.",,"In src/data_processor.py, modify the clean_records() function to ensure all 'score' values are converted to integers. Add type conversion (e.g., int(r['score'])) for score fields, or add validation to filter out records where score cannot be converted to an integer before they reach compute_average_score().",https://github.com/tharindra0622-sys/gha-demo/issues/57
+56,CI Failure Diagnosis: .github/workflows/ci.yml #50,open,2026-08-07T14:16:14Z,[`#50`](tharindra0622-sys/gha-demo/31186284532/logs.zip),.github/workflows/ci.yml,failure,0.2745809184744627,"test (macos-latest, 3.12)",Run tests,test_failure,high,"The test_process_pipeline test is failing because a string value '95' is being passed as a score in the test data, and the compute_average_score function tries to add it to an integer, causing a TypeError when performing int + str addition.",,"In src/data_processor.py, modify the clean_records() function to properly convert string scores to integers, or update the compute_average_score() function at line 39 to coerce r['score'] to an integer before addition (e.g., total += int(r['score'])). The test comment indicates this failure is expected due to a string 'sneaking through' the cleaning process, so fix the data validation in clean_records().",https://github.com/tharindra0622-sys/gha-demo/issues/56
+55,CI Failure Diagnosis: .github/workflows/ci.yml #49,open,2026-08-07T14:16:07Z,[`#49`](tharindra0622-sys/gha-demo/31186056414/logs.zip),.github/workflows/ci.yml,failure,0.1192549745620905,lint,Lint with flake8,syntax_error,high,The flake8 linter failed because the Python code in src/calculator.py violates PEP 8 style guidelines by having only 1 blank line between function definitions instead of the required 2 blank lines.,,"In src/calculator.py, add an extra blank line between each function definition at lines 4, 7, 10, and 15. Each function should be separated by exactly 2 blank lines to comply with PEP 8 formatting standards.",https://github.com/tharindra0622-sys/gha-demo/issues/55
+54,CI Failure Diagnosis: .github/workflows/ci.yml #48,open,2026-08-07T14:16:03Z,[`#48`](tharindra0622-sys/gha-demo/31185364653/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (macos-latest, 3.12)",Run tests,dependency_error,high,"The test file is trying to import a 'subtract' function from calculator.py, but that function doesn't exist in the source file",,"Either add a 'subtract' function to src/calculator.py, or remove the 'subtract' import from tests/test_calculator.py line 6. Check which functions actually exist in calculator.py and ensure the import statement matches",https://github.com/tharindra0622-sys/gha-demo/issues/54
+53,CI Failure Diagnosis: .github/workflows/ci.yml #47,open,2026-08-07T14:15:57Z,[`#47`](tharindra0622-sys/gha-demo/31182298960/logs.zip),.github/workflows/ci.yml,failure,0.2457578946169478,"test (macos-latest, 3.10)",Run tests,test_failure,high,"The commit removed the 'subtract' function from calculator.py, but tests/test_calculator.py still tries to import it, causing an ImportError during test collection.",,"In tests/test_calculator.py line 6, remove 'subtract' from the import statement. If there are test functions that use subtract(), those should also be removed or updated to test remaining functions.",https://github.com/tharindra0622-sys/gha-demo/issues/53
+52,CI Failure Diagnosis: .github/workflows/ci.yml #46,open,2026-08-07T13:18:08Z,[`#46`](tharindra0622-sys/gha-demo/31181296470/logs.zip),.github/workflows/ci.yml,failure,0.1296262154437792,lint,Lint with flake8,syntax_error,high,"Flake8 linting failed because src/calculator.py is missing a blank line before a function definition at line 5, violating PEP 8 style guide rule E302 which requires 2 blank lines before top-level function definitions.",,"In src/calculator.py, add one more blank line before the function definition at line 5 so there are 2 blank lines total separating it from the previous code (likely a comment that was just added based on the commit message).",https://github.com/tharindra0622-sys/gha-demo/issues/52
+51,CI Failure Diagnosis: .github/workflows/ci.yml #45,open,2026-08-07T13:05:48Z,[`#45`](tharindra0622-sys/gha-demo/31176955179/logs.zip),.github/workflows/ci.yml,failure,0.1312801232776151,lint,Lint with flake8,syntax_error,high,"The flake8 linter detected a PEP 8 style violation in src/calculator.py at line 4: there should be 2 blank lines before a top-level function or class definition, but 0 were found.",,"Add one more blank line before line 4 in src/calculator.py. If there's a function or class definition at line 4, ensure there are exactly 2 blank lines separating it from the previous code (such as imports or another function).",https://github.com/tharindra0622-sys/gha-demo/issues/51
+50,CI Failure Diagnosis: .github/workflows/ci.yml #44,open,2026-08-07T13:05:42Z,[`#44`](tharindra0622-sys/gha-demo/31174249260/logs.zip),.github/workflows/ci.yml,failure,0.126211479720552,lint,Lint with flake8,syntax_error,high,"flake8 linting failed because src/calculator.py is missing a blank line before a function or class definition at line 4, violating PEP 8 style guide rule E302 which requires 2 blank lines before top-level function/class definitions.",,"In src/calculator.py, add one more blank line before line 4 (the function or class definition). If there's currently 0 blank lines, add 2 blank lines; if there's 1 blank line, add 1 more to satisfy the E302 rule.",https://github.com/tharindra0622-sys/gha-demo/issues/50
+49,CI Failure Diagnosis: .github/workflows/ci.yml #43,open,2026-08-07T13:05:37Z,[`#43`](tharindra0622-sys/gha-demo/31174202469/logs.zip),.github/workflows/ci.yml,failure,0.1193122286473026,lint,Lint with flake8,syntax_error,high,The flake8 linter is failing because src/calculator.py has a PEP 8 style violation: there is only 1 blank line before a function or class definition where Python style guide requires 2 blank lines.,,Open src/calculator.py and add an additional blank line before the definition at line 4. Ensure there are 2 blank lines between top-level function/class definitions and any preceding code.,https://github.com/tharindra0622-sys/gha-demo/issues/49
+48,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #67,open,2026-08-07T13:05:31Z,[`#67`](tharindra0622-sys/gha-demo/31173490840/logs.zip),.github/workflows/aiops_diagnose.yml,failure,0.4312272913156178,diagnose,Commit diagnosis reports,config_error,high,"Git push was rejected because the remote branch contains commits that are not present in the local branch, indicating a race condition where another workflow committed and pushed changes between when this workflow checked out the code and when it attempted to push.",,"Add a git pull with rebase before the git push in the workflow step. Change the push logic to: 'git pull --rebase origin main && git push' or implement retry logic with pull/rebase on push failure. Alternatively, use a GitHub Action like 'stefanzweifel/git-auto-commit-action' which handles these conflicts automatically.",https://github.com/tharindra0622-sys/gha-demo/issues/48
+47,CI Failure Diagnosis: .github/workflows/ci.yml #42,closed,2026-08-07T11:18:23Z,[`#42`](tharindra0622-sys/gha-demo/31173273275/logs.zip),.github/workflows/ci.yml,failure,0.1189345024217782,lint,Lint with flake8,syntax_error,high,"The flake8 linter found a PEP 8 style violation in src/calculator.py at line 4: there should be 2 blank lines before a function or class definition, but only 1 blank line was found.",,"In src/calculator.py, add an additional blank line before the function definition at line 4. Ensure there are exactly 2 blank lines separating top-level function/class definitions from previous code according to PEP 8 standards.",https://github.com/tharindra0622-sys/gha-demo/issues/47
+46,CI Failure Diagnosis: .github/workflows/ci.yml #41,closed,2026-08-07T11:18:18Z,[`#41`](tharindra0622-sys/gha-demo/31173024565/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (macos-latest, 3.10)",Run tests,dependency_error,high,"The test file is trying to import the function 'add' from 'calculator.py', but that function does not exist or is not defined in the source file at src/calculator.py",,"Check src/calculator.py and ensure it defines and exports the 'add' function (along with subtract, multiply, divide, and is_even). Either add the missing function definitions or update tests/test_calculator.py to only import functions that actually exist in the calculator module.",https://github.com/tharindra0622-sys/gha-demo/issues/46
+45,CI Failure Diagnosis: .github/workflows/ci.yml #40,closed,2026-08-07T11:18:11Z,[`#40`](tharindra0622-sys/gha-demo/31172479034/logs.zip),.github/workflows/ci.yml,failure,0.2762510392856009,"test (windows-latest, 3.10)",Run tests,dependency_error,high,"The test file is trying to import 'add' and other functions from 'calculator' module, but these functions are either not defined or not exported in src/calculator.py",,"Check src/calculator.py and ensure it contains the functions 'add', 'subtract', 'multiply', 'divide', and 'is_even'. If these functions exist but are named differently, update the import statement in tests/test_calculator.py to match the actual function names. If the functions don't exist, implement them in src/calculator.py",https://github.com/tharindra0622-sys/gha-demo/issues/45
+44,CI Failure Diagnosis: .github/workflows/ci.yml #39,closed,2026-08-07T11:18:06Z,[`#39`](tharindra0622-sys/gha-demo/31172182661/logs.zip),.github/workflows/ci.yml,failure,0.2428880496050443,"test (ubuntu-latest, 3.12)",Run tests,test_failure,high,"The test file is trying to import the function 'add' from 'calculator.py', but this function does not exist or is not defined in the source file at src/calculator.py.",,"Check src/calculator.py and ensure the 'add' function is properly defined and not commented out or deleted. The commit message mentions removing a trailing newline, but it appears the actual code content may have been affected. Verify that all five functions (add, subtract, multiply, divide, is_even) exist in src/calculator.py.",https://github.com/tharindra0622-sys/gha-demo/issues/44
+43,CI Failure Diagnosis: .github/workflows/ci.yml #42,closed,2026-08-07T11:17:56Z,[`#42`](tharindra0622-sys/gha-demo/31173273275/logs.zip),.github/workflows/ci.yml,failure,0.1189345024217782,lint,Lint with flake8,syntax_error,high,"flake8 found a PEP 8 style violation in src/calculator.py at line 4: expected 2 blank lines before a function or class definition, but found only 1",,Add one more blank line before line 4 in src/calculator.py so there are 2 blank lines separating top-level function/class definitions from the previous code (likely between imports and the first function definition),https://github.com/tharindra0622-sys/gha-demo/issues/43
+42,CI Failure Diagnosis: .github/workflows/ci.yml #41,closed,2026-08-07T11:17:51Z,[`#41`](tharindra0622-sys/gha-demo/31173024565/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (macos-latest, 3.10)",Run tests,test_failure,high,"The test file is trying to import 'add' from the calculator module, but this function doesn't exist or isn't defined in src/calculator.py",,"Check src/calculator.py and ensure it defines and exports the 'add' function (along with subtract, multiply, divide, and is_even). If the function exists but has a different name, rename it to 'add' or update the import in tests/test_calculator.py to match the actual function name.",https://github.com/tharindra0622-sys/gha-demo/issues/42
+41,CI Failure Diagnosis: .github/workflows/ci.yml #40,closed,2026-08-07T11:17:45Z,[`#40`](tharindra0622-sys/gha-demo/31172479034/logs.zip),.github/workflows/ci.yml,failure,0.2762510392856009,"test (windows-latest, 3.10)",Run tests,dependency_error,high,"The test file is trying to import the 'add' function from the calculator module, but that function does not exist or is not defined in src/calculator.py",,"Check src/calculator.py and ensure it defines the 'add' function (along with subtract, multiply, divide, and is_even). If the function exists but has a different name, update the import statement in tests/test_calculator.py to match. If the function is missing, add it to src/calculator.py with the expected signature.",https://github.com/tharindra0622-sys/gha-demo/issues/41
+40,CI Failure Diagnosis: .github/workflows/ci.yml #39,closed,2026-08-07T11:17:39Z,[`#39`](tharindra0622-sys/gha-demo/31172182661/logs.zip),.github/workflows/ci.yml,failure,0.2428880496050443,"test (ubuntu-latest, 3.12)",Run tests,test_failure,high,"The test file is trying to import the 'add' function (and others) from 'calculator' module, but these functions are not defined or exported in the calculator.py file located at src/calculator.py.",,"In src/calculator.py, ensure that the functions 'add', 'subtract', 'multiply', 'divide', and 'is_even' are properly defined. The commit message mentions removing a trailing newline, which suggests code may have been accidentally deleted. Check if these function definitions were removed and restore them.",https://github.com/tharindra0622-sys/gha-demo/issues/40
+39,CI Failure Diagnosis: .github/workflows/ci.yml #34,closed,2026-08-07T11:03:23Z,[`#34`](tharindra0622-sys/gha-demo/31169883716/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (windows-latest, 3.10)",Run tests,test_failure,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but these functions are not defined or exported in the calculator module located at src/calculator.py",,"Add the missing function definitions to src/calculator.py. Based on the import statement, you need to implement: add(a, b), subtract(a, b), multiply(a, b), divide(a, b), and is_even(n). Ensure these functions are defined at the module level in src/calculator.py so they can be imported by the test file",https://github.com/tharindra0622-sys/gha-demo/issues/39
+38,CI Failure Diagnosis: .github/workflows/ci.yml #38,closed,2026-08-07T11:02:01Z,[`#38`](tharindra0622-sys/gha-demo/31172121124/logs.zip),.github/workflows/ci.yml,failure,0.2745809184744627,"test (windows-latest, 3.12)",Run tests,dependency_error,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but these functions don't exist or have been removed/renamed in the source file.",,"Check src/calculator.py and ensure it contains the functions add, subtract, multiply, divide, and is_even with correct definitions. The recent commit 'Update llm_agent.py' may have accidentally modified or removed these functions from calculator.py. Restore the missing function definitions or update tests/test_calculator.py to match the actual functions available in calculator.py.",https://github.com/tharindra0622-sys/gha-demo/issues/38
+37,CI Failure Diagnosis: .github/workflows/ci.yml #37,closed,2026-08-07T11:01:54Z,[`#37`](tharindra0622-sys/gha-demo/31171882026/logs.zip),.github/workflows/ci.yml,failure,0.2554210658984137,"test (macos-latest, 3.12)",Run tests,test_failure,high,"The test file is trying to import the 'add' function from calculator.py, but that function does not exist or is not properly defined in the source file at src/calculator.py.",,"Check src/calculator.py and ensure the 'add' function is defined and exported. If the recent commit that removed a trailing newline from diagnosed_runs.json accidentally modified calculator.py, verify the file wasn't corrupted. The test expects to import: add, subtract, multiply, divide, and is_even from calculator.py.",https://github.com/tharindra0622-sys/gha-demo/issues/37
+36,CI Failure Diagnosis: .github/workflows/ci.yml #36,closed,2026-08-07T11:01:48Z,[`#36`](tharindra0622-sys/gha-demo/31171472335/logs.zip),.github/workflows/ci.yml,failure,0.2428880496050443,"test (macos-latest, 3.12)",Run tests,test_failure,high,"The test file is trying to import 'add' function from calculator.py, but the function doesn't exist or is not defined in the source file, likely due to the recent JSON formatting change affecting the wrong file or corrupting the calculator.py module.",,"Check src/calculator.py and verify that the 'add', 'subtract', 'multiply', 'divide', and 'is_even' functions are properly defined. The commit message mentions removing a trailing newline from a JSON file, but it appears calculator.py may have been accidentally modified or the wrong file was edited. Restore the function definitions in calculator.py or revert the commit if it modified the wrong file.",https://github.com/tharindra0622-sys/gha-demo/issues/36
+35,CI Failure Diagnosis: .github/workflows/ci.yml #35,closed,2026-08-07T11:01:41Z,[`#35`](tharindra0622-sys/gha-demo/31170632413/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (ubuntu-latest, 3.12)",Run tests,dependency_error,high,"The test file is trying to import the 'add' function from calculator.py, but that function does not exist or is not exported in the calculator module.",,"Check src/calculator.py and ensure it defines and exports an 'add' function (along with subtract, multiply, divide, and is_even). The commit message mentions improving log file candidate selection logic, but the actual code change may have inadvertently removed or renamed the 'add' function from calculator.py. Verify that all five functions referenced in tests/test_calculator.py line 6 are present in src/calculator.py.",https://github.com/tharindra0622-sys/gha-demo/issues/35
+34,CI Failure Diagnosis: .github/workflows/ci.yml #34,closed,2026-08-07T11:01:34Z,[`#34`](tharindra0622-sys/gha-demo/31169883716/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (windows-latest, 3.10)",Run tests,test_failure,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but these functions don't exist or are not defined in the src/calculator.py file.",,"Open src/calculator.py and ensure it contains definitions for the functions: add, subtract, multiply, divide, and is_even. If the file is empty or incomplete, implement these functions with the expected signatures that match what tests/test_calculator.py is trying to import.",https://github.com/tharindra0622-sys/gha-demo/issues/34
+33,CI Failure Diagnosis: .github/workflows/ci.yml #34,closed,2026-08-07T10:54:29Z,[`#34`](tharindra0622-sys/gha-demo/31169883716/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (windows-latest, 3.10)",Run tests,test_failure,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but those functions are not defined or exported in the source file.",,"Add the missing function definitions (add, subtract, multiply, divide, is_even) to src/calculator.py. Based on the test file expectations at tests/test_calculator.py line 6, implement these calculator functions in the source module or verify they exist and are properly named.",https://github.com/tharindra0622-sys/gha-demo/issues/33
+32,CI Failure Diagnosis: .github/workflows/ci.yml #34,closed,2026-08-07T10:49:03Z,[`#34`](tharindra0622-sys/gha-demo/31169883716/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (windows-latest, 3.10)",Run tests,dependency_error,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from the calculator module, but these functions are not defined or exported in src/calculator.py",,"Add the missing function definitions (add, subtract, multiply, divide, is_even) to src/calculator.py. These functions are expected by tests/test_calculator.py but are currently not implemented in the calculator module.",https://github.com/tharindra0622-sys/gha-demo/issues/32
+31,CI Failure Diagnosis: .github/workflows/ci.yml #34,closed,2026-08-07T10:29:16Z,[`#34`](tharindra0622-sys/gha-demo/31169883716/logs.zip),.github/workflows/ci.yml,failure,0.2530215496882969,"test (windows-latest, 3.10)",Run tests,test_failure,high,"The test file is trying to import functions (add, subtract, multiply, divide, is_even) from calculator.py, but these functions are not defined or exported in the calculator module at src/calculator.py.",,"Open src/calculator.py and ensure it contains the required function definitions: add(), subtract(), multiply(), divide(), and is_even(). The commit message mentions adding the requests library, but the actual issue is missing calculator functions that the tests expect to import.",https://github.com/tharindra0622-sys/gha-demo/issues/31
+30,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #55,closed,2026-08-07T10:29:09Z,[`#55`](tharindra0622-sys/gha-demo/31169498241/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/30
+29,CI Failure Diagnosis: .github/workflows/ci.yml #33,closed,2026-08-07T10:18:36Z,[`#33`](tharindra0622-sys/gha-demo/31169354789/logs.zip),.github/workflows/ci.yml,failure,0.5093067752088346,"test (windows-latest, 3.12)",Run tests,dependency_error,high,The test collection failed because the 'requests' module is imported in src/calculator.py but is not installed in the test environment.,,"Add 'requests' to the project's requirements.txt file (or create one if it doesn't exist), then ensure the workflow installs all dependencies by running 'pip install -r requirements.txt' before the pytest step. Alternatively, if 'requests' is not actually needed in calculator.py, remove the unused import statement.",https://github.com/tharindra0622-sys/gha-demo/issues/29
+28,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #54,closed,2026-08-07T10:18:28Z,[`#54`](tharindra0622-sys/gha-demo/31169006810/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/28
+27,CI Failure Diagnosis: .github/workflows/ci.yml #32,closed,2026-08-07T10:11:24Z,[`#32`](tharindra0622-sys/gha-demo/31168840143/logs.zip),.github/workflows/ci.yml,failure,0.2468066020297868,"test (windows-latest, 3.10)",Run tests,dependency_error,high,"The test suite fails because the calculator.py module imports 'requests' library, but 'requests' was not installed as a dependency during the CI job setup.",,"Add 'requests' to your project dependencies. If using requirements.txt, add 'requests' on a new line. If using pyproject.toml, add 'requests' to the dependencies list. Then ensure the CI workflow installs all dependencies with 'pip install -r requirements.txt' (or equivalent) before running pytest.",https://github.com/tharindra0622-sys/gha-demo/issues/27
+26,CI Failure Diagnosis: .github/workflows/ci.yml #31,closed,2026-08-07T10:11:15Z,[`#31`](tharindra0622-sys/gha-demo/31168813747/logs.zip),.github/workflows/ci.yml,failure,0.2410266633594368,"test (ubuntu-latest, 3.10)",Run tests,dependency_error,high,"The test collection failed because src/calculator.py imports the 'requests' module, but 'requests' was not installed as a dependency in the CI environment.",,"Add 'requests' to the project's requirements.txt file (or create one if it doesn't exist) and ensure the CI workflow installs dependencies using 'pip install -r requirements.txt' before running pytest. Alternatively, if requests isn't actually needed in calculator.py, remove the import statement from src/calculator.py line 1.",https://github.com/tharindra0622-sys/gha-demo/issues/26
+25,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #37,closed,2026-08-03T09:47:13Z,[`#37`](tharindra0622-sys/gha-demo/30780273974/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/25
+24,CI Failure Diagnosis: .github/workflows/collect_test_data.yml #31,closed,2026-08-02T19:11:29Z,[`#31`](tharindra0622-sys/gha-demo/30749752895/logs.zip),.github/workflows/collect_test_data.yml,failure,0.2871148998539162,collect,Commit new test data and predictions,config_error,high,"Git push failed because the remote branch contains commits that are not present locally, indicating a concurrent workflow run or external push modified the branch between checkout and push.",,"Add 'git pull --rebase' before 'git push' in the workflow, or switch to using a GitHub App token with write permissions and implement retry logic with exponential backoff to handle race conditions when multiple workflow runs attempt to push simultaneously.",https://github.com/tharindra0622-sys/gha-demo/issues/24
+23,CI Failure Diagnosis: .github/workflows/ci.yml #30,closed,2026-08-02T13:22:24Z,[`#30`](tharindra0622-sys/gha-demo/30749657568/logs.zip),.github/workflows/ci.yml,failure,0.2413523677733674,"test (ubuntu-latest, 3.10)",Run tests,dependency_error,high,"The test collection failed because src/calculator.py imports the 'requests' module, but 'requests' is not installed in the Python environment.",,"Add 'requests' to your project's dependencies. If you have a requirements.txt file, add 'requests' to it and ensure the CI workflow installs dependencies with 'pip install -r requirements.txt' before running tests. If using another dependency manager, add requests to the appropriate configuration file.",https://github.com/tharindra0622-sys/gha-demo/issues/23
+22,CI Failure Diagnosis: .github/workflows/ci.yml #29,closed,2026-08-02T13:22:14Z,[`#29`](tharindra0622-sys/gha-demo/30748692224/logs.zip),.github/workflows/ci.yml,failure,0.241997687378465,"test (windows-latest, 3.10)",Run tests,dependency_error,high,"The test suite failed because src/calculator.py imports the 'requests' module, but 'requests' was not installed as a project dependency during the pip install step.",,"Add 'requests' to the project's requirements.txt file (or requirements-dev.txt if used for development dependencies), then ensure the workflow's pip install step includes this file, e.g., 'pip install -r requirements.txt'",https://github.com/tharindra0622-sys/gha-demo/issues/22
+21,CI Failure Diagnosis: .github/workflows/ci.yml #23,closed,2026-08-02T12:52:03Z,[`#23`](tharindra0622-sys/gha-demo/30529208879/logs.zip),.github/workflows/ci.yml,failure,0.249464627781317,"test (windows-latest, 3.10)",Run tests,unknown,low,Could not parse LLM response as JSON,,"```json
+{
+  ""root_cause"": ""The code in src/calculator.py imports the 'requests' library, but 'requests' is not listed in requirements.txt or installed during the CI pipeline."",
+  ""category"": ""dependency_error"",
+  ""suggested_fix"": ""Add 'requests' to your requirements.txt file (create one if it doesn't exist in the repository root), or remove the 'import requests' statement from src/calculator.py if it's not actually needed. Based on the commit message mentioning 'fetch_status', if this was an int",https://github.com/tharindra0622-sys/gha-demo/issues/21
+20,CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #19,closed,2026-07-31T02:52:41Z,[`#19`](tharindra0622-sys/gha-demo/30574947591/logs.zip),.github/workflows/aiops_diagnose.yml,success,0.5122680569833875,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/20
+19,CI Failure Diagnosis: .github/workflows/ci.yml #28,closed,2026-07-30T19:28:43Z,[`#28`](tharindra0622-sys/gha-demo/30556598039/logs.zip),.github/workflows/ci.yml,failure,0.2403546588244554,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdYo3VoZiooRLpSWHn21y'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/19
+18,CI Failure Diagnosis: .github/workflows/ci.yml #27,closed,2026-07-30T19:28:40Z,[`#27`](tharindra0622-sys/gha-demo/30556541888/logs.zip),.github/workflows/ci.yml,failure,0.2582870765533995,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdYo3KUDLTmmpYGBRQ6TS'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/18
+17,CI Failure Diagnosis: .github/workflows/ci.yml #26,closed,2026-07-30T19:28:38Z,[`#26`](tharindra0622-sys/gha-demo/30556283543/logs.zip),.github/workflows/ci.yml,failure,0.2669955375078169,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdYo39g72sAUKeWw73Qzq'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/17
+16,CI Failure Diagnosis: .github/workflows/ci.yml #25,closed,2026-07-30T19:28:36Z,[`#25`](tharindra0622-sys/gha-demo/30556252410/logs.zip),.github/workflows/ci.yml,failure,0.2582870765533995,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdYo2zkpniNU4Yv1RuS6R'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/16
+15,CI Failure Diagnosis: .github/workflows/ci.yml #24,closed,2026-07-30T09:14:15Z,[`#24`](tharindra0622-sys/gha-demo/30529556008/logs.zip),.github/workflows/ci.yml,failure,0.5185005933112985,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 44.632841817s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 44
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/15
+14,CI Failure Diagnosis: .github/workflows/ci.yml #23,closed,2026-07-30T09:14:13Z,[`#23`](tharindra0622-sys/gha-demo/30529208879/logs.zip),.github/workflows/ci.yml,failure,0.249464627781317,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 46.848910613s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 46
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/14
+13,CI Failure Diagnosis: .github/workflows/node-ci.yml #5,closed,2026-07-29T01:14:21Z,[`#5`](tharindra0622-sys/gha-demo/30413179317/logs.zip),.github/workflows/node-ci.yml,failure,0.0995911200362928,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 39.034330479s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/13
+12,CI Failure Diagnosis: .github/workflows/node-ci.yml #3,closed,2026-07-29T01:14:19Z,[`#3`](tharindra0622-sys/gha-demo/30413133764/logs.zip),.github/workflows/node-ci.yml,failure,0.2077801658953265,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 40.588381824s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 40
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/12
+11,CI Failure Diagnosis: .github/workflows/node-ci.yml #2,closed,2026-07-29T01:14:17Z,[`#2`](tharindra0622-sys/gha-demo/30413097268/logs.zip),.github/workflows/node-ci.yml,failure,0.2026785751350612,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 42.323608605s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 42
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/11
+10,CI Failure Diagnosis: .github/workflows/node-ci.yml #1,closed,2026-07-29T01:14:15Z,[`#1`](tharindra0622-sys/gha-demo/30413058004/logs.zip),.github/workflows/node-ci.yml,failure,0.206328417451661,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 44.758662076s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 44
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/10
+9,CI Failure Diagnosis: .github/workflows/ci.yml #17,closed,2026-07-29T00:40:46Z,[`#17`](tharindra0622-sys/gha-demo/30411727729/logs.zip),.github/workflows/ci.yml,failure,0.5093067752088346,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 13.531094119s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 13
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/9
+8,CI Failure Diagnosis: .github/workflows/ci.yml #7,closed,2026-07-28T19:26:29Z,[`#7`](tharindra0622-sys/gha-demo/30348880509/logs.zip),.github/workflows/ci.yml,success,0.610619673214151,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/8
+7,CI Failure Diagnosis: .github/workflows/blank.yml #4,closed,2026-07-28T19:26:27Z,[`#4`](tharindra0622-sys/gha-demo/25739603694/logs.zip),.github/workflows/blank.yml,success,0.5342606792917693,n/a,n/a,false_positive,high,"This run actually succeeded. The ML model predicted a failure risk, but no error occurred — this is a false positive from the model, not a real pipeline problem.",,"No fix needed — the run passed. If false positives like this are common, consider reviewing the model's decision threshold or adding more training examples similar to this run.",https://github.com/tharindra0622-sys/gha-demo/issues/7
+6,CI Failure Diagnosis: .github/workflows/ci.yml #10,closed,2026-07-28T15:42:32Z,[`#10`](tharindra0622-sys/gha-demo/30350937174/logs.zip),.github/workflows/ci.yml,failure,0.4099832792034701,n/a,n/a,unknown,low,"Diagnosis agent error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 28.237499194s. [links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_input_token_count""
+  quota_id: ""GenerateContentInputTokensPerModelPerMinute-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerDayPerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-2.0-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+}
+, retry_delay {
+  seconds: 28
+}
+]",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/6
+5,CI Failure Diagnosis: .github/workflows/ci.yml #10,closed,2026-07-28T13:21:01Z,[`#10`](tharindra0622-sys/gha-demo/30350937174/logs.zip),.github/workflows/ci.yml,failure,0.4099832792034701,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdUXPR3kDNnrNUjhobymB'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/5
+4,CI Failure Diagnosis: .github/workflows/ci.yml #8,closed,2026-07-28T10:15:33Z,[`#8`](tharindra0622-sys/gha-demo/30349696252/logs.zip),.github/workflows/ci.yml,failure,0.3957715730350896,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdUHF8QXYXr8HGP5xy46q'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/4
+3,CI Failure Diagnosis: .github/workflows/ci.yml #3,closed,2026-07-28T10:15:31Z,[`#3`](tharindra0622-sys/gha-demo/30346307747/logs.zip),.github/workflows/ci.yml,success,0.5148748654416437,n/a,n/a,config_error,medium,No failing job found in run data (run may have failed before any job started),,Check the workflow YAML syntax — GitHub may have rejected it before scheduling any job.,https://github.com/tharindra0622-sys/gha-demo/issues/3
+2,CI Failure Diagnosis: .github/workflows/ci.yml #1,closed,2026-07-28T10:15:30Z,[`#1`](tharindra0622-sys/gha-demo/30346048818/logs.zip),.github/workflows/ci.yml,failure,0.128631861576166,n/a,n/a,unknown,low,"Diagnosis agent error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdUHEuyfZhyoxi5JRyLwX'}",,n/a — diagnosis step failed,https://github.com/tharindra0622-sys/gha-demo/issues/2
+1,CI Failure Diagnosis: .github/workflows/blank.yml #3,closed,2026-07-28T10:15:29Z,[`#3`](tharindra0622-sys/gha-demo/25739339415/logs.zip),.github/workflows/blank.yml,failure,0.4650064708271332,n/a,n/a,config_error,medium,No failing job found in run data (run may have failed before any job started),,Check the workflow YAML syntax — GitHub may have rejected it before scheduling any job.,https://github.com/tharindra0622-sys/gha-demo/issues/1
