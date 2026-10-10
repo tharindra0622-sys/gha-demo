@@ -1,0 +1,37 @@
+name: Dependency Error Test
+on:
+  workflow_dispatch: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create project files
+        run: |
+          mkdir -p app
+          cat > app/main.py <<'EOF'
+          import flask
+          print("app ready")
+          EOF
+          cat > requirements.txt <<'EOF'
+          flask==3.0.0
+          requests==999.0.0
+          EOF
+          echo "Project files created"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run app
+        run: python app/main.py
