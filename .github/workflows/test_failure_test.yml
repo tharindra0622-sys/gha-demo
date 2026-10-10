@@ -1,0 +1,42 @@
+name: Test Failure Test
+on:
+  workflow_dispatch: {}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create project files
+        run: |
+          mkdir -p shop tests
+          touch shop/__init__.py
+          cat > shop/pricing.py <<'EOF'
+          def apply_discount(price, percent):
+              # BUG: percent is used as a fraction, it is never divided by 100
+              return price - (price * percent)
+          EOF
+          cat > tests/test_pricing.py <<'EOF'
+          from shop.pricing import apply_discount
+
+
+          def test_ten_percent_discount():
+              assert apply_discount(200, 10) == 180
+
+
+          def test_zero_discount():
+              assert apply_discount(50, 0) == 50
+          EOF
+
+      - name: Install test tools
+        run: pip install pytest
+
+      - name: Run unit tests
+        run: python -m pytest -v
