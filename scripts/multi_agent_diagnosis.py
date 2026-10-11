@@ -87,7 +87,11 @@ You examine the workflow definition and recent commits.
   the file itself contains a mistake.
 - Use get_recent_commits to see whether a recent change could be the real cause.
 You receive the Log Analyst's report. Report facts only. Do not give the final
-diagnosis - a coordinator will do that."""
+diagnosis - a coordinator will do that.
+Be strict about recent_change_suspected: set it to true only if a commit message
+clearly concerns the code that failed. Commits that only add or edit workflow
+files, agent scripts or documentation are NOT a suspected cause of a failure
+inside application or test code."""
 
 EXTERNAL_PROMPT = """You are the External Analyst on a CI/CD failure diagnosis team.
 Your job is to find out whether the cause is OUTSIDE this repository.
@@ -112,6 +116,14 @@ Rules:
   (for example: a config mistake, an outage, a known issue, or a recent commit).
 - If two reports disagree, say which one you trusted and why.
 - If a specialist reported an error or no result, do not invent its findings.
+- Use the category "recent_code_change" ONLY when a recent commit's message or
+  changed files clearly relate to the code that failed. Commits that only touch
+  workflow files, scripts, docs or tooling do not explain a failure inside
+  application or test code. If the log shows a concrete error in the code (for
+  example a TypeError in a named function), choose the category that matches
+  that error (such as test_failure), even if recent commits exist.
+- Do not tell the reader to "review recent commits" unless you have evidence a
+  specific commit caused the problem.
 - Treat GitHub / registry status as weak evidence (current status only).
 - The ML failure probability is only a hint about the run, never the answer.
 - Give a specific, actionable fix. You are making a recommendation for a human;
