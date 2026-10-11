@@ -109,6 +109,25 @@ div[data-testid="stMetricValue"] { color: #4338CA !important; }
 .pipe-box .label { font-weight: 700; color: #312E81; font-size: 0.88rem; }
 .pipe-box .sub { color: #6B7280; font-size: 0.74rem; margin-top: 2px; }
 .pipe-arrow { color: #A5B4FC; font-size: 1.6rem; padding: 0 10px; }
+.pipe-col { display: flex; flex-direction: column; gap: 8px; }
+
+/* ---- Specialist agent cards ---- */
+.agent-card {
+    background: #FFFFFF; border: 1.5px solid #C7D2FE; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 10px; min-height: 120px;
+}
+.agent-card .agent-name { font-weight: 700; color: #312E81; font-size: 0.92rem; }
+.agent-card .agent-status { font-size: 0.74rem; margin: 2px 0 6px 0; }
+.agent-card .agent-ok { color: #047857; font-weight: 600; }
+.agent-card .agent-fail { color: #B91C1C; font-weight: 600; }
+.agent-card .agent-tools { color: #6B7280; font-size: 0.74rem; margin-bottom: 6px; }
+.agent-card .agent-finding { color: #374151; font-size: 0.78rem; line-height: 1.35; }
+.mode-pill {
+    display: inline-block; padding: 2px 10px; border-radius: 999px;
+    font-size: 0.72rem; font-weight: 700; margin-right: 6px;
+}
+.mode-multi { background: #E0E7FF; color: #3730A3; }
+.mode-single { background: #F3F4F6; color: #374151; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -143,6 +162,57 @@ def pipe_box(emoji, label, sub):
     return f'<div class="pipe-box"><span class="emoji">{emoji}</span><div class="label">{label}</div><div class="sub">{sub}</div></div>'
 
 
+def esc(text):
+    """Escape text before placing it inside our own HTML."""
+    return (str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def report_mode(diag):
+    """'multi' for reports from the specialist-agent team, else 'single'."""
+    return "multi" if diag.get("agent_reports") else "single"
+
+
+def mode_pill(mode):
+    if mode == "multi":
+        return '<span class="mode-pill mode-multi">👥 Multi-agent</span>'
+    return '<span class="mode-pill mode-single">🤖 Single agent</span>'
+
+
+def short_findings(findings, limit=3, width=150):
+    """A few 'key: value' lines from one specialist's findings."""
+    if not isinstance(findings, dict):
+        return ""
+    lines = []
+    for key, value in findings.items():
+        if isinstance(value, bool):
+            value = "yes" if value else "no"
+        elif isinstance(value, list):
+            value = ", ".join(str(v) for v in value) or "none"
+        text = str(value)
+        if len(text) > width:
+            text = text[:width - 1] + "…"
+        lines.append(f"<b>{esc(key.replace('_', ' '))}:</b> {esc(text)}")
+        if len(lines) >= limit:
+            break
+    return "<br>".join(lines)
+
+
+def agent_card(r):
+    ok = r.get("ok")
+    status = ('<span class="agent-ok">✓ reported</span>' if ok
+              else f'<span class="agent-fail">✗ no result</span>')
+    tools = ", ".join(r.get("tools_used") or []) or "no tools used"
+    body = short_findings(r.get("findings")) if ok else esc(str(r.get("error", ""))[:120])
+    return (
+        '<div class="agent-card">'
+        f'<div class="agent-name">{esc(r.get("agent", "Agent"))}</div>'
+        f'<div class="agent-status">{status}</div>'
+        f'<div class="agent-tools">🔧 {esc(tools)}</div>'
+        f'<div class="agent-finding">{body}</div>'
+        '</div>'
+    )
+
+
 # ---------------------------------------------------------------------
 # Hero banner
 # ---------------------------------------------------------------------
@@ -150,7 +220,7 @@ st.markdown(f"""
 <div class="hero-banner">
     <div class="hero-badge"><span class="hero-dot"></span> LIVE — updates automatically from GitHub Actions</div>
     <div class="hero-title">🛰️ {THESIS_TITLE}</div>
-    <div class="hero-sub">Real GitHub Actions data → ML prediction → multi-tool LLM diagnosis, fully automated</div>
+    <div class="hero-sub">Real GitHub Actions data → ML prediction → multi-agent LLM diagnosis, fully automated</div>
     <div class="hero-meta">{AUTHOR_NAME} · {INSTITUTION} · Source: {GITHUB_USER}/{GITHUB_REPO}</div>
 </div>
 """, unsafe_allow_html=True)
@@ -255,27 +325,70 @@ with tab3:
 # ---------------- TAB 4: AIOps Diagnoses ----------------
 with tab4:
     st.subheader("AI-Generated Diagnoses")
-    st.caption("Produced by a 7-tool LangChain agent, for failed or high-risk runs")
+    st.caption(
+        "Produced by LangChain agents for failed or high-risk runs — either one "
+        "agent with 7 tools, or a team of specialist agents with a coordinator"
+    )
     try:
         report_files = list_dir("aiops/reports")
         if not report_files:
             st.info("No diagnosis reports yet — they appear here once a run fails or is flagged.")
+
+        reports = []
         for fname in sorted(report_files, reverse=True):
             report = load_json(f"aiops/reports/{fname}")
-            diag = report.get("diagnosis", {})
-            run = report.get("run", {})
+            reports.append((report.get("run", {}), report.get("diagnosis", {})))
+
+        n_multi = sum(1 for _, d in reports if report_mode(d) == "multi")
+        m1, m2, m3 = st.columns(3)
+        m1.metric("Total diagnoses", len(reports))
+        m2.metric("👥 Multi-agent", n_multi)
+        m3.metric("🤖 Single agent", len(reports) - n_multi)
+
+        view = st.radio(
+            "Show", ["All", "Multi-agent only", "Single agent only"],
+            horizontal=True, label_visibility="collapsed",
+        )
+
+        for run, diag in reports:
+            mode = report_mode(diag)
+            if view == "Multi-agent only" and mode != "multi":
+                continue
+            if view == "Single agent only" and mode != "single":
+                continue
+            icon = "👥" if mode == "multi" else "🤖"
             with st.expander(
-                f"Run #{run.get('run_number')} — {run.get('workflow_path')} "
+                f"{icon} Run #{run.get('run_number')} — {run.get('workflow_path')} "
                 f"· {diag.get('category', 'unknown')} · {diag.get('confidence', '?')} confidence"
             ):
                 badge = status_badge(run.get("metadata_conclusion", "unknown"))
-                st.markdown(f"**Actual outcome:** {badge}", unsafe_allow_html=True)
+                st.markdown(
+                    f"{mode_pill(mode)} **Actual outcome:** {badge}",
+                    unsafe_allow_html=True,
+                )
                 st.write(f"**Predicted failure probability:** {run.get('predicted_failure_probability')}")
+                if diag.get("failing_job") or diag.get("failing_step"):
+                    st.write(
+                        f"**Failing job / step:** {diag.get('failing_job', 'n/a')} "
+                        f"/ {diag.get('failing_step', 'n/a')}"
+                    )
                 st.write(f"**Root cause:** {diag.get('root_cause')}")
                 evidence = diag.get("evidence_used") or diag.get("tool_calls_made")
                 if evidence:
                     st.code(", ".join(evidence), language=None)
                 st.write(f"**Suggested fix:** {diag.get('suggested_fix')}")
+
+                agent_reports = diag.get("agent_reports") or []
+                if agent_reports:
+                    st.markdown("**Specialist agents (team that produced this diagnosis)**")
+                    cols = st.columns(len(agent_reports))
+                    for col, r in zip(cols, agent_reports):
+                        with col:
+                            st.markdown(agent_card(r), unsafe_allow_html=True)
+                    st.caption(
+                        "A coordinator agent read these four reports and wrote the "
+                        "final diagnosis above."
+                    )
     except Exception as e:
         st.error(f"Could not load AIOps reports: {e}")
 
@@ -295,11 +408,30 @@ with tab5:
     <div class="pipeline-wrap">
         {pipe_box('🕵️', 'Control Agent', 'Flags failed / risky runs')}
         <span class="pipe-arrow">→</span>
-        {pipe_box('🤖', 'LangChain Agent', '7 tools, reasons independently')}
+        {pipe_box('🤖', 'LangChain Agent(s)', 'Single agent or specialist team')}
         <span class="pipe-arrow">→</span>
         {pipe_box('📝', 'GitHub Issue', 'Human-reviewed recommendation')}
     </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("#### Multi-agent mode: the specialist team")
+    st.markdown(f"""
+    <div class="pipeline-wrap">
+        {pipe_box('📄', 'Log Analyst', 'Reads the failure log')}
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-col">
+            {pipe_box('📋', 'Config &amp; Change Analyst', 'Workflow file + recent commits')}
+            {pipe_box('🌐', 'External Analyst', 'GitHub / PyPI / npm status + web')}
+            {pipe_box('🗂️', 'History Analyst', 'Past issues in this repo')}
+        </div>
+        <span class="pipe-arrow">→</span>
+        {pipe_box('🧑‍⚖️', 'Coordinator', 'Weighs all reports, writes the diagnosis')}
+    </div>
+    """, unsafe_allow_html=True)
+    st.caption(
+        "The three middle specialists work in parallel, each receiving the Log "
+        "Analyst's report. Every agent only recommends — none changes any code."
+    )
 
     st.markdown("#### The 7 diagnostic tools")
     tool_cols = st.columns(4)
