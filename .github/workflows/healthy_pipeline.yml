@@ -16,9 +16,9 @@ jobs:
 
       - name: Create project files
         run: |
-          mkdir -p shop tests
-          touch shop/__init__.py
-          cat > shop/pricing.py <<'EOF'
+          mkdir -p healthy_demo/shop healthy_demo/tests
+          touch healthy_demo/shop/__init__.py
+          cat > healthy_demo/shop/pricing.py <<'EOF'
           def apply_discount(price, percent):
               """Return the price after taking off a percentage."""
               if price < 0:
@@ -32,7 +32,7 @@ jobs:
               """Return the price with tax added."""
               return round(price * (1 + rate), 2)
           EOF
-          cat > tests/test_pricing.py <<'EOF'
+          cat > healthy_demo/tests/test_pricing.py <<'EOF'
           import pytest
 
           from shop.pricing import add_tax, apply_discount
@@ -63,12 +63,15 @@ jobs:
         run: pip install pytest flake8
 
       - name: Lint
+        working-directory: healthy_demo
         run: flake8 shop tests --max-line-length=100
 
       - name: Run unit tests
+        working-directory: healthy_demo
         run: python -m pytest -v
 
       - name: Build package
+        working-directory: healthy_demo
         run: |
           mkdir -p dist
           tar -czf dist/shop.tar.gz shop
