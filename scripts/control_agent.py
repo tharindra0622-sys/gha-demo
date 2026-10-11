@@ -49,6 +49,20 @@ def create_issue(owner, repo, token, title, body, labels=None):
     return r.json()["html_url"]
 
 
+def format_agent_reports(diagnosis):
+    """In multi-agent mode, add a short table of what each specialist did.
+    Returns an empty string in single-agent mode, so issues look as before."""
+    reports = diagnosis.get("agent_reports")
+    if not reports:
+        return ""
+    lines = ["", "### Specialist agents", "", "| Agent | Status | Tools used |", "|---|---|---|"]
+    for r in reports:
+        status = "reported" if r.get("ok") else f"no result ({r.get('error', 'unknown')[:60]})"
+        tools = ", ".join(r.get("tools_used") or []) or "none"
+        lines.append(f"| {r.get('agent')} | {status} | {tools} |")
+    return "\n".join(lines) + "\n"
+
+
 def format_issue_body(row, diagnosis):
     return f"""**Automated CI/CD failure diagnosis** (AIOps agent — recommendation only, no changes applied)
 
@@ -71,7 +85,7 @@ def format_issue_body(row, diagnosis):
 
 ### Suggested fix
 {diagnosis.get('suggested_fix', 'n/a')}
-
+{format_agent_reports(diagnosis)}
 ---
 _This issue was created automatically by the AIOps Control Agent as part of an early-prediction CI/CD research pipeline. It is a recommendation for a human to review — no code was changed._
 """
@@ -108,9 +122,17 @@ def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_
             "failing_step": step.get("name") if step else None,
         }
 
-    diagnosis = langchain_multi_tool_agent_v2.run_langchain_diagnosis_v2(
-        owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
-    )
+    # AIOPS_MODE=multi uses the team of specialist agents; anything else
+    # (the default) uses the single multi-tool agent.
+    if os.environ.get("AIOPS_MODE", "single").lower() == "multi":
+        import multi_agent_diagnosis
+        diagnosis = multi_agent_diagnosis.run_multi_agent_diagnosis(
+            owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
+        )
+    else:
+        diagnosis = langchain_multi_tool_agent_v2.run_langchain_diagnosis_v2(
+            owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
+        )
     diagnosis["failing_step"] = step.get("name") if step else None
     return diagnosis
 
