@@ -1,0 +1,23 @@
+name: OS Specific Failure Test
+on:
+  workflow_dispatch: {}
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create notes file
+        shell: bash
+        run: echo "version=old" > notes.txt
+      - name: Update version with GNU sed
+        shell: bash
+        run: sed -i 's/old/new/' notes.txt
+      - name: Show result
+        shell: bash
+        run: cat notes.txt
