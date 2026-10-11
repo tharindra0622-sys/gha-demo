@@ -1,0 +1,20 @@
+name: Parallel Shards Test
+on:
+  workflow_dispatch: {}
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run test shard
+        run: |
+          echo "Running shard ${{ matrix.shard }} of 10"
+          if [ "${{ matrix.shard }}" = "7" ]; then
+            echo "ERROR: shard 7 failed - checksum mismatch in data_part_7.bin (expected a1b2c3, got ffffff)"
+            exit 1
+          fi
