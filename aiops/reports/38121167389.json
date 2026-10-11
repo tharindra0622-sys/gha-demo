@@ -1,0 +1,185 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_94_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 94,
+    "run_attempt": 1,
+    "metadata_id": 38121167389,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4DLaHQ",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "a10a0a615f7c0c4e5db45ef18882d5a3b46d64a9",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add parallel shards test workflow",
+    "metadata_run_number": 94,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103284333869,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDDndLQ",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T07:22:50Z",
+    "metadata_updated_at": "2026-10-11T07:23:29Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T07:22:50Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "a10a0a615f7c0c4e5db45ef18882d5a3b46d64a9",
+    "metadata_head_commit_tree_id": "15bf1be292854f22ba34ce8e3c9effbf6cf6008f",
+    "metadata_head_commit_message": "Add parallel shards test workflow\n\nThis workflow runs tests in parallel across 10 shards, with a specific error case for shard 7.",
+    "metadata_head_commit_timestamp": "2026-10-11T07:22:48Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38121167389/logs.zip",
+    "total_logs_size": 90699,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 67.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3288,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 2.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 1.5952380952380951,
+    "log_max_step_dur": 16.0,
+    "predicted_failure_probability": 0.2452541703849219,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed in src/data_processor.py at line 39 with a TypeError when attempting to add an integer and a string ('total += r[\"score\"]' raised 'unsupported operand type(s) for +=: int and str'). The error occurred because a string value '95' passed through clean_records() without being converted to an integer, and compute_average_score subsequently tried to sum it with other numeric scores. The commit message explicitly states this workflow includes 'a specific error case for shard 7,' and the History Analyst found 10 similar open issues (#127, #123, #124, #125, #118, #120, #117, #114, #116, #62) all involving the same TypeError pattern in test_process_pipeline, clean_records, and compute_average_score. This indicates the failure is an intentional test case or a recurring code defect in the data validation logic.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the clean_records() function in src/data_processor.py to ensure all 'score' values are properly converted from strings to integers before being passed to compute_average_score(). Specifically, add type validation and conversion for the score field. If this is an intentional test case (as suggested by the commit message mentioning 'error case for shard 7'), update the test expectations or remove the deliberate error injection for normal CI runs.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test (ubuntu-latest, 3.10)",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'\n\nFAILED tests/test_data_processor.py::test_process_pipeline - TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError: unsupported operand type(s)",
+          "plain_summary": "The test test_process_pipeline failed in src/data_processor.py line 39 when attempting to add an integer and a string. A string value '95' slipped through clean_records() undetected and caused a type error when compute_average_score tried to sum the scores."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run pytest tests against the test suite under tests/ directory, with optional failure injection controlled by the INJECT_FAILURE environment variable",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": true,
+          "recent_change_detail": "Commit a10a0a6 'Add parallel shards test workflow' - The commit message explicitly states 'with a specific error case for shard 7' and the error is a TypeError in test_process_pipeline where a string '95' is not properly cleaned, causing an int+str type error. This commit likely introduced the test or code change that caused the failure."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub status shows no current incidents. The error is a standard Python TypeError caused by attempting to add an integer and a string in the repository's own code (data_processor.py line 39). Web search results only show generic Python type error documentation and similar user-reported issues, not a known bug in any external library or tool. This appears to be a code defect internal to the repository - specifically, the commit message mentions 'a specific error case for shard 7' which suggests this is an intentional test case. The failure is in the repository's own test and source code, not in CI infrastructure or external dependencies."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#127",
+            "#123",
+            "#124",
+            "#125",
+            "#118",
+            "#120",
+            "#117",
+            "#114",
+            "#116",
+            "#62"
+          ],
+          "notes": "Multiple past CI failures (issues #127, #123, #124, #125, #118, #120, #117, #114, #116, #62) appear related to TypeError with int and str operands, test_process_pipeline, clean_records, and compute_average_score. All issues are open, indicating this is a recurring failure pattern in the repository."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (ubuntu-latest, 3.10)",
+    "failing_step": "Run tests"
+  }
+}

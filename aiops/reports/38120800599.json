@@ -1,0 +1,185 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_92_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 92,
+    "run_attempt": 1,
+    "metadata_id": 38120800599,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4C1BVw",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "47136d09e401f211cdbbf3c0a4bc4074bad06f3f",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add multi-agent diagnosis system for CI/CD failures",
+    "metadata_run_number": 92,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103283370354,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDCspcg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T07:16:16Z",
+    "metadata_updated_at": "2026-10-11T07:17:06Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T07:16:16Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "47136d09e401f211cdbbf3c0a4bc4074bad06f3f",
+    "metadata_head_commit_tree_id": "be0e7f6c2b2feb41daca778db25fa646f2d8a8de",
+    "metadata_head_commit_message": "Add multi-agent diagnosis system for CI/CD failures\n\nThis script implements a multi-agent system for diagnosing CI/CD failures. It consists of a Log Analyst, three specialist agents, and a Coordinator that combines their findings into a final diagnosis.",
+    "metadata_head_commit_timestamp": "2026-10-11T07:16:14Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38120800599/logs.zip",
+    "total_logs_size": 90753,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 81.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3288,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 5.0,
+    "log_early3_max_dur": 4.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.6666666666666667,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 1.9285714285714288,
+    "log_max_step_dur": 21.0,
+    "predicted_failure_probability": 0.2425609353963788,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test `test_process_pipeline` failed with a TypeError in the `compute_average_score()` function. The Log Analyst identified the exact error: the function attempts to add an integer to a string (`total += r[\"score\"]`) which Python does not allow. The score values in the data structure are strings when they should be numeric types. This is a code bug in the application logic, not a configuration or external issue. The History Analyst confirms this is a recurring problem with 10 similar open issues (#123, #124, #125, #62, #64, #120, #116, #118, #117, #114), indicating the underlying type-handling bug has not been properly fixed.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the `compute_average_score()` function to convert score values to the correct numeric type before performing arithmetic operations. Add `total += int(r[\"score\"])` or `total += float(r[\"score\"])` depending on whether scores should be integers or floats. Additionally, ensure the data source or parsing logic that populates the score field produces numeric types rather than strings. Add type validation or conversion at the data ingestion point to prevent this error from recurring.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed because compute_average_score() tried to add an integer to a string when processing score values, which Python does not allow."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step is 'Run tests' which executes pytest tests with verbose output. It is meant to run the test suite defined in the tests directory to validate the application code.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub shows no active incidents currently. The error is a standard Python TypeError caused by attempting to add an integer to a string (int + str) in the compute_average_score() function. Web search confirms this is a common Python programming error due to incorrect type handling, not an external issue. This is a code bug in the repository itself - the score values are strings when they should be integers (or need type conversion). Status checks only reflect current status, not at time of failure (2026-10-11T07:16:16Z)."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#123",
+            "#124",
+            "#125",
+            "#62",
+            "#64",
+            "#120",
+            "#116",
+            "#118",
+            "#117",
+            "#114"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found matching TypeError with int/str operand errors and test_process_pipeline failures. All matching issues are currently open, suggesting this may be a recurring or unresolved issue in the repository."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (windows-latest, 3.12)",
+    "failing_step": "Run tests"
+  }
+}

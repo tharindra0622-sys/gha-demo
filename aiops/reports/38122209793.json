@@ -1,0 +1,176 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/parallel_shards_test.yml_2_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/parallel_shards_test.yml",
+    "run_number": 2,
+    "run_attempt": 1,
+    "metadata_id": 38122209793,
+    "metadata_name": "Parallel Shards Test",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4ELCAQ",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "d340f32fbfba79fbee9002ea5b5deb2a3ce759c0",
+    "metadata_path": ".github/workflows/parallel_shards_test.yml",
+    "metadata_display_title": "Parallel Shards Test",
+    "metadata_run_number": 2,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 381088290,
+    "metadata_check_suite_id": 103287076846,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDGO37g",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T07:41:19Z",
+    "metadata_updated_at": "2026-10-11T07:41:28Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T07:41:19Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "d340f32fbfba79fbee9002ea5b5deb2a3ce759c0",
+    "metadata_head_commit_tree_id": "579477628303cbc850ce9f13aa92a9dfd2fe1c07",
+    "metadata_head_commit_message": "Update diagnosis guidelines in multi_agent_diagnosis.py\n\nClarify conditions for setting recent_change_suspected and use of recent_code_change category.",
+    "metadata_head_commit_timestamp": "2026-10-11T07:40:58Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38122209793/logs.zip",
+    "total_logs_size": 79223,
+    "log_num_jobs": 10,
+    "log_total_steps": 30,
+    "log_total_duration_sec": 15.0,
+    "log_shell_steps": 0,
+    "log_action_steps": 30,
+    "log_error_steps": 1,
+    "log_total_lines": 2704,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 1.0,
+    "log_early3_min_dur": 1.0,
+    "log_early3_shell_count": 0,
+    "log_early3_action_count": 3,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.0333333333333333,
+    "log_shell_ratio": 0.0,
+    "log_avg_step_dur": 0.5,
+    "log_max_step_dur": 1.0,
+    "predicted_failure_probability": 0.1818899706952955,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "Shard 7 failed with a checksum mismatch error (\"expected a1b2c3, got ffffff\") in data_part_7.bin. The Config & Change Analyst discovered that this is not a genuine test failure but rather hardcoded logic deliberately injected into the workflow file itself. Lines 15-18 of .github/workflows/parallel_shards_test.yml contain a conditional that checks if the shard number equals 7 and unconditionally exits with this exact error message. This is a workflow configuration issue, not a real application or test code failure. The History Analyst confirms this pattern has been seen before (issue #128), reinforcing that this is an intentional or leftover test fixture in the workflow definition.",
+    "category": "config_error",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Remove or modify lines 15-18 in .github/workflows/parallel_shards_test.yml that contain the hardcoded logic forcing shard 7 to fail. If this was inserted for testing purposes, it should be removed. If shard 7 legitimately needs different handling, replace the unconditional failure with actual test logic. Review issue #128 for any additional context about why this hardcoded failure exists.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run echo \"Running shard 7 of 10\"",
+          "error_excerpt": "ERROR: shard 7 failed - checksum mismatch in data_part_7.bin (expected a1b2c3, got ffffff)",
+          "error_type": "checksum mismatch",
+          "plain_summary": "Shard 7 failed due to a checksum mismatch in data_part_7.bin. The expected checksum was a1b2c3 but the actual value was ffffff."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run test shard 7 as part of a parallel matrix strategy (1-10); the step executes a bash script that echoes the shard number and contains hardcoded logic that always fails shard 7 with a checksum mismatch error",
+          "config_issue_found": true,
+          "config_issue": "The workflow file contains hardcoded logic that unconditionally fails shard 7. Lines 15-18 check if the shard number equals 7 and then echo an error message about checksum mismatch and exit 1. This is not a real test failure but a deliberate failure injected in the workflow definition itself.",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none - the most recent non-bot commit (d340f32) only updates diagnosis guidelines in multi_agent_diagnosis.py, which is agent/workflow tooling unrelated to the application or test code. The commit that added this workflow (a10a0a6) is 4 commits back."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "Checksum mismatches are generally caused by corrupted downloads, network issues, file corruption, or data integrity problems. Web results show similar errors in package managers (conda, pip) and build systems where the computed hash doesn't match the expected value. A checksum of 'ffffff' (all F's) suggests possible data corruption or uninitialized/corrupted data rather than a partial download.",
+          "notes": "GitHub status check shows no current incidents. The error is specific to shard 7 of a parallel test execution with a very specific checksum mismatch (expected a1b2c3, got ffffff). The 'ffffff' value is suspicious as it may indicate corrupted or uninitialized memory/data. This appears to be a data integrity issue specific to this shard rather than an external infrastructure problem. Status checks reflect current time, not the failure time (2026-10-11T07:41:19Z)."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#128 CI Failure Diagnosis: .github/workflows/parallel_shards_test.yml #1"
+          ],
+          "notes": "Issue #128 is open and relates to the same workflow (parallel_shards_test.yml). The searches for checksum mismatch and ffffff checksum both returned this issue, suggesting this specific checksum error pattern has been encountered before in this workflow."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "shard (7)",
+    "failing_step": "Run test shard"
+  }
+}

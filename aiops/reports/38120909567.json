@@ -1,0 +1,187 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_93_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 93,
+    "run_attempt": 1,
+    "metadata_id": 38120909567,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4C7q_w",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "d4c6263a5913e9ad58ef6f6a0f8aaef557074944",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Implement agent report formatting for multi-agent mode",
+    "metadata_run_number": 93,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103283655878,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDC-Exg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T07:18:13Z",
+    "metadata_updated_at": "2026-10-11T07:19:13Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T07:18:13Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "d4c6263a5913e9ad58ef6f6a0f8aaef557074944",
+    "metadata_head_commit_tree_id": "cd8ead0569b69cfc794930c80f99dd850d3c766a",
+    "metadata_head_commit_message": "Implement agent report formatting for multi-agent mode\n\nAdded a function to format agent reports in multi-agent mode, enhancing diagnosis output.",
+    "metadata_head_commit_timestamp": "2026-10-11T07:18:11Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38120909567/logs.zip",
+    "total_logs_size": 90864,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 88.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3288,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 2.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.095238095238096,
+    "log_max_step_dur": 27.0,
+    "predicted_failure_probability": 0.2452541703849219,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed with a TypeError when the compute_average_score function attempted to add an integer and a string: 'total += r[\"score\"]' raised 'TypeError: unsupported operand type(s) for +=: 'int' and 'str''. This occurs because a string value '95' was not properly converted to an integer by the clean_records function before being summed. The Log Analyst identified the exact failure line showing an int + str operation failing. The History Analyst confirmed this is a recurring issue in the repository, with multiple past issues (#118, #114, #117, #120, #112) specifically mentioning the same compute_average_score and clean_records functions. While the commit message mentions \"Implement agent report formatting for multi-agent mode,\" the Config & Change Analyst found no evidence that recent changes to workflow files or configuration relate to this data-processing code failure. This is a test failure caused by inadequate type conversion in the clean_records function, not a configuration or deployment issue.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the clean_records function to ensure all score values are converted to integers before being returned. Specifically, add explicit type conversion (e.g., int(score)) when cleaning the 'score' field in records. Review the test data in test_process_pipeline to ensure it includes edge cases with string numeric values, and verify that clean_records properly handles them. This is a recurring pattern in the repository (see issues #118, #114, #117, #120, #112), so consider adding type validation or using a schema validation library to prevent string data from reaching the computation functions.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed because the compute_average_score function tried to add an integer and a string together. A string value '95' slipped through the clean_records function and caused a type error when summing scores."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run pytest tests with verbose output; the step executes 'pytest tests -v' and can be affected by an optional INJECT_FAILURE environment variable passed from workflow_dispatch input",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub shows no active incidents currently. The error is a standard Python TypeError from attempting to add an integer and string - this is a common Python typing mistake, not a platform or infrastructure issue. The web search confirms this is a well-known Python error that occurs when type conversion is missing in user code (e.g., trying to sum numeric data that hasn't been properly cleaned/converted). This is clearly a code-level bug introduced in the commit 'Implement agent report formatting for multi-agent mode' - likely the clean_records function is not properly converting string scores to integers. This is NOT an external issue; it's a bug in the repository's code."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#123",
+            "#124",
+            "#125",
+            "#62",
+            "#64",
+            "#118",
+            "#114",
+            "#117",
+            "#120",
+            "#112",
+            "#121",
+            "#116"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found referencing TypeError with int/str operands and test_process_pipeline failures. Issues #118, #114, #117, #120, and #112 specifically mention compute_average_score and clean_records functions. All issues are currently open, indicating this is a recurring failure pattern in the repository."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (ubuntu-latest, 3.12)",
+    "failing_step": "Run tests"
+  }
+}

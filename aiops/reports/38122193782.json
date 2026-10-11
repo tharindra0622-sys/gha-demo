@@ -1,0 +1,183 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_95_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 95,
+    "run_attempt": 1,
+    "metadata_id": 38122193782,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4EKDdg",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "d340f32fbfba79fbee9002ea5b5deb2a3ce759c0",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Update diagnosis guidelines in multi_agent_diagnosis.py",
+    "metadata_run_number": 95,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103287032596,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDGMLFA",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T07:41:00Z",
+    "metadata_updated_at": "2026-10-11T07:41:51Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T07:41:00Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "d340f32fbfba79fbee9002ea5b5deb2a3ce759c0",
+    "metadata_head_commit_tree_id": "579477628303cbc850ce9f13aa92a9dfd2fe1c07",
+    "metadata_head_commit_message": "Update diagnosis guidelines in multi_agent_diagnosis.py\n\nClarify conditions for setting recent_change_suspected and use of recent_code_change category.",
+    "metadata_head_commit_timestamp": "2026-10-11T07:40:58Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38122193782/logs.zip",
+    "total_logs_size": 90669,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 79.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3288,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 2.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 1.880952380952381,
+    "log_max_step_dur": 23.0,
+    "predicted_failure_probability": 0.2528197286888831,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test_process_pipeline test failed due to a TypeError in the application code. The error occurred when attempting to compute a sum: `total += r[\"score\"]` raised \"TypeError: unsupported operand type(s) for +=: 'int' and 'str'\" because a score value ('95') was stored as a string instead of being converted to an integer during data cleaning. This is a code-level bug in the data processing logic, not caused by configuration, infrastructure, or recent commits. The Log Analyst identified the exact error line and type. The External Analyst confirmed this is a well-known Python type error unrelated to platform or dependency issues. The History Analyst found multiple similar failures (#127, #123, #124, #125, #129, #120, #116, #126), indicating this is a recurring problem in the codebase. The recent commit only touched diagnosis guidelines documentation and is unrelated to the test failure.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the data cleaning logic in the process_pipeline function to ensure all score values are converted to integers before arithmetic operations. Specifically, add explicit type conversion (e.g., `int(r[\"score\"])`) when reading score values, or ensure the data cleaning step properly casts string scores to integers. Review the similar open issues (#127, #123, #124, #125, #129, #120, #116, #126) to understand the pattern and implement a comprehensive fix that prevents string scores from entering the calculation pipeline.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test_process_pipeline test failed because the code attempted to add an integer and a string together. A score value ('95') was not properly converted to an integer during data cleaning, causing a TypeError when computing the average."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run tests using pytest with verbose output. The step executes the test suite located in the tests directory. An optional INJECT_FAILURE environment variable can be set via workflow_dispatch input to deliberately fail tests for generating failure data.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "This is a common Python programming error that occurs when attempting to perform arithmetic operations on incompatible types (e.g., adding an integer to a string). The web results confirm this is a well-known type error requiring explicit type conversion, not a platform or dependency issue. The error is caused by application code logic, not external infrastructure.",
+          "notes": "GitHub status shows no active incidents currently. The error is a straightforward TypeError in the application code where a string value was not converted to integer before arithmetic operation. This is a code-level bug, not an external infrastructure or dependency problem. Status checks reflect current status only, not status at failure time (2026-10-11T07:41:00Z), but given the nature of this error (type mismatch in application logic), external factors are extremely unlikely."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#127",
+            "#123",
+            "#124",
+            "#125",
+            "#129",
+            "#120",
+            "#116",
+            "#126"
+          ],
+          "notes": "Multiple open CI failure diagnosis issues exist that match the TypeError pattern and test_process_pipeline failures. The repository has a history of similar failures involving type mismatches between int and str in the score calculation."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (windows-latest, 3.12)",
+    "failing_step": "Run tests"
+  }
+}

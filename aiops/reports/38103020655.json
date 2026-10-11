@@ -1,0 +1,184 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_90_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 90,
+    "run_attempt": 1,
+    "metadata_id": 38103020655,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI3x30bw",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "8ae374a6a5ae491e8cced05c0942bcb9018c923c",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Refactor workflow to use healthy_demo directory",
+    "metadata_run_number": 90,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103236657779,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYCWJicw",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T01:47:41Z",
+    "metadata_updated_at": "2026-10-11T01:48:23Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T01:47:41Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "8ae374a6a5ae491e8cced05c0942bcb9018c923c",
+    "metadata_head_commit_tree_id": "da06e88dcf4e6afc3c38f01494258a05ace369f1",
+    "metadata_head_commit_message": "Refactor workflow to use healthy_demo directory",
+    "metadata_head_commit_timestamp": "2026-10-11T01:47:39Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38103020655/logs.zip",
+    "total_logs_size": 39291,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 72.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 1672,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 2.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 1.7142857142857142,
+    "log_max_step_dur": 18.0,
+    "predicted_failure_probability": 0.241997687378465,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed with a TypeError when the compute_average_score function attempted to add an integer to a string (total += r[\"score\"] where r[\"score\"] was the string '95' instead of an integer). The Log Analyst identified the exact error line showing \"TypeError: unsupported operand type(s) for +=: 'int' and 'str'\". This indicates the clean_records function failed to properly convert score values from strings to integers before they were used in numeric operations. The History Analyst confirmed this is a recurring issue with multiple similar past failures (#123, #62, #64, #120, #114, #117, #118, #116, #112). The Config & Change Analyst suspects the recent commit \"Refactor workflow to use healthy_demo directory\" may have changed the code path or pointed to different source files that reintroduced this type conversion bug.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the clean_records function in the healthy_demo directory to ensure all score values are converted from strings to integers. Specifically, add explicit type conversion (e.g., int(score)) when processing score fields. Review the refactored code in commit d4c6263 to ensure the data cleaning logic matches what was working before. Add a unit test that verifies clean_records properly converts string scores to integers to prevent this recurring issue.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed because the compute_average_score function tried to add an integer to a string. A string value '95' slipped through the clean_records function and caused a TypeError when attempting numeric addition."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step 'Run tests' is meant to execute pytest tests with verbose output, and has an environment variable INJECT_FAILURE set from workflow inputs",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": true,
+          "recent_change_detail": "Commit d4c6263 'Implement agent report formatting for multi-agent mode' is suspected. The commit message references the current run's commit message pattern about 'Refactor workflow to use healthy_demo directory', which suggests code was refactored to point to a different directory. The TypeError indicates string '95' was not converted to int in the clean_records function, suggesting the refactored code path may have changed data handling logic or pointed to different test data/source files that have a type conversion bug"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub status is currently healthy (weak evidence only - reflects current status, not status at time of failure on 2026-10-11T01:47:41Z). The TypeError is a standard Python type mismatch error (int + str) which web searches confirm is a common programming error, not a platform or library bug. This is clearly a code-level bug in the application's compute_average_score or clean_records function where a string score value ('95') was not properly converted to an integer before arithmetic operations. No external infrastructure issues detected."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#123",
+            "#62",
+            "#64",
+            "#120",
+            "#114",
+            "#117",
+            "#118",
+            "#116",
+            "#112"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found with similar TypeError involving int and str operand types, and test_process_pipeline/compute_average_score failures. These appear to be recurring failures related to the clean_records function not properly converting score values from strings to integers."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (macos-latest, 3.10)",
+    "failing_step": "Run tests"
+  }
+}
