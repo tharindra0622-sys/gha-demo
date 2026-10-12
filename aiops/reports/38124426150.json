@@ -1,0 +1,177 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/parallel_shards_test.yml_3_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/parallel_shards_test.yml",
+    "run_number": 3,
+    "run_attempt": 1,
+    "metadata_id": 38124426150,
+    "metadata_name": "Parallel Shards Test",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI4GSTpg",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "e5f65ae83e14d3b16cf0f7f2a30d834a3526bc48",
+    "metadata_path": ".github/workflows/parallel_shards_test.yml",
+    "metadata_display_title": "Parallel Shards Test",
+    "metadata_run_number": 3,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 381088290,
+    "metadata_check_suite_id": 103292995223,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYDL4Glw",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-11T08:20:01Z",
+    "metadata_updated_at": "2026-10-11T08:20:13Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-11T08:20:01Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "e5f65ae83e14d3b16cf0f7f2a30d834a3526bc48",
+    "metadata_head_commit_tree_id": "fab22c06e61d80eea24e90364df10ec224346df8",
+    "metadata_head_commit_message": "Enhance agent card styles and report display logic\n\nAdded CSS styles for agent cards and updated descriptions for multi-agent mode. Enhanced the report mode logic and improved the display of diagnosis reports.",
+    "metadata_head_commit_timestamp": "2026-10-11T08:18:48Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38124426150/logs.zip",
+    "total_logs_size": 79039,
+    "log_num_jobs": 10,
+    "log_total_steps": 30,
+    "log_total_duration_sec": 12.0,
+    "log_shell_steps": 0,
+    "log_action_steps": 30,
+    "log_error_steps": 1,
+    "log_total_lines": 2704,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 1.0,
+    "log_early3_min_dur": 1.0,
+    "log_early3_shell_count": 0,
+    "log_early3_action_count": 3,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.0333333333333333,
+    "log_shell_ratio": 0.0,
+    "log_avg_step_dur": 0.4,
+    "log_max_step_dur": 2.0,
+    "predicted_failure_probability": 0.1724577874560457,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The Log Analyst identified a checksum mismatch error in shard 7: \"ERROR: shard 7 failed - checksum mismatch in data_part_7.bin (expected a1b2c3, got ffffff)\". The Config & Change Analyst revealed the true root cause by examining the workflow file: the parallel_shards_test.yml workflow contains a hardcoded failure condition that intentionally forces shard 7 to fail with this exact checksum error message and exit code 1. This is not a real checksum failure or data corruption issue\u2014it is a deliberate test failure injected into the workflow configuration itself. The History Analyst confirmed this is a recurring issue with open tickets (#128, #130) for this same workflow. The recent commit about \"agent card styles and report display logic\" is unrelated to the actual failure mechanism.",
+    "category": "config_error",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Remove or modify the hardcoded failure condition in .github/workflows/parallel_shards_test.yml that forces shard 7 to fail. If this is an intentional test fixture for validating CI/CD failure handling, document it clearly in the workflow file and exclude it from production CI runs, or use a dedicated workflow for testing failure scenarios. Review and close or consolidate related open issues #128 and #130 which appear to track the same problem.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run echo \"Running shard 7 of 10\"",
+          "error_excerpt": "ERROR: shard 7 failed - checksum mismatch in data_part_7.bin (expected a1b2c3, got ffffff)",
+          "error_type": "checksum mismatch",
+          "plain_summary": "Shard 7 failed due to a checksum mismatch in data_part_7.bin. The expected checksum was a1b2c3 but the actual value was ffffff."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run a test shard as part of a parallel matrix job (shard 7 of 10). The step echoes the shard number and contains a hardcoded condition that forces shard 7 to fail with a checksum mismatch error.",
+          "config_issue_found": true,
+          "config_issue": "The workflow file contains a hardcoded failure condition: if shard equals 7, it always prints an error message about checksum mismatch and exits with code 1. This is an intentional failure injected into the workflow configuration, not a real test failure.",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none - the recent commits concern agent card styles, report display logic, multi-agent diagnoses, and automated test-data updates. None of these changes relate to the test shard logic or data processing that would cause a checksum mismatch. The failure is hardcoded in the workflow file itself."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "Checksum mismatches are commonly caused by: (1) package registry issues where builds are uploaded with identical versions but different content, (2) dynamic generation of content causing non-deterministic checksums, (3) corrupted downloads or file integrity issues. The specific error showing 'ffffff' as the actual checksum suggests potential data corruption or an uninitialized/empty file rather than a simple version mismatch.",
+          "notes": "GitHub status is currently clear (checked at time of this analysis, not at failure time 2026-10-11T08:20:01Z). The checksum value 'ffffff' is suspicious as it suggests either data corruption, an empty/uninitialized file, or a placeholder value. This appears to be specific to the repository's parallel shard testing workflow rather than an external dependency or platform issue. The commit message mentions enhancing agent card styles and report display logic, which doesn't obviously relate to data sharding, suggesting the failure may be due to test infrastructure issues rather than the code changes themselves."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#128 CI Failure Diagnosis: .github/workflows/parallel_shards_test.yml #1",
+            "#130 CI Failure Diagnosis: .github/workflows/parallel_shards_test.yml #2"
+          ],
+          "notes": "This workflow has had previous CI failure diagnoses recorded in issues #128 and #130, both currently open. The checksum mismatch error appears to be related to this workflow based on the issue titles."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "shard (7)",
+    "failing_step": "Run test shard"
+  }
+}
