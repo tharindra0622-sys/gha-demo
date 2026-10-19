@@ -29,6 +29,7 @@ The tools are reused from langchain_multi_tool_agent_v2.py (not rewritten).
 """
 
 import json
+import time
 from concurrent.futures import ThreadPoolExecutor
 from typing import List
 
@@ -137,6 +138,7 @@ Rules:
 def run_specialist(name, model, tools, system_prompt, schema, task):
     """Runs one tool-using specialist and returns a plain dict. Never raises:
     a failing specialist must not stop the whole team."""
+    started = time.perf_counter()
     try:
         agent = create_agent(
             model=model, tools=tools,
@@ -148,11 +150,15 @@ def run_specialist(name, model, tools, system_prompt, schema, task):
             m.name for m in result.get("messages", [])
             if getattr(m, "type", "") == "tool" and getattr(m, "name", None)
         })
+        seconds = round(time.perf_counter() - started, 1)
         if structured is None:
-            return {"agent": name, "ok": False, "error": "no structured output", "tools_used": tools_used}
-        return {"agent": name, "ok": True, "findings": structured.model_dump(), "tools_used": tools_used}
+            return {"agent": name, "ok": False, "error": "no structured output",
+                    "tools_used": tools_used, "seconds": seconds}
+        return {"agent": name, "ok": True, "findings": structured.model_dump(),
+                "tools_used": tools_used, "seconds": seconds}
     except Exception as e:  # noqa: BLE001 - report, don't crash the team
-        return {"agent": name, "ok": False, "error": f"{type(e).__name__}: {e}", "tools_used": []}
+        return {"agent": name, "ok": False, "error": f"{type(e).__name__}: {e}",
+                "tools_used": [], "seconds": round(time.perf_counter() - started, 1)}
 
 
 def coordinate(model, run_context, reports):
