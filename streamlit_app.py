@@ -214,6 +214,83 @@ def agent_card(r):
 
 
 # ---------------------------------------------------------------------
+# Agent performance helpers
+# ---------------------------------------------------------------------
+# The cause I deliberately injected into each test pipeline. A diagnosis counts
+# as "correct" here when the agent's category is one of the accepted ones.
+# Pipelines not listed are not scored (their injected cause is not fixed).
+# Edit this table to match your own workflow file names.
+EXPECTED_CATEGORIES = {
+    "dependency_error_test":   {"dependency_error"},
+    "matrix_dependency_test":  {"dependency_error"},
+    "test_failure_test":       {"test_failure"},
+    "syntax_error_test":       {"syntax_error"},
+    "missing_secret_test":     {"config_error", "permission_error"},
+    "timeout_test":            {"network_timeout", "resource_limit"},
+    "permission_error_test":   {"permission_error"},
+    "server_error_test":       {"network_timeout", "infrastructure_issue"},
+    "healthy_pipeline":        {"false_positive"},
+}
+
+
+def workflow_key(path):
+    name = str(path or "").split("/")[-1]
+    for ext in (".yml", ".yaml"):
+        if name.endswith(ext):
+            name = name[: -len(ext)]
+    return name
+
+
+def pct(numerator, denominator):
+    return f"{numerator / denominator:.0%}" if denominator else "—"
+
+
+def avg(values):
+    values = [v for v in values if isinstance(v, (int, float)) and v == v]
+    return sum(values) / len(values) if values else None
+
+
+@st.cache_data(ttl=300)
+def load_all_reports():
+    """Every saved diagnosis report as (run, diagnosis) pairs."""
+    out = []
+    for fname in sorted(list_dir("aiops/reports"), reverse=True):
+        try:
+            report = load_json(f"aiops/reports/{fname}")
+        except Exception:
+            continue
+        out.append((report.get("run", {}), report.get("diagnosis", {})))
+    return out
+
+
+def performance_table(reports):
+    """One row per diagnosis with everything the performance tab needs."""
+    rows = []
+    for run, diag in reports:
+        key = workflow_key(run.get("workflow_path"))
+        expected = EXPECTED_CATEGORIES.get(key)
+        category = diag.get("category", "unknown")
+        agents = diag.get("agent_reports") or []
+        tools = diag.get("tool_calls_made") or diag.get("evidence_used") or []
+        rows.append({
+            "run": run.get("run_number"),
+            "workflow": key or "?",
+            "mode": report_mode(diag),
+            "category": category,
+            "confidence": diag.get("confidence", "unknown"),
+            "expected": expected,
+            "scored": expected is not None,
+            "correct": (category in expected) if expected else None,
+            "tools": list(tools),
+            "n_tools": len(tools),
+            "seconds": diag.get("duration_seconds"),
+            "agents_total": len(agents),
+            "agents_ok": sum(1 for a in agents if a.get("ok")),
+        })
+    return pd.DataFrame(rows)
+
+
+# ---------------------------------------------------------------------
 # Hero banner
 # ---------------------------------------------------------------------
 st.markdown(f"""
@@ -245,9 +322,9 @@ except Exception:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "📊  Model Performance", "📄  Live Test Data", "🎯  Prediction Accuracy",
-    "🤖  AIOps Diagnoses", "🧭  System Architecture",
+    "🤖  AIOps Diagnoses", "🏅  Agent Performance", "🧭  System Architecture",
 ])
 
 # ---------------- TAB 1: Model Performance ----------------
@@ -392,8 +469,145 @@ with tab4:
     except Exception as e:
         st.error(f"Could not load AIOps reports: {e}")
 
-# ---------------- TAB 5: System Architecture (visual diagram) ----------------
+# ---------------- TAB 5: Agent Performance ----------------
 with tab5:
+    st.subheader("How Well Do the AI Agents Perform?")
+    st.caption(
+        "Measured on every diagnosis the agents have produced. Pipelines whose "
+        "fault I injected on purpose are checked automatically: the agent is "
+        "counted correct when its category matches the real cause."
+    )
+    try:
+        all_reports = load_all_reports()
+        perf = performance_table(all_reports)
+        if perf.empty:
+            st.info("No diagnosis reports yet — run the agent, push the reports, then clear the cache.")
+        else:
+            scored = perf[perf["scored"]]
+            n_scored = len(scored)
+            n_correct = int(scored["correct"].astype(bool).sum()) if n_scored else 0
+            n_high = int((perf["confidence"] == "high").sum())
+            multi = perf[perf["mode"] == "multi"]
+            ag_total = int(multi["agents_total"].sum())
+            ag_ok = int(multi["agents_ok"].sum())
+            avg_sec = avg(perf["seconds"].tolist())
+
+            k1, k2, k3, k4, k5 = st.columns(5)
+            k1.metric("Diagnoses", len(perf))
+            k2.metric("✅ Correct (known faults)", f"{n_correct} / {n_scored}",
+                      help="Only runs from pipelines with a known injected fault are checked.")
+            k3.metric("🎯 Accuracy", pct(n_correct, n_scored))
+            k4.metric("💪 High confidence", pct(n_high, len(perf)))
+            k5.metric("⏱ Avg time per diagnosis", f"{avg_sec:.0f} s" if avg_sec is not None else "—")
+
+            # ---- Single agent vs team --------------------------------------
+            st.markdown("#### Single agent vs. agent team")
+            rows = []
+            for label, mode in (("🤖 Single agent", "single"), ("👥 Agent team", "multi")):
+                sub = perf[perf["mode"] == mode]
+                if sub.empty:
+                    continue
+                sc = sub[sub["scored"]]
+                c = int(sc["correct"].astype(bool).sum()) if len(sc) else 0
+                secs = avg(sub["seconds"].tolist())
+                rows.append({
+                    "Mode": label,
+                    "Diagnoses": len(sub),
+                    "Checked vs known fault": len(sc),
+                    "Correct": c,
+                    "Accuracy": pct(c, len(sc)),
+                    "High confidence": pct(int((sub["confidence"] == "high").sum()), len(sub)),
+                    "Avg tools used": round(sub["n_tools"].mean(), 1),
+                    "Avg time (s)": f"{secs:.1f}" if secs is not None else "—",
+                })
+            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+            if perf["mode"].nunique() < 2:
+                st.caption("Only one mode has been run so far. Run the same failures in the other mode to compare.")
+
+            # ---- Accuracy by fault type ------------------------------------
+            st.markdown("#### Accuracy by type of injected fault")
+            if n_scored:
+                fault_rows = []
+                for wf, sub in scored.groupby("workflow"):
+                    c = int(sub["correct"].astype(bool).sum())
+                    fault_rows.append({
+                        "Pipeline": wf,
+                        "Accepted category": ", ".join(sorted(EXPECTED_CATEGORIES[wf])),
+                        "Diagnoses": len(sub),
+                        "Correct": c,
+                        "Accuracy": pct(c, len(sub)),
+                        "Most common answer": sub["category"].mode().iloc[0],
+                    })
+                st.dataframe(pd.DataFrame(fault_rows), use_container_width=True, hide_index=True)
+
+                misses = scored[~scored["correct"].astype(bool)]
+                if len(misses):
+                    st.markdown("**Diagnoses that did not match the known fault**")
+                    st.dataframe(
+                        pd.DataFrame({
+                            "Run": misses["run"],
+                            "Pipeline": misses["workflow"],
+                            "Mode": misses["mode"],
+                            "Expected": misses["expected"].apply(lambda s: ", ".join(sorted(s))),
+                            "Agent said": misses["category"],
+                        }),
+                        use_container_width=True, hide_index=True,
+                    )
+            else:
+                st.info("None of the diagnosed runs come from a pipeline with a known injected fault yet.")
+
+            # ---- Specialist agents -----------------------------------------
+            st.markdown("#### Specialist agents (team mode)")
+            stats = {}
+            for _, diag in all_reports:
+                for a in diag.get("agent_reports") or []:
+                    s = stats.setdefault(a.get("agent", "Agent"), {"runs": 0, "ok": 0, "tools": [], "secs": []})
+                    s["runs"] += 1
+                    s["ok"] += 1 if a.get("ok") else 0
+                    s["tools"].append(len(a.get("tools_used") or []))
+                    if a.get("seconds") is not None:
+                        s["secs"].append(a["seconds"])
+            if stats:
+                agent_rows = []
+                for name, s in stats.items():
+                    secs = avg(s["secs"])
+                    agent_rows.append({
+                        "Agent": name,
+                        "Runs": s["runs"],
+                        "Reported a result": pct(s["ok"], s["runs"]),
+                        "Avg tools used": round(sum(s["tools"]) / len(s["tools"]), 1),
+                        "Avg time (s)": f"{secs:.1f}" if secs is not None else "—",
+                    })
+                st.dataframe(pd.DataFrame(agent_rows), use_container_width=True, hide_index=True)
+                st.caption(f"Overall, {ag_ok} of {ag_total} specialist reports completed without an error.")
+            else:
+                st.info("No team-mode diagnoses yet. Run the agent with AIOPS_MODE=multi.")
+
+            # ---- Charts ----------------------------------------------------
+            ch1, ch2 = st.columns(2)
+            with ch1:
+                st.markdown("**Tools the agents used**")
+                counts = pd.Series([t for ts in perf["tools"] for t in ts]).value_counts()
+                if len(counts):
+                    st.bar_chart(counts, color="#6366F1")
+                else:
+                    st.caption("No tool usage recorded.")
+            with ch2:
+                st.markdown("**Categories the agents chose**")
+                st.bar_chart(perf["category"].value_counts(), color="#8B5CF6")
+
+            st.caption(
+                "How to read this: the accuracy check is automatic and only compares the "
+                "category with the fault I injected, so it is a quick measure, not a full "
+                "judgement of the explanation or the fix. The number of runs is small, so "
+                "treat percentages as indicative. Timing appears for runs diagnosed after "
+                "the timing update."
+            )
+    except Exception as e:
+        st.error(f"Could not compute agent performance: {e}")
+
+# ---------------- TAB 6: System Architecture (visual diagram) ----------------
+with tab6:
     st.subheader("How This System Works")
 
     st.markdown(f"""
