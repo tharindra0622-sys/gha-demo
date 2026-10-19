@@ -1,0 +1,189 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_98_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 98,
+    "run_attempt": 1,
+    "metadata_id": 38218908893,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAI5gZE3Q",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "31881d8d12ea763c1d68838e08d6a03858a59a3a",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add multi-agent diagnoses",
+    "metadata_run_number": 98,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 103545264081,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYG8dX0Q",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-12T07:38:51Z",
+    "metadata_updated_at": "2026-10-12T07:39:53Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-12T07:38:51Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "31881d8d12ea763c1d68838e08d6a03858a59a3a",
+    "metadata_head_commit_tree_id": "2addc77e2a5d90932f081dbca8813750657d8ae4",
+    "metadata_head_commit_message": "Add multi-agent diagnoses",
+    "metadata_head_commit_timestamp": "2026-10-12T07:28:57Z",
+    "metadata_head_commit_author_name": "tharindra0622-sys",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "tharindra0622-sys",
+    "metadata_head_commit_committer_email": "tharindra.0622@gmail.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38218908893/logs.zip",
+    "total_logs_size": 39271,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 85.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 1672,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 5.0,
+    "log_early3_max_dur": 4.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.6666666666666667,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.023809523809524,
+    "log_max_step_dur": 30.0,
+    "predicted_failure_probability": 0.2558369743757151,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed due to a TypeError in src/data_processor.py at line 39 in the compute_average_score function. The error occurs when attempting to add an integer to a string: `total += r[\"score\"]` fails because the score value '95' is stored as a string rather than an integer. This is a code-level bug where input data contains string-typed scores that are not converted to integers before arithmetic operations.",
+    "category": "test_failure",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "In src/data_processor.py line 39, modify the compute_average_score function to convert the score to an integer before addition. Change `total += r[\"score\"]` to `total += int(r[\"score\"])`. Additionally, consider adding input validation or type conversion at the data ingestion point to prevent string-typed numeric values from entering the processing pipeline. Given the History Analyst found this is a recurring issue (similar failures in issues #127, #123, #131, #124, #125, #129, #120, #114, #117, #132, #133, #39, #118, #65), implement comprehensive type validation and conversion across all score-handling code paths to prevent future occurrences.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed in src/data_processor.py at line 39 in the compute_average_score function. A TypeError occurred when trying to add an integer and a string because a score value ('95') was not converted to an integer."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run tests with pytest in verbose mode after installing dependencies and checking out code, optionally injecting a failure if the workflow_dispatch input is set",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "This is a well-documented Python programming error that occurs when trying to perform arithmetic operations on incompatible types (e.g., adding int and str). The error is caused by a type mismatch in user code, not by external infrastructure or library bugs. Common fix is explicit type conversion using int() or str().",
+          "notes": "GitHub status check shows no current incidents. This TypeError is a code-level bug in the repository's data_processor.py where a score value ('95') stored as a string was not converted to int before addition. This is not an external issue - it's a logic error in the repository's own code that needs to be fixed by the developers."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#127",
+            "#123",
+            "#131",
+            "#124",
+            "#125",
+            "#129",
+            "#120",
+            "#114",
+            "#117",
+            "#132",
+            "#133",
+            "#39",
+            "#118",
+            "#65"
+          ],
+          "notes": "Multiple similar CI failure diagnosis issues exist in the repository. Issue #39 regarding data_processor.py line 39 was closed, suggesting this error has been encountered and potentially resolved before. The recurring pattern across many open issues (#127, #123, #131, #124, #125, #129, #120, #114, #117, #132, #133, #118, #65) indicates this TypeError with int and str operands in compute_average_score and test_process_pipeline may be a recurring problem that has not been permanently fixed."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "test (ubuntu-latest, 3.12)",
+    "failing_step": "Run tests"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/os_specific_failure_test.yml_1_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/os_specific_failure_test.yml",
+    "run_number": 1,
+    "run_attempt": 1,
+    "metadata_id": 38829956009,
+    "metadata_name": "OS Specific Failure Test",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAJCnIbqQ",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "768bd5c06c44c0725c19d4cb14a3a7b6ac1e92a9",
+    "metadata_path": ".github/workflows/os_specific_failure_test.yml",
+    "metadata_display_title": "OS Specific Failure Test",
+    "metadata_run_number": 1,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 380937074,
+    "metadata_check_suite_id": 105231481007,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAYgEj4rw",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-10-16T00:31:25Z",
+    "metadata_updated_at": "2026-10-16T00:31:39Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-10-16T00:31:25Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "768bd5c06c44c0725c19d4cb14a3a7b6ac1e92a9",
+    "metadata_head_commit_tree_id": "443f7c3852129aa5ca7e97fb93c0d2ade0ec322f",
+    "metadata_head_commit_message": "chore: append new CI/CD test-data rows + predictions [skip ci]",
+    "metadata_head_commit_timestamp": "2026-10-15T21:00:13Z",
+    "metadata_head_commit_author_name": "github-actions[bot]",
+    "metadata_head_commit_author_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_head_commit_committer_name": "github-actions[bot]",
+    "metadata_head_commit_committer_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/38829956009/logs.zip",
+    "total_logs_size": 25370,
+    "log_num_jobs": 3,
+    "log_total_steps": 15,
+    "log_total_duration_sec": 10.0,
+    "log_shell_steps": 0,
+    "log_action_steps": 15,
+    "log_error_steps": 1,
+    "log_total_lines": 806,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 5.0,
+    "log_early3_max_dur": 5.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 0,
+    "log_early3_action_count": 3,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.6666666666666667,
+    "log_error_rate": 0.0666666666666666,
+    "log_shell_ratio": 0.0,
+    "log_avg_step_dur": 0.6666666666666666,
+    "log_max_step_dur": 5.0,
+    "predicted_failure_probability": 0.0919735565773616,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The sed command 'sed -i 's/old/new/' notes.txt' failed on macOS with the error \"sed: 1: \\\"notes.txt\\n\\\": extra characters at the end of n command\". This is a well-documented cross-platform compatibility issue: BSD sed (used on macOS) requires an explicit extension argument immediately after the -i flag (e.g., 'sed -i ''' or 'sed -i '.bak''), whereas GNU sed (Linux) allows -i without arguments or with a space before the extension. The workflow runs on a matrix including macos-latest but uses GNU sed syntax that only works on Linux.",
+    "category": "config_error",
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Update the sed command in the workflow step to be compatible with both Linux and macOS. Replace 'sed -i 's/old/new/' notes.txt' with 'sed -i '' 's/old/new/' notes.txt' for macOS compatibility, or use a conditional approach that detects the OS and applies the appropriate syntax. Alternatively, use a cross-platform tool like perl: 'perl -i -pe 's/old/new/' notes.txt'.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run sed -i 's/old/new/' notes.txt",
+          "error_excerpt": "sed: 1: \"notes.txt\\n\": extra characters at the end of n command\n##[error]Process completed with exit code 1.",
+          "error_type": "sed syntax error",
+          "plain_summary": "The sed command failed on macOS with 'extra characters at the end of n command' error. The sed -i syntax is incompatible between Linux and macOS; macOS sed requires an explicit extension argument after -i."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ]
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Update version with GNU sed - replace 'old' with 'new' in notes.txt using sed -i command",
+          "config_issue_found": true,
+          "config_issue": "The workflow step 'sed -i 's/old/new/' notes.txt' uses GNU sed syntax that is incompatible with macOS. On macOS (BSD sed), the -i flag requires an explicit extension argument (e.g., sed -i '' or sed -i '.bak'). The workflow runs on a matrix including macos-latest but uses a sed command that only works on Linux.",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none - all recent commits are automated data appends with [skip ci] tags, none modify application or test code that would cause sed syntax failures"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ]
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "This is a well-known cross-platform compatibility issue between GNU sed (Linux) and BSD sed (macOS). The 'extra characters at the end of n command' error on macOS occurs because BSD sed requires an explicit extension argument immediately after -i (e.g., sed -i '' or sed -i '.bak'), while GNU sed allows -i without arguments or with a space before the extension. Multiple Stack Overflow threads and documentation confirm this is a common portability problem.",
+          "notes": "GitHub status check shows no current incidents (weak evidence, as the failure occurred at 2026-10-16T00:31:25Z). This is not a GitHub platform issue or registry/dependency issue, but a known sed behavioral difference between operating systems. The workflow is specifically testing OS-specific failures (os_specific_failure_test.yml) and failed on macos-latest but presumably would pass on ubuntu-latest with the same sed command."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ]
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": false,
+          "similar_issues": [],
+          "notes": "none"
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ]
+      }
+    ],
+    "mode": "multi-agent",
+    "failing_job": "build (macos-latest)",
+    "failing_step": "Update version with GNU sed"
+  }
+}
