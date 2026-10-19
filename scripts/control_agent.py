@@ -19,6 +19,7 @@ import os
 import sys
 import json
 import argparse
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -124,6 +125,7 @@ def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_
 
     # AIOPS_MODE=multi uses the team of specialist agents; anything else
     # (the default) uses the single multi-tool agent.
+    started = time.perf_counter()
     if os.environ.get("AIOPS_MODE", "single").lower() == "multi":
         import multi_agent_diagnosis
         diagnosis = multi_agent_diagnosis.run_multi_agent_diagnosis(
@@ -133,6 +135,8 @@ def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_
         diagnosis = langchain_multi_tool_agent_v2.run_langchain_diagnosis_v2(
             owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
         )
+    # Wall-clock time for the whole diagnosis, shown on the dashboard.
+    diagnosis["duration_seconds"] = round(time.perf_counter() - started, 1)
     diagnosis["failing_step"] = step.get("name") if step else None
     return diagnosis
 
