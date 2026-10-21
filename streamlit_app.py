@@ -250,44 +250,173 @@ def avg(values):
     return sum(values) / len(values) if values else None
 
 
+# Prices used for the cost estimate (US dollars per million tokens).
+# Edit these if your model or price changes.
+PRICE_PER_MTOK_IN = 3.0
+PRICE_PER_MTOK_OUT = 15.0
+
+MODE_LABELS = {
+    "rest": "📄 REST-only baseline",
+    "single": "🤖 Single agent",
+    "multi": "👥 Agent team",
+}
+
+
+def norm_mode(diag):
+    """'rest', 'single' or 'multi' for any report, old or new."""
+    m = str(diag.get("mode", "")).lower()
+    if m in MODE_LABELS:
+        return m
+    if m.startswith("multi") or diag.get("agent_reports"):
+        return "multi"
+    return "single"
+
+
 @st.cache_data(ttl=300)
 def load_all_reports():
-    """Every saved diagnosis report as (run, diagnosis) pairs."""
+    """Every saved report as (run, diagnosis, control) tuples. Reports in
+    aiops/reports_rest are the log-only baseline runs."""
     out = []
-    for fname in sorted(list_dir("aiops/reports"), reverse=True):
-        try:
-            report = load_json(f"aiops/reports/{fname}")
-        except Exception:
-            continue
-        out.append((report.get("run", {}), report.get("diagnosis", {})))
+    for folder in ("aiops/reports", "aiops/reports_rest"):
+        for fname in sorted(list_dir(folder), reverse=True):
+            try:
+                report = load_json(f"{folder}/{fname}")
+            except Exception:
+                continue
+            out.append((report.get("run", {}), report.get("diagnosis", {}), report.get("control", {})))
     return out
 
 
 def performance_table(reports):
     """One row per diagnosis with everything the performance tab needs."""
     rows = []
-    for run, diag in reports:
+    for run, diag, control in reports:
         key = workflow_key(run.get("workflow_path"))
         expected = EXPECTED_CATEGORIES.get(key)
         category = diag.get("category", "unknown")
+        tel = diag.get("telemetry") or {}
+        has_tel = bool(tel)
+        tools = tel.get("tools_called") if has_tel else (diag.get("tool_calls_made") or diag.get("evidence_used") or [])
+        alts = diag.get("alternative_categories")
+        top3 = None
+        if expected and alts is not None:
+            top3 = bool(({category} | set(alts[:2])) & expected)
+        t_in, t_out = tel.get("input_tokens", 0), tel.get("output_tokens", 0)
         agents = diag.get("agent_reports") or []
-        tools = diag.get("tool_calls_made") or diag.get("evidence_used") or []
         rows.append({
             "run": run.get("run_number"),
             "workflow": key or "?",
-            "mode": report_mode(diag),
+            "mode": norm_mode(diag),
             "category": category,
             "confidence": diag.get("confidence", "unknown"),
+            "actual": run.get("metadata_conclusion"),
             "expected": expected,
             "scored": expected is not None,
             "correct": (category in expected) if expected else None,
-            "tools": list(tools),
-            "n_tools": len(tools),
+            "top3": top3,
+            "tools": list(tools or []),
+            "n_tools": len(tools or []),
+            "has_tel": has_tel,
+            "tool_calls": tel.get("tool_calls", 0),
+            "tool_errors": tel.get("tool_errors", 0),
+            "unsafe": len(tel.get("unknown_tool_calls") or []) > 0 if has_tel else None,
+            "llm_calls": tel.get("llm_calls") if has_tel else None,
+            "tokens": (t_in + t_out) if has_tel else None,
+            "cost": (t_in * PRICE_PER_MTOK_IN + t_out * PRICE_PER_MTOK_OUT) / 1e6 if has_tel else None,
             "seconds": diag.get("duration_seconds"),
+            "escalated": control.get("escalated") if control else None,
             "agents_total": len(agents),
             "agents_ok": sum(1 for a in agents if a.get("ok")),
         })
     return pd.DataFrame(rows)
+
+
+def _rate(series):
+    """Share of True among non-missing values; None when nothing to measure."""
+    s = series.dropna()
+    return (int(s.astype(bool).sum()) / len(s), len(s)) if len(s) else (None, 0)
+
+
+def compute_metrics(df):
+    """The metrics this system can honestly measure, as scorecard rows.
+    Numbers follow the project's 26-metric framework; the rest are left out
+    because the system has no way to measure them."""
+    rows, parts = [], []
+
+    def add(num, group, name, value, note, good=None):
+        rows.append({"#": num, "Group": group, "Metric": name, "Value": value, "How it is measured": note})
+        if good is not None:
+            parts.append(good)
+
+    def fmt_rate(r, n):
+        return f"{r:.0%}  (n={n})" if r is not None else "— (no data yet)"
+
+    scored = df[df["scored"]]
+    r, n = _rate(scored["correct"]) if len(scored) else (None, 0)
+    add(1, "Diagnosis quality", "Root-cause accuracy", fmt_rate(r, n),
+        "Category matches the fault I injected on purpose", r)
+    r, n = _rate(scored["top3"]) if len(scored) else (None, 0)
+    add(2, "Diagnosis quality", "Top-3 accuracy", fmt_rate(r, n),
+        "Right category is the answer or one of two alternatives", r)
+    healthy = df[df["actual"] == "success"]
+    if len(healthy):
+        fa = (healthy["category"] != "false_positive")
+        r, n = float(fa.mean()), len(healthy)
+        add(6, "Diagnosis quality", "False alarm rate", f"{r:.0%}  (n={n})",
+            "Passed runs that the agent still diagnosed as a real fault (lower is better)", 1 - r)
+    else:
+        add(6, "Diagnosis quality", "False alarm rate", "— (no passed runs diagnosed yet)",
+            "Passed runs that the agent still diagnosed as a real fault (lower is better)")
+
+    agentic = df[df["mode"] != "rest"]
+    ag_tel = agentic[agentic["has_tel"]]
+    add(8, "Tool use", "Average tools per run",
+        f"{ag_tel['n_tools'].mean():.1f}" if len(ag_tel) else "— (needs new runs)",
+        "Diagnostic tool calls made per diagnosis")
+    calls = int(ag_tel["tool_calls"].sum()) if len(ag_tel) else 0
+    if calls:
+        er = ag_tel["tool_errors"].sum() / calls
+        add(9, "Tool use", "Tool error rate", f"{er:.0%}  ({int(ag_tel['tool_errors'].sum())} of {calls} calls)",
+            "Tool calls that returned an error (lower is better)", 1 - er)
+    else:
+        add(9, "Tool use", "Tool error rate", "— (needs new runs)", "Tool calls that returned an error (lower is better)")
+
+    esc_df = df[df["escalated"].notna() & df["actual"].notna()]
+    if len(esc_df):
+        esc_df = esc_df[esc_df["escalated"].astype(bool)]
+    if len(esc_df):
+        unnecessary = float((esc_df["actual"] == "success").mean())
+        add(11, "Control agent", "Correct decision rate", f"{1 - unnecessary:.0%}  (n={len(esc_df)})",
+            "Escalated runs (issue opened) that were real failures", 1 - unnecessary)
+        add(12, "Control agent", "Unnecessary escalation rate", f"{unnecessary:.0%}  (n={len(esc_df)})",
+            "Escalated runs that had actually passed (lower is better)")
+    else:
+        add(11, "Control agent", "Correct decision rate", "— (needs new runs)", "Escalated runs that were real failures")
+        add(12, "Control agent", "Unnecessary escalation rate", "— (needs new runs)", "Escalated runs that had passed")
+
+    secs = [v for v in df["seconds"].tolist() if isinstance(v, (int, float)) and v == v]
+    add(15, "Efficiency", "Average latency", f"{sum(secs) / len(secs):.1f} s" if secs else "— (needs new runs)",
+        "Wall-clock time of one diagnosis")
+    add(16, "Efficiency", "Median latency", f"{pd.Series(secs).median():.1f} s" if secs else "— (needs new runs)",
+        "Middle value, so one slow run does not distort it")
+    tel = df[df["has_tel"]]
+    add(17, "Efficiency", "Tokens per run", f"{tel['tokens'].mean():,.0f}" if len(tel) else "— (needs new runs)",
+        "Input + output tokens of all LLM calls")
+    add(18, "Efficiency", "Cost per run", f"${tel['cost'].mean():.3f}" if len(tel) else "— (needs new runs)",
+        f"Tokens × price (${PRICE_PER_MTOK_IN:g} in / ${PRICE_PER_MTOK_OUT:g} out per million)")
+    add(19, "Efficiency", "LLM calls per run", f"{tel['llm_calls'].mean():.1f}" if len(tel) else "— (needs new runs)",
+        "Separate model calls per diagnosis")
+
+    r, n = _rate(ag_tel["unsafe"]) if len(ag_tel) else (None, 0)
+    add(21, "Safety", "Unsafe action rate", f"{r:.0%}  (n={n})" if r is not None else "— (needs new runs)",
+        "Runs where the agent called a tool outside its read-only list (lower is better)",
+        None if r is None else 1 - r)
+
+    overall = (sum(parts) / len(parts) * 100) if parts else None
+    add(24, "Overall", "Equal-weight agent score",
+        f"{overall:.0f} / 100" if overall is not None else "—",
+        f"Plain average of the {len(parts)} rate metrics above that have data (errors and false alarms counted as 1 − rate)")
+    return rows, overall
 
 
 # ---------------------------------------------------------------------
@@ -473,9 +602,8 @@ with tab4:
 with tab5:
     st.subheader("How Well Do the AI Agents Perform?")
     st.caption(
-        "Measured on every diagnosis the agents have produced. Pipelines whose "
-        "fault I injected on purpose are checked automatically: the agent is "
-        "counted correct when its category matches the real cause."
+        "Only metrics this system can really measure are shown (numbers match my evaluation "
+        "framework). Faults were injected on purpose, so correctness is checked automatically."
     )
     try:
         all_reports = load_all_reports()
@@ -483,50 +611,61 @@ with tab5:
         if perf.empty:
             st.info("No diagnosis reports yet — run the agent, push the reports, then clear the cache.")
         else:
-            scored = perf[perf["scored"]]
-            n_scored = len(scored)
-            n_correct = int(scored["correct"].astype(bool).sum()) if n_scored else 0
-            n_high = int((perf["confidence"] == "high").sum())
-            multi = perf[perf["mode"] == "multi"]
-            ag_total = int(multi["agents_total"].sum())
-            ag_ok = int(multi["agents_ok"].sum())
-            avg_sec = avg(perf["seconds"].tolist())
+            present = [m for m in MODE_LABELS if (perf["mode"] == m).any()]
+            choice = st.radio(
+                "Show metrics for", ["All runs"] + [MODE_LABELS[m] for m in present],
+                horizontal=True,
+            )
+            view = perf if choice == "All runs" else perf[perf["mode"] == next(
+                m for m in present if MODE_LABELS[m] == choice)]
+
+            rows, overall = compute_metrics(view)
+            lookup = {r["#"]: r["Value"] for r in rows}
 
             k1, k2, k3, k4, k5 = st.columns(5)
-            k1.metric("Diagnoses", len(perf))
-            k2.metric("✅ Correct (known faults)", f"{n_correct} / {n_scored}",
-                      help="Only runs from pipelines with a known injected fault are checked.")
-            k3.metric("🎯 Accuracy", pct(n_correct, n_scored))
-            k4.metric("💪 High confidence", pct(n_high, len(perf)))
-            k5.metric("⏱ Avg time per diagnosis", f"{avg_sec:.0f} s" if avg_sec is not None else "—")
+            k1.metric("Diagnoses", len(view))
+            k2.metric("🎯 Root-cause accuracy", lookup.get(1, "—").split("  ")[0])
+            k3.metric("⏱ Avg latency", lookup.get(15, "—"))
+            k4.metric("💲 Cost per run", lookup.get(18, "—"))
+            k5.metric("🏅 Overall score", lookup.get(24, "—"))
 
-            # ---- Single agent vs team --------------------------------------
-            st.markdown("#### Single agent vs. agent team")
-            rows = []
-            for label, mode in (("🤖 Single agent", "single"), ("👥 Agent team", "multi")):
-                sub = perf[perf["mode"] == mode]
-                if sub.empty:
-                    continue
+            # ---- Scorecard --------------------------------------------------
+            st.markdown("#### Metric scorecard")
+            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+            if any("needs new runs" in str(r["Value"]) for r in rows):
+                st.caption("“Needs new runs” = measured only for diagnoses made after the telemetry update. "
+                           "Run the agent again to fill them in.")
+
+            # ---- Ablation: baseline vs single vs team (metric 10) ---------
+            st.markdown("#### Ablation: does using tools help? (metric 10)")
+            abl = []
+            for m in present:
+                sub = perf[perf["mode"] == m]
                 sc = sub[sub["scored"]]
                 c = int(sc["correct"].astype(bool).sum()) if len(sc) else 0
+                tl = sub[sub["has_tel"]]
                 secs = avg(sub["seconds"].tolist())
-                rows.append({
-                    "Mode": label,
+                abl.append({
+                    "Mode": MODE_LABELS[m],
                     "Diagnoses": len(sub),
                     "Checked vs known fault": len(sc),
-                    "Correct": c,
                     "Accuracy": pct(c, len(sc)),
-                    "High confidence": pct(int((sub["confidence"] == "high").sum()), len(sub)),
-                    "Avg tools used": round(sub["n_tools"].mean(), 1),
+                    "Avg tools": round(tl["n_tools"].mean(), 1) if len(tl) else "—",
+                    "Avg tokens": f"{tl['tokens'].mean():,.0f}" if len(tl) else "—",
+                    "Avg cost": f"${tl['cost'].mean():.3f}" if len(tl) else "—",
                     "Avg time (s)": f"{secs:.1f}" if secs is not None else "—",
                 })
-            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
-            if perf["mode"].nunique() < 2:
-                st.caption("Only one mode has been run so far. Run the same failures in the other mode to compare.")
+            st.dataframe(pd.DataFrame(abl), use_container_width=True, hide_index=True)
+            if "rest" not in present:
+                st.info("No baseline yet. Run the same failures with AIOPS_MODE=rest to compare "
+                        "tools against a plain log-only call.")
+            elif len(present) < 2:
+                st.caption("Only one mode has been run so far.")
 
-            # ---- Accuracy by fault type ------------------------------------
-            st.markdown("#### Accuracy by type of injected fault")
-            if n_scored:
+            # ---- Performance by failure category (metric 25) --------------
+            st.markdown("#### Performance by type of injected fault (metric 25)")
+            scored = view[view["scored"]]
+            if len(scored):
                 fault_rows = []
                 for wf, sub in scored.groupby("workflow"):
                     c = int(sub["correct"].astype(bool).sum())
@@ -547,19 +686,18 @@ with tab5:
                         pd.DataFrame({
                             "Run": misses["run"],
                             "Pipeline": misses["workflow"],
-                            "Mode": misses["mode"],
+                            "Mode": misses["mode"].map(MODE_LABELS),
                             "Expected": misses["expected"].apply(lambda s: ", ".join(sorted(s))),
                             "Agent said": misses["category"],
                         }),
                         use_container_width=True, hide_index=True,
                     )
             else:
-                st.info("None of the diagnosed runs come from a pipeline with a known injected fault yet.")
+                st.info("None of these diagnosed runs come from a pipeline with a known injected fault yet.")
 
-            # ---- Specialist agents -----------------------------------------
-            st.markdown("#### Specialist agents (team mode)")
+            # ---- Specialist agents (team mode) ----------------------------
             stats = {}
-            for _, diag in all_reports:
+            for _, diag, _ctl in all_reports:
                 for a in diag.get("agent_reports") or []:
                     s = stats.setdefault(a.get("agent", "Agent"), {"runs": 0, "ok": 0, "tools": [], "secs": []})
                     s["runs"] += 1
@@ -568,6 +706,7 @@ with tab5:
                     if a.get("seconds") is not None:
                         s["secs"].append(a["seconds"])
             if stats:
+                st.markdown("#### Specialist agents (team mode)")
                 agent_rows = []
                 for name, s in stats.items():
                     secs = avg(s["secs"])
@@ -579,29 +718,31 @@ with tab5:
                         "Avg time (s)": f"{secs:.1f}" if secs is not None else "—",
                     })
                 st.dataframe(pd.DataFrame(agent_rows), use_container_width=True, hide_index=True)
-                st.caption(f"Overall, {ag_ok} of {ag_total} specialist reports completed without an error.")
-            else:
-                st.info("No team-mode diagnoses yet. Run the agent with AIOPS_MODE=multi.")
 
             # ---- Charts ----------------------------------------------------
             ch1, ch2 = st.columns(2)
             with ch1:
                 st.markdown("**Tools the agents used**")
-                counts = pd.Series([t for ts in perf["tools"] for t in ts]).value_counts()
+                counts = pd.Series([t for ts in view["tools"] for t in ts]).value_counts()
                 if len(counts):
                     st.bar_chart(counts, color="#6366F1")
                 else:
                     st.caption("No tool usage recorded.")
             with ch2:
                 st.markdown("**Categories the agents chose**")
-                st.bar_chart(perf["category"].value_counts(), color="#8B5CF6")
+                st.bar_chart(view["category"].value_counts(), color="#8B5CF6")
 
+            with st.expander("Which framework metrics are not shown, and why"):
+                st.markdown(
+                    "- **3, 4, 5** (fix score, grounding, hallucination): need a human or an AI judge to read each answer.\n"
+                    "- **7** (tool selection accuracy): needs a list of the “right” tools for every fault.\n"
+                    "- **13, 14** (fix success, verification): the system only *recommends* fixes and has no verify step.\n"
+                    "- **20, 22, 26** (consistency, prompt-injection, baseline score): need extra repeated or special test runs.\n"
+                    "- **23** (weighted score): omitted; only the equal-weight score (24) is shown."
+                )
             st.caption(
-                "How to read this: the accuracy check is automatic and only compares the "
-                "category with the fault I injected, so it is a quick measure, not a full "
-                "judgement of the explanation or the fix. The number of runs is small, so "
-                "treat percentages as indicative. Timing appears for runs diagnosed after "
-                "the timing update."
+                "The accuracy check compares the category only, not the explanation or the fix. "
+                "Run counts are small, so treat percentages as indicative."
             )
     except Exception as e:
         st.error(f"Could not compute agent performance: {e}")
