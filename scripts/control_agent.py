@@ -125,16 +125,25 @@ def diagnose_run(owner, repo, run_id, run_metadata, github_token, anthropic_api_
 
     # AIOPS_MODE=multi uses the team of specialist agents; anything else
     # (the default) uses the single multi-tool agent.
+    # AIOPS_MODE=rest is the baseline: one log-only LLM call, no tools.
     started = time.perf_counter()
-    if os.environ.get("AIOPS_MODE", "single").lower() == "multi":
+    mode = os.environ.get("AIOPS_MODE", "single").lower()
+    if mode == "multi":
         import multi_agent_diagnosis
         diagnosis = multi_agent_diagnosis.run_multi_agent_diagnosis(
             owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
         )
+        diagnosis["mode"] = "multi"
+    elif mode == "rest":
+        log_text = llm_agent.download_log_text_for_job(owner, repo, run_id, job, github_token)
+        diagnosis = llm_agent.diagnose_failure(log_text, run_metadata, anthropic_api_key)
+        diagnosis["failing_job"] = job.get("name")
+        diagnosis["mode"] = "rest"
     else:
         diagnosis = langchain_multi_tool_agent_v2.run_langchain_diagnosis_v2(
             owner, repo, run_id, job, run_metadata, github_token, anthropic_api_key,
         )
+        diagnosis["mode"] = "single"
     # Wall-clock time for the whole diagnosis, shown on the dashboard.
     diagnosis["duration_seconds"] = round(time.perf_counter() - started, 1)
     diagnosis["failing_step"] = step.get("name") if step else None
@@ -201,11 +210,18 @@ def main():
         # Post issue
         title = f"CI Failure Diagnosis: {row['workflow_path']} #{row['run_number']}"
         body = format_issue_body(row, diagnosis)
+        issue_url = None
         try:
-            url = create_issue(owner, repo, github_token, title, body, labels=["aiops-diagnosis"])
-            print(f"  -> issue created: {url}")
+            issue_url = create_issue(owner, repo, github_token, title, body, labels=["aiops-diagnosis"])
+            print(f"  -> issue created: {issue_url}")
         except Exception as e:
             print(f"  ! could not create issue: {e}")
+
+        # Record the control agent's own decision so the dashboard can judge
+        # it (metrics 11 and 12): escalated = a human-facing issue was opened.
+        report = json.loads(report_path.read_text())
+        report["control"] = {"escalated": issue_url is not None, "issue_url": issue_url}
+        report_path.write_text(json.dumps(report, indent=2, default=str))
 
         processed.add(run_id)
 
