@@ -185,6 +185,8 @@ def main():
         print("No new failed/predicted-failure runs to diagnose.")
         return
 
+    failures_in_a_row = 0
+    done_before = len(processed)
     for _, row in needs_diagnosis.iterrows():
         run_id = str(row["metadata_id"])
         print(f"Diagnosing run {run_id} ({row['workflow_path']})...")
@@ -195,13 +197,18 @@ def main():
                 github_token, anthropic_api_key,
             )
         except Exception as e:
-            print(f"  ! diagnosis failed: {e}")
-            diagnosis = {
-                "root_cause": f"Diagnosis agent error: {e}",
-                "category": "unknown",
-                "suggested_fix": "n/a — diagnosis step failed",
-                "confidence": "low",
-            }
+            # Do NOT save a report, open an issue or mark the run as done:
+            # the run stays pending and is retried next time. (A low API
+            # balance or an outage would otherwise create hundreds of junk
+            # reports and issues.)
+            print(f"  ! diagnosis failed, run left pending: {e}")
+            failures_in_a_row += 1
+            if failures_in_a_row >= 3:
+                print("\nStopping: 3 diagnoses failed in a row. Check the API key, "
+                      "credit balance and GitHub token, then run again.")
+                break
+            continue
+        failures_in_a_row = 0
 
         # Save report
         report_path = Path(args.reports_dir) / f"{run_id}.json"
@@ -226,7 +233,7 @@ def main():
         processed.add(run_id)
 
     Path(args.checkpoint).write_text(json.dumps(sorted(processed)))
-    print(f"\nProcessed {len(needs_diagnosis)} run(s). Checkpoint updated.")
+    print(f"\nDiagnosed {len(processed) - done_before} of {len(needs_diagnosis)} run(s). Checkpoint updated.")
 
 
 if __name__ == "__main__":
