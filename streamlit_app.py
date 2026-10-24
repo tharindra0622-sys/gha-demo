@@ -277,7 +277,7 @@ def load_all_reports():
     """Every saved report as (run, diagnosis, control) tuples. Reports in
     aiops/reports_rest are the log-only baseline runs."""
     out = []
-    for folder in ("aiops/reports", "aiops/reports_rest"):
+    for folder in ("aiops/reports", "aiops/reports_multi", "aiops/reports_rest"):
         for fname in sorted(list_dir(folder), reverse=True):
             try:
                 report = load_json(f"{folder}/{fname}")
@@ -522,9 +522,16 @@ with tab3:
         col2.metric("Correct predictions", f"{correct.sum()} / {len(preds)}")
         col3.metric("Accuracy on live data", f"{correct.mean():.1%}")
 
-        st.markdown("**Predicted failure probability per run**")
-        chart_df = preds[["run_number", "predicted_failure_probability"]].sort_values("run_number")
-        st.bar_chart(chart_df.set_index("run_number"), color="#6366F1")
+        st.markdown("**Predicted failure probability per run** (oldest on the left, newest on the right)")
+        # run_number repeats across workflows, and Streamlit stacks bars that share
+        # an x value, which pushed the bars above 1. Use one unique x per run.
+        order_col = "metadata_run_started_at" if "metadata_run_started_at" in preds.columns else None
+        chart_src = preds.sort_values(order_col) if order_col else preds
+        chart_df = pd.DataFrame({
+            "run (in time order)": range(1, len(chart_src) + 1),
+            "Predicted failure probability": chart_src["predicted_failure_probability"].astype(float).values,
+        }).set_index("run (in time order)")
+        st.bar_chart(chart_df, color="#6366F1")
     except Exception as e:
         st.error(f"Could not compute accuracy: {e}")
 
@@ -624,10 +631,13 @@ with tab5:
 
             k1, k2, k3, k4, k5 = st.columns(5)
             k1.metric("Diagnoses", len(view))
-            k2.metric("🎯 Root-cause accuracy", lookup.get(1, "—").split("  ")[0])
-            k3.metric("⏱ Avg latency", lookup.get(15, "—"))
-            k4.metric("💲 Cost per run", lookup.get(18, "—"))
-            k5.metric("🏅 Overall score", lookup.get(24, "—"))
+            def tile(num):
+                v = str(lookup.get(num, "—")).split("  ")[0]
+                return "—" if v.startswith("—") else v
+            k2.metric("🎯 Root-cause accuracy", tile(1))
+            k3.metric("⏱ Avg latency", tile(15))
+            k4.metric("💲 Cost per run", tile(18))
+            k5.metric("🏅 Overall score", tile(24), help="Average of only the rate metrics that have data so far.")
 
             # ---- Scorecard --------------------------------------------------
             st.markdown("#### Metric scorecard")
