@@ -1,0 +1,255 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_10_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 10,
+    "run_attempt": 1,
+    "metadata_id": 30350937174,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHEQ6MVg",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "1316abb0f743885b843f43c8d37a51485e385380",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "CI",
+    "metadata_run_number": 10,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 82254941033,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATJsbLaQ",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-07-28T10:29:15Z",
+    "metadata_updated_at": "2026-07-28T10:30:22Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-07-28T10:29:15Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "1316abb0f743885b843f43c8d37a51485e385380",
+    "metadata_head_commit_tree_id": "358c5e0055ce5fcffd8d95eaaab428689e04f25e",
+    "metadata_head_commit_message": "Handle false positive diagnosis in run_diagnosis",
+    "metadata_head_commit_timestamp": "2026-07-28T10:27:47Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/30350937174/logs.zip",
+    "total_logs_size": 38512,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 95.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 1606,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 4.0,
+    "log_early3_max_dur": 4.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.3333333333333333,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.261904761904762,
+    "log_max_step_dur": 24.0,
+    "predicted_failure_probability": 0.4908351314679692,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test deliberately failed because the INJECT_FAILURE environment variable was set to true, triggering an intentional assertion failure in test_inject_failure. The Log Analyst found the exact error: \"AssertionError: Intentional failure triggered via INJECT_FAILURE\" with \"assert False\". \n\nThe Config & Change Analyst identified a critical anomaly: this workflow run was triggered by a push event (not workflow_dispatch), yet INJECT_FAILURE was set to true. The workflow is designed so that inject_failure is a workflow_dispatch input parameter; in push events this should be undefined/false. The most recent non-bot commit (0cb36dc 'Enhance report loading and metrics display') is suspected of introducing logic that incorrectly sets or evaluates INJECT_FAILURE outside of workflow_dispatch contexts.\n\nThe History Analyst confirms this is a recurring pattern (issues #158, #121, #117 all reference similar INJECT_FAILURE failures), suggesting a systematic problem with how this variable is being controlled.",
+    "category": "config_error",
+    "alternative_categories": [
+      "recent_code_change",
+      "test_failure"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Review commit 0cb36dc ('Enhance report loading and metrics display') to identify where INJECT_FAILURE is being incorrectly set to true during push events. The inject_failure parameter should only be active for workflow_dispatch triggers. Check if the commit modified workflow logic, test code, or environment variable handling that bypasses the intended workflow_dispatch-only behavior. Correct the logic so INJECT_FAILURE defaults to false or is undefined for push events, ensuring the intentional failure mechanism only activates when explicitly requested via manual workflow dispatch.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_inject_failure",
+          "error_excerpt": "AssertionError: Intentional failure triggered via INJECT_FAILURE\nassert False",
+          "error_type": "assertion failed",
+          "plain_summary": "The test test_inject_failure deliberately failed because the INJECT_FAILURE environment variable was set to true. This is an intentional failure triggered by the test itself, not a real defect."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.0,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4658,
+          "output_tokens": 137,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run tests using pytest with verbose output. The step accepts an INJECT_FAILURE environment variable from workflow_dispatch inputs that can deliberately trigger a test failure for generating failure data.",
+          "config_issue_found": true,
+          "config_issue": "The workflow defines a workflow_dispatch input 'inject_failure' that is intended to deliberately fail tests when set to true. The INJECT_FAILURE environment variable is passed to the pytest step, and according to the log, this variable was set to true, causing the intentional test failure. However, the workflow was triggered by a push event (commit message indicates this), not workflow_dispatch, meaning the inject_failure input should be undefined/false. The issue is that INJECT_FAILURE is being set to true despite this being a push event, not a manual workflow_dispatch.",
+          "recent_change_suspected": true,
+          "recent_change_detail": "Commit 0cb36dc 'Enhance report loading and metrics display' is suspected because it is the most recent code change (the other 4 commits are automated bot commits that only append test data). This commit could have modified code that incorrectly sets or evaluates the INJECT_FAILURE condition, or changed test code to trigger the false positive."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 10.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3833,
+          "output_tokens": 335,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub status shows no active incidents (though this reflects current status, not status at failure time 2026-07-28T10:29:15Z). The error message 'Intentional failure triggered via INJECT_FAILURE' is very specific to this repository's testing code and appears to be a deliberately injected test failure controlled by the INJECT_FAILURE environment variable. Web search returned only generic information about assertion errors and error injection testing patterns, but nothing specific to this exact error message. This strongly suggests the failure is internal to the repository's test design, not an external infrastructure issue."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 10.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3741,
+          "output_tokens": 257,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#158 CI Failure Diagnosis: .github/workflows/ci.yml #8",
+            "#121 CI Failure Diagnosis: .github/workflows/ci.yml #88",
+            "#117 CI Failure Diagnosis: .github/workflows/ci.yml #85"
+          ],
+          "notes": "Similar issues found referencing INJECT_FAILURE intentional failure in the same workflow. These appear to be recurring intentional test failures triggered by the INJECT_FAILURE environment variable."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 5.1,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 2654,
+          "output_tokens": 227,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 9,
+      "input_tokens": 17353,
+      "output_tokens": 1508,
+      "tool_calls": 7,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (ubuntu-latest, 3.12)",
+    "duration_seconds": 28.0,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": "https://github.com/tharindra0622-sys/gha-demo/issues/159"
+  }
+}

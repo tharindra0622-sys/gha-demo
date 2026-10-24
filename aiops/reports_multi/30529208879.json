@@ -1,0 +1,255 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_23_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 23,
+    "run_attempt": 1,
+    "metadata_id": 30529208879,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHG67CLw",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "a6834bda954202703c57cf26ac2f10212fa56cce",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add fetch_status using undeclared requests dependency (ground-truth t\u2026",
+    "metadata_run_number": 23,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 82769248137,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATRW5_iQ",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-07-30T09:04:15Z",
+    "metadata_updated_at": "2026-07-30T09:05:06Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-07-30T09:04:15Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "a6834bda954202703c57cf26ac2f10212fa56cce",
+    "metadata_head_commit_tree_id": "46c9fc9ba35782acbee7181c8acb0670d348a375",
+    "metadata_head_commit_message": "Add fetch_status using undeclared requests dependency (ground-truth test)",
+    "metadata_head_commit_timestamp": "2026-07-30T09:04:12Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/30529208879/logs.zip",
+    "total_logs_size": 92087,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 86.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3078,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 2.0,
+    "log_early3_max_dur": 1.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 0.6666666666666666,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.0476190476190474,
+    "log_max_step_dur": 26.0,
+    "predicted_failure_probability": 0.249464627781317,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test job failed during test collection because the application code (src\\calculator.py) attempts to import the 'requests' module, which is not installed in the Python environment. The Log Analyst identified the exact error: \"ModuleNotFoundError: No module named 'requests'\" at line 1 of calculator.py. The commit message explicitly states \"Add fetch_status using undeclared requests dependency (ground-truth test)\", confirming that new code was added using the requests library without declaring it as a dependency in requirements.txt or setup.py. The External Analyst confirmed this is a well-documented dependency issue, not an infrastructure problem, and both GitHub and PyPI status checks show no incidents.",
+    "category": "dependency_error",
+    "alternative_categories": [
+      "recent_code_change",
+      "config_error"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "check_registry_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Add 'requests' to the project's dependency declaration file (requirements.txt or setup.py). For example, add a line with 'requests' or 'requests>=2.28.0' to requirements.txt, then ensure the CI workflow installs dependencies before running tests (pip install -r requirements.txt). This will make the requests module available when calculator.py tries to import it.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "pytest tests -v",
+          "error_excerpt": "src\\calculator.py:1: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'",
+          "error_type": "ModuleNotFoundError",
+          "plain_summary": "The test collection failed because calculator.py attempts to import the 'requests' module, which is not installed. The module was not declared as a dependency."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 5.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4773,
+          "output_tokens": 143,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run pytest tests with verbose output on the test suite, with an optional environment variable INJECT_FAILURE that can be set via workflow_dispatch",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 4.9,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3859,
+          "output_tokens": 134,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "The error 'ModuleNotFoundError: No module named requests' is a well-documented Python issue that occurs when the requests library is not installed in the environment. Web sources (Stack Overflow, PyTutorial, various Python tutorials) consistently indicate this is caused by missing dependency declaration or installation, typically resolved by adding 'requests' to requirements.txt or installing via pip. This is not a transient infrastructure issue but a code/configuration problem.",
+          "notes": "GitHub and PyPI status checks show no current incidents, though these reflect current status only, not status at failure time (2026-07-30T09:04:15Z). The commit message explicitly states 'Add fetch_status using undeclared requests dependency (ground-truth test)', confirming this is an intentional test case of a missing dependency declaration. The error is code-related (developer forgot to add 'requests' to dependencies), not infrastructure-related."
+        },
+        "tools_used": [
+          "check_github_status",
+          "check_registry_status",
+          "search_web_for_error"
+        ],
+        "seconds": 9.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3860,
+          "output_tokens": 341,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "check_registry_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": false,
+          "similar_issues": [],
+          "notes": "none"
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 3.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 2599,
+          "output_tokens": 123,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 9,
+      "input_tokens": 17341,
+      "output_tokens": 1167,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "check_registry_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (windows-latest, 3.10)",
+    "duration_seconds": 23.7,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": "https://github.com/tharindra0622-sys/gha-demo/issues/165"
+  }
+}

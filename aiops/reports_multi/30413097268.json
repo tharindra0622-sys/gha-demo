@@ -1,0 +1,251 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/node-ci.yml_2_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/node-ci.yml",
+    "run_number": 2,
+    "run_attempt": 1,
+    "metadata_id": 30413097268,
+    "metadata_name": "Node CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHFMMJNA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "8b6ed8239e1d834056af6ab7011e31181c257b08",
+    "metadata_path": ".github/workflows/node-ci.yml",
+    "metadata_display_title": "Create package.json for Node.js demo project",
+    "metadata_run_number": 2,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322607052,
+    "metadata_check_suite_id": 82436676874,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATMZvdCg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-07-29T01:05:54Z",
+    "metadata_updated_at": "2026-07-29T01:07:01Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-07-29T01:05:54Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "8b6ed8239e1d834056af6ab7011e31181c257b08",
+    "metadata_head_commit_tree_id": "b61ae05b458312f2a73eafa857c03605097481e2",
+    "metadata_head_commit_message": "Create package.json for Node.js demo project\n\nInitialized package.json with project details and scripts.",
+    "metadata_head_commit_timestamp": "2026-07-29T01:05:52Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/30413097268/logs.zip",
+    "total_logs_size": 52636,
+    "log_num_jobs": 4,
+    "log_total_steps": 32,
+    "log_total_duration_sec": 171.0,
+    "log_shell_steps": 0,
+    "log_action_steps": 32,
+    "log_error_steps": 4,
+    "log_total_lines": 1600,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": true,
+    "log_num_os_types": 2,
+    "log_early3_total_dur": 7.0,
+    "log_early3_max_dur": 5.0,
+    "log_early3_min_dur": 1.0,
+    "log_early3_shell_count": 0,
+    "log_early3_action_count": 3,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 2.333333333333333,
+    "log_error_rate": 0.125,
+    "log_shell_ratio": 0.0,
+    "log_avg_step_dur": 5.34375,
+    "log_max_step_dur": 41.0,
+    "predicted_failure_probability": 0.2026785751350612,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The npm test step failed because Jest found no test files in the repository. According to the Log Analyst, the error message states \"No tests found, exiting with code 1\" with testMatch patterns **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x) matching 0 files. The commit message \"Create package.json for Node.js demo project\" and \"Initialized package.json with project details and scripts\" confirms this is a newly initialized project. The External Analyst verified this is expected Jest behavior when test files are absent, not a bug or infrastructure issue. No test files exist in the repository yet.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "config_error",
+      "recent_code_change"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Create at least one test file matching Jest's naming conventions (e.g., *.test.js, *.spec.js, or files in a __tests__ directory). Alternatively, if the project intentionally has no tests yet, add the --passWithNoTests flag to the test script in package.json: \"test\": \"jest --passWithNoTests\".",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "npm test",
+          "error_excerpt": "No tests found, exiting with code 1\nRun with `--passWithNoTests` to exit with code 0\ntestMatch: **/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x) - 0 matches",
+          "error_type": "no tests found",
+          "plain_summary": "The jest test runner found no test files matching its patterns and exited with code 1. The repository has no test files present in the expected locations or with expected naming conventions."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.3,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4866,
+          "output_tokens": 178,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step 'npm test' is meant to run tests using the test script defined in package.json. It is part of a Node.js CI pipeline that runs on multiple OS and Node versions.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 5.4,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3739,
+          "output_tokens": 146,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "This is a well-known Jest behavior, not a bug. Jest exits with code 1 when no test files are found matching its patterns (**/__tests__/**/*.[jt]s?(x), **/?(*.)+(spec|test).[tj]s?(x)). The web results confirm this is expected behavior when a project has no test files. The solution is either to create test files matching Jest's naming conventions or to pass --passWithNoTests flag to exit successfully when no tests exist.",
+          "notes": "GitHub status is currently clear, but this only reflects current status, not status at the time of failure. This is NOT an external issue - it's a repository configuration problem. The commit message says 'Initialized package.json' suggesting this is a new project setup, and the error clearly indicates no test files exist in the repository. This is a missing test file issue, not an infrastructure or external dependency problem."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 9.5,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3958,
+          "output_tokens": 319,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": false,
+          "similar_issues": [],
+          "notes": "none"
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 3.7,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 2689,
+          "output_tokens": 121,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 9,
+      "input_tokens": 17548,
+      "output_tokens": 1176,
+      "tool_calls": 7,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "build-and-test (ubuntu-latest, 18)",
+    "duration_seconds": 23.8,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": "https://github.com/tharindra0622-sys/gha-demo/issues/162"
+  }
+}

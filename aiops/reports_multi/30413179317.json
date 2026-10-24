@@ -1,0 +1,259 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/node-ci.yml_5_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/node-ci.yml",
+    "run_number": 5,
+    "run_attempt": 1,
+    "metadata_id": 30413179317,
+    "metadata_name": "Node CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHFMRJtQ",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "630c148eb8a51608f46d3f6629de0e1d732adb96",
+    "metadata_path": ".github/workflows/node-ci.yml",
+    "metadata_display_title": "Node CI",
+    "metadata_run_number": 5,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322607052,
+    "metadata_check_suite_id": 82436898498,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATMZ8-wg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-07-29T01:07:38Z",
+    "metadata_updated_at": "2026-07-29T01:08:54Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-07-29T01:07:38Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "630c148eb8a51608f46d3f6629de0e1d732adb96",
+    "metadata_head_commit_tree_id": "a107f2f38366cb0370a598ca07b63a043593d426",
+    "metadata_head_commit_message": "Add unit tests for math functions\n\nAdded unit tests for add, multiply, and isPrime functions, including a failure switch for testing purposes.",
+    "metadata_head_commit_timestamp": "2026-07-29T01:07:06Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/30413179317/logs.zip",
+    "total_logs_size": 54419,
+    "log_num_jobs": 4,
+    "log_total_steps": 32,
+    "log_total_duration_sec": 152.0,
+    "log_shell_steps": 0,
+    "log_action_steps": 32,
+    "log_error_steps": 4,
+    "log_total_lines": 1696,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": true,
+    "log_num_os_types": 2,
+    "log_early3_total_dur": 6.0,
+    "log_early3_max_dur": 5.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 0,
+    "log_early3_action_count": 3,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 2.0,
+    "log_error_rate": 0.125,
+    "log_shell_ratio": 0.0,
+    "log_avg_step_dur": 4.75,
+    "log_max_step_dur": 48.0,
+    "predicted_failure_probability": 0.0995911200362928,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test suite failed because the environment variable INJECT_FAILURE was set to \"true\", causing a deliberate assertion failure at line 18 of src/math.test.js. The failing line is `expect(true).toBe(false) // deliberate failure`, which is an intentional test that always fails when the INJECT_FAILURE environment variable is enabled. This is not a real code defect but rather a testing mechanism built into the test suite. The Log Analyst identified the exact error: \"expect(received).toBe(expected) // Object.is equality Expected: false Received: true\" from the \"inject failure switch\" test. The External Analyst confirmed this aligns with the commit message stating \"a failure switch for testing purposes,\" and the History Analyst found multiple similar past issues (#158, #159, #160, #121, #117) all related to INJECT_FAILURE deliberate failures.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "config_error",
+      "flaky_test"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Remove or set the INJECT_FAILURE environment variable to \"false\" in the workflow dispatch input, or remove the inject_failure input parameter from the workflow trigger if this deliberate failure test is no longer needed. If this was triggered unintentionally via workflow_dispatch, re-run the workflow without setting inject_failure=true. To prevent future confusion, consider documenting this testing mechanism clearly in the workflow file or removing it from production workflows.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "npm test",
+          "error_excerpt": "expect(received).toBe(expected) // Object.is equality\n\n    Expected: false\n    Received: true\n\n    [1m>[22m[90m 18 |[39m     expect([36mtrue[39m)[33m.[39mtoBe([36mfalse[39m)[33m;[39m [90m// deliberate failure[39m",
+          "error_type": "assertion failed",
+          "plain_summary": "The test \"inject failure switch\" failed because the environment variable INJECT_FAILURE was set to \"true\", causing a deliberate assertion failure where expect(true).toBe(false) was executed at line 18 of src/math.test.js."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 8.7,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 5021,
+          "output_tokens": 221,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run the test suite via npm test with an optional INJECT_FAILURE environment variable that can be set through a workflow_dispatch input to deliberately cause test failures for testing purposes.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none - the five most recent commits all involve CI/CD test-data rows, predictions, report loading, and metrics display. None of the commit messages indicate changes to the math test code or math functions that are failing. The commit message provided in the job context (Add unit tests for math functions) does not appear in the recent commit history, suggesting it may be older or the failure is in an older test that was triggered by a workflow dispatch with inject_failure set to true."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 8.7,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3837,
+          "output_tokens": 237,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub reports no current incidents. The error is a standard Jest assertion failure message (expect().toBe()), not a platform or infrastructure issue. The web search confirms this is normal Jest syntax for test assertions. The Log Analyst identified this as a deliberate test failure triggered by an environment variable INJECT_FAILURE='true', causing expect(true).toBe(false) to fail intentionally at line 18 of src/math.test.js. This is clearly an intentional test failure mechanism in the repository code itself, not an external or infrastructure problem. The commit message mentions 'a failure switch for testing purposes' which aligns with this finding."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 8.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4032,
+          "output_tokens": 274,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#158 CI Failure Diagnosis: .github/workflows/ci.yml #8",
+            "#159 CI Failure Diagnosis: .github/workflows/ci.yml #10",
+            "#160 CI Failure Diagnosis: .github/workflows/ci.yml #17",
+            "#121 CI Failure Diagnosis: .github/workflows/ci.yml #88",
+            "#117 CI Failure Diagnosis: .github/workflows/ci.yml #85"
+          ],
+          "notes": "Multiple past issues found related to INJECT_FAILURE deliberate failures in CI workflows. All issues are currently open but specific resolution details were not retrieved in search results."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 7.9,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4636,
+          "output_tokens": 327,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 20056,
+      "output_tokens": 1575,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "build-and-test (windows-latest, 18)",
+    "duration_seconds": 27.1,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": "https://github.com/tharindra0622-sys/gha-demo/issues/164"
+  }
+}
