@@ -258,6 +258,12 @@ def run_multi_agent_diagnosis(owner, repo, run_id, job, run_metadata, github_tok
         coordinator_error = None
 
     if final is None:
+        # Raise instead of saving an empty "unknown" diagnosis, so the control
+        # agent leaves this run pending and retries it later (for example
+        # after an API outage or a low credit balance).
+        raise RuntimeError(f"coordinator failed: {coordinator_error or 'no output'}")
+
+    if final is None:  # (kept for safety; not reached)
         diagnosis = {
             "root_cause": f"The coordinator agent did not return a diagnosis ({coordinator_error or 'no output'}).",
             "category": "unknown",
