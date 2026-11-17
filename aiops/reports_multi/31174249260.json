@@ -1,0 +1,258 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_44_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 44,
+    "run_attempt": 1,
+    "metadata_id": 31174249260,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHQiFLLA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "4464df5cd717ad2e8febd0f3a2879ecb279327cf",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add test run comment in calculator.py",
+    "metadata_run_number": 44,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 84591336961,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATsgleAQ",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-08-07T11:28:57Z",
+    "metadata_updated_at": "2026-08-07T11:29:15Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-08-07T11:28:57Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "4464df5cd717ad2e8febd0f3a2879ecb279327cf",
+    "metadata_head_commit_tree_id": "4769c0f4ba776ffe9387b6c5e0c9108b7548a711",
+    "metadata_head_commit_message": "Add test run comment in calculator.py\n\nAdded a comment for testing purposes regarding missing dependencies.",
+    "metadata_head_commit_timestamp": "2026-08-07T11:28:55Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/31174249260/logs.zip",
+    "total_logs_size": 5173,
+    "log_num_jobs": 3,
+    "log_total_steps": 6,
+    "log_total_duration_sec": 5.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 4,
+    "log_error_steps": 1,
+    "log_total_lines": 215,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 5.0,
+    "log_early3_max_dur": 4.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.6666666666666667,
+    "log_error_rate": 0.1666666666666666,
+    "log_shell_ratio": 0.3333333333333333,
+    "log_avg_step_dur": 0.8333333333333334,
+    "log_max_step_dur": 4.0,
+    "predicted_failure_probability": 0.126211479720552,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The flake8 linter failed with error E302 at line 4 of src/calculator.py. This is a PEP 8 style violation: the code has 0 blank lines before a function or class definition when 2 blank lines are required. The Log Analyst extracted the exact error: \"src/calculator.py:4:1: E302 expected 2 blank lines, found 0\". The commit message mentions \"Add test run comment in calculator.py\" which likely introduced or exposed this formatting issue. The History Analyst confirms this repository has experienced multiple recurring flake8 failures in calculator.py, including a previously closed issue #2 with the same E302 error.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "syntax_error",
+      "recent_code_change"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Add 2 blank lines before the function or class definition at line 4 in src/calculator.py to comply with PEP 8 formatting standards. The recent commit added a comment for testing purposes; ensure proper spacing follows that comment. After editing, run 'flake8 src --max-line-length=100' locally to verify the fix before committing.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run flake8 src --max-line-length=100",
+          "error_excerpt": "src/calculator.py:4:1: E302 expected 2 blank lines, found 0",
+          "error_type": "flake8 linting error",
+          "plain_summary": "The flake8 linter failed because calculator.py line 4 has a formatting violation: it expected 2 blank lines before a function or class definition but found 0."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.3,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 5054,
+          "output_tokens": 152,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run flake8 linter on the src directory with a maximum line length of 100 characters to check for PEP 8 compliance and code quality issues",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 4.9,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3860,
+          "output_tokens": 140,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "E302 is a standard PEP8 formatting rule enforced by flake8, requiring 2 blank lines before top-level function/class definitions. This is a code style violation in calculator.py, not an external issue. GitHub status shows no incidents (though this reflects current status only, not at failure time). No package installation involved, so registry check not needed. The error is repository-specific code formatting, not an external infrastructure or known tool bug."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 8.5,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3797,
+          "output_tokens": 227,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#2 CI Failure Diagnosis: .github/workflows/ci.yml #1 (state: closed)",
+            "#55 CI Failure Diagnosis: .github/workflows/ci.yml #49 (state: open)",
+            "#49 CI Failure Diagnosis: .github/workflows/ci.yml #43 (state: open)",
+            "#52 CI Failure Diagnosis: .github/workflows/ci.yml #46 (state: open)",
+            "#51 CI Failure Diagnosis: .github/workflows/ci.yml #45 (state: open)",
+            "#50 CI Failure Diagnosis: .github/workflows/ci.yml #44 (state: open)"
+          ],
+          "notes": "The repository has seen multiple flake8 failures in calculator.py. Issue #2 involving E302 blank line error was closed, suggesting it was previously resolved. Multiple open issues exist for the same workflow, indicating recurring flake8 linting problems with calculator.py."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 7.0,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 2757,
+          "output_tokens": 337,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 9,
+      "input_tokens": 17846,
+      "output_tokens": 1303,
+      "tool_calls": 7,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "lint",
+    "duration_seconds": 23.6,
+    "failing_step": "Lint with flake8"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

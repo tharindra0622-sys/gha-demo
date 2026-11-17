@@ -1,0 +1,265 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_65_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 65,
+    "run_attempt": 1,
+    "metadata_id": 35797937920,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAIVbkvAA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "4418642d6656db8dd9c9fc75cc9da88653f0dcd7",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Add Streamlit app for CI/CD failure prediction dashboard",
+    "metadata_run_number": 65,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 96930247827,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAWkX40kw",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-09-22T23:32:50Z",
+    "metadata_updated_at": "2026-09-22T23:33:45Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-09-22T23:32:50Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "4418642d6656db8dd9c9fc75cc9da88653f0dcd7",
+    "metadata_head_commit_tree_id": "2a33999b50a17b19e8bb89fbfe3fd323c514b5bf",
+    "metadata_head_commit_message": "Add Streamlit app for CI/CD failure prediction dashboard\n\nThis file implements a Streamlit app for visualizing CI/CD failure predictions using data from a GitHub repository. It includes features for displaying live metrics, model performance, and AI-generated diagnoses.",
+    "metadata_head_commit_timestamp": "2026-09-22T23:32:48Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/35797937920/logs.zip",
+    "total_logs_size": 40253,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 85.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 1691,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 3.0,
+    "log_early3_max_dur": 2.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.023809523809524,
+    "log_max_step_dur": 23.0,
+    "predicted_failure_probability": 0.2410266633594368,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed with a TypeError in the compute_average_score function when attempting to add an integer to a string: `total += r[\"score\"]` where a score value was '95' (string) instead of an integer. The Log Analyst identified the exact error: \"TypeError: unsupported operand type(s) for +=: 'int' and 'str'\". This is a classic Python type mismatch bug where numeric data is being handled as strings instead of integers. The Config & Change Analyst identified commit 76ec4fd 'Enhance diagnosis process with failure tracking' as the likely culprit, which appears to have modified data handling or test fixtures and introduced this type mismatch. The History Analyst confirmed this repository has experienced similar type-related failures before, with multiple past issues mentioning TypeError with int and str operands in score handling and test_process_pipeline.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "recent_code_change"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Review commit 76ec4fd 'Enhance diagnosis process with failure tracking' and fix the data type handling in test_process_pipeline or its test fixtures. Ensure that score values are passed as integers (95) rather than strings ('95'). If the data source provides strings, add explicit type conversion (e.g., int(r[\"score\"])) in the compute_average_score function before performing arithmetic operations. Add type validation or type hints to prevent this class of bug from recurring.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed in the compute_average_score function when attempting to add an integer to a string. A score value was passed as '95' (string) instead of an integer, causing a TypeError when summing scores."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4746,
+          "output_tokens": 172,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step 'Run tests' (pytest tests -v) is meant to execute the project's test suite using pytest with verbose output. It runs as part of a matrix testing strategy across multiple operating systems and Python versions.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": true,
+          "recent_change_detail": "Commit 76ec4fd 'Enhance diagnosis process with failure tracking' is suspected. The error occurs in test_process_pipeline where the compute_average_score function receives a string '95' instead of an integer for a score value. This commit mentions enhancing the diagnosis process, which likely modified data handling or test fixtures, introducing the type mismatch bug."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 7.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3994,
+          "output_tokens": 227,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub status shows no active incidents (though this reflects current status, not at time of failure). The error is a standard Python TypeError when adding int and str, a code-level type mismatch bug. Web results explain this is a common Python programming error requiring explicit type conversion, not an external infrastructure or dependency issue. This is clearly an application code bug in the test_process_pipeline test where score data was passed as string '95' instead of integer 95."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 8.7,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3974,
+          "output_tokens": 237,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#453",
+            "#474",
+            "#127",
+            "#123",
+            "#466",
+            "#464",
+            "#465",
+            "#446",
+            "#472",
+            "#458",
+            "#457",
+            "#152"
+          ],
+          "notes": "Multiple open CI failure diagnosis issues exist in this repository. The search found several issues related to TypeError with int and str operands, as well as issues mentioning score, string, integer, and type problems. The test_process_pipeline and compute_average_score function are also referenced in past issues. This suggests the repository has experienced similar type-related failures before, particularly around score handling in the pipeline processing tests."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 13.0,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4942,
+          "output_tokens": 309,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 20110,
+      "output_tokens": 1437,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (macos-latest, 3.12)",
+    "duration_seconds": 29.1,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_58_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 58,
+    "run_attempt": 1,
+    "metadata_id": 35162090380,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAIL9LrjA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "b475d3f2d4485258e4928305fb2058dd6b58e8b6",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Create langchain_multi_tool_agent_v2.py",
+    "metadata_run_number": 58,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 95227360302,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAWK_40Lg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-09-16T23:23:39Z",
+    "metadata_updated_at": "2026-09-16T23:24:31Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-09-16T23:23:39Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "b475d3f2d4485258e4928305fb2058dd6b58e8b6",
+    "metadata_head_commit_tree_id": "19af2e2a4e44b6517d35586ca95d57ae5833be06",
+    "metadata_head_commit_message": "Create langchain_multi_tool_agent_v2.py",
+    "metadata_head_commit_timestamp": "2026-09-16T23:23:37Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/35162090380/logs.zip",
+    "total_logs_size": 96176,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 95.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3326,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 5.0,
+    "log_early3_max_dur": 3.0,
+    "log_early3_min_dur": 1.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 1.6666666666666667,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.261904761904762,
+    "log_max_step_dur": 22.0,
+    "predicted_failure_probability": 0.2671286863546127,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test test_process_pipeline failed due to a TypeError in the compute_average_score function. The error occurs at the line `total += r[\"score\"]` where the code attempts to add an integer (total) and a string ('95'). The Log Analyst identified the exact error: \"TypeError: unsupported operand type(s) for +=: 'int' and 'str'\". This indicates that a score value that should be an integer is being passed as a string instead. The History Analyst confirms this is a recurring problem in the repository, with 15 similar open issues (#453, #474, #127, etc.) all showing the same TypeError pattern with test_process_pipeline and compute_average_score.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "flaky_test"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Fix the compute_average_score function to ensure all score values are integers before performing arithmetic operations. Either convert string scores to integers (e.g., `total += int(r[\"score\"])`) or fix the data source that is providing scores as strings instead of integers. Since this is a recurring issue with 15 open similar failures, also review the test data setup in test_process_pipeline to ensure consistent type handling for score fields.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test_process_pipeline",
+          "error_excerpt": "total += r[\"score\"]   # <-- fails here: int + str\nE           TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "TypeError",
+          "plain_summary": "The test test_process_pipeline failed in the compute_average_score function when attempting to add an integer and a string. A score value that should have been an integer was passed as a string ('95'), causing a TypeError when trying to sum the scores."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4651,
+          "output_tokens": 174,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run pytest tests in verbose mode against the tests directory, with an optional INJECT_FAILURE environment variable for deliberate failures",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 5.1,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3916,
+          "output_tokens": 130,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "nothing relevant found",
+          "notes": "GitHub status is currently clear. The error is a standard Python TypeError caused by attempting to add an integer and a string. Web search results show this is a common Python programming error (type mismatch), not a platform, dependency, or infrastructure issue. The error is internal to the repository's code - specifically in the compute_average_score function where a score value '95' is a string instead of an integer. This is a code bug, not an external or environmental problem."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 8.2,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3884,
+          "output_tokens": 239,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#453",
+            "#474",
+            "#127",
+            "#123",
+            "#466",
+            "#464",
+            "#149",
+            "#454",
+            "#120",
+            "#129",
+            "#465",
+            "#446",
+            "#472",
+            "#458",
+            "#457"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found with similar error patterns involving TypeError with int and str operands, and issues related to test_process_pipeline and compute_average_score function. All similar issues are currently open, indicating this is a recurring failure pattern in the repository."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 7.6,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4818,
+          "output_tokens": 285,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 19575,
+      "output_tokens": 1270,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (windows-latest, 3.10)",
+    "duration_seconds": 24.1,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

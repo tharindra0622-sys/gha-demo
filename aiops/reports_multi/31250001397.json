@@ -1,0 +1,257 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/network_failure_test.yml_1_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/network_failure_test.yml",
+    "run_number": 1,
+    "run_attempt": 1,
+    "metadata_id": 31250001397,
+    "metadata_name": "Network Failure Test",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHRqUt9Q",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "050acaa8430b212848e16f7d22dbacb7a7fbcd11",
+    "metadata_path": ".github/workflows/network_failure_test.yml",
+    "metadata_display_title": "Network Failure Test",
+    "metadata_run_number": 1,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 329881042,
+    "metadata_check_suite_id": 84795540198,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATvjVC5g",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-08-08T09:10:37Z",
+    "metadata_updated_at": "2026-08-08T09:10:51Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-08-08T09:10:37Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "050acaa8430b212848e16f7d22dbacb7a7fbcd11",
+    "metadata_head_commit_tree_id": "c2db0ca433b4c334595d4ca46dfdf7ffa7797de5",
+    "metadata_head_commit_message": "Add network failure test workflow",
+    "metadata_head_commit_timestamp": "2026-08-08T09:09:57Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/31250001397/logs.zip",
+    "total_logs_size": 8751,
+    "log_num_jobs": 1,
+    "log_total_steps": 3,
+    "log_total_duration_sec": 1.0,
+    "log_shell_steps": 1,
+    "log_action_steps": 2,
+    "log_error_steps": 1,
+    "log_total_lines": 274,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 1.0,
+    "log_early3_max_dur": 1.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 1,
+    "log_early3_avg_dur": 0.3333333333333333,
+    "log_error_rate": 0.3333333333333333,
+    "log_shell_ratio": 0.3333333333333333,
+    "log_avg_step_dur": 0.3333333333333333,
+    "log_max_step_dur": 1.0,
+    "predicted_failure_probability": 0.3769576313256886,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The job failed with curl exit code 6 because it attempted to resolve the domain 'this-domain-does-not-exist-gha-demo-test.invalid', which is a deliberately invalid domain name that cannot be resolved via DNS. The Log Analyst identified the exact error: \"curl: (6) Could not resolve host: this-domain-does-not-exist-gha-demo-test.invalid\". This is an intentional test workflow designed to simulate network/DNS failures, as confirmed by the workflow name \"network_failure_test.yml\", the commit message \"Add network failure test workflow\", and the Config & Change Analyst's finding that the step is explicitly designed to test failure scenarios. The External Analyst confirmed that .invalid is a reserved TLD per RFC 2606 that is guaranteed to be unresolvable, and the History Analyst found a previous identical issue (#58) for the same workflow. This is not a bug but expected behavior for a negative test case.",
+    "category": "network_timeout",
+    "alternative_categories": [
+      "test_failure",
+      "flaky_test"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "This workflow is operating as designed\u2014it intentionally tests network failure scenarios by attempting to reach an unresolvable domain. If this is truly a test workflow meant to fail, no fix is needed; the failure validates that the test is working correctly. If you want the workflow to pass, either: (1) remove or comment out the test step that curls the invalid domain, (2) add '|| true' to the curl command to ignore the expected failure, or (3) add 'continue-on-error: true' to the failing step in the workflow YAML. However, based on the workflow's purpose, the most appropriate action is to recognize this as an expected test failure and close or document issue #58 accordingly.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run echo \"Attempting to contact an unreachable service...\"",
+          "error_excerpt": "curl: (6) Could not resolve host: this-domain-does-not-exist-gha-demo-test.invalid\n##[error]Process completed with exit code 6.",
+          "error_type": "DNS resolution failure",
+          "plain_summary": "The job failed because curl could not resolve the host 'this-domain-does-not-exist-gha-demo-test.invalid'. The curl command exited with code 6, indicating the domain name could not be resolved."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 5.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4718,
+          "output_tokens": 177,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step is designed to intentionally simulate a network/DNS failure by attempting to curl a non-existent domain (this-domain-does-not-exist-gha-demo-test.invalid) with --fail and --max-time 10 flags. This is a test workflow triggered manually (workflow_dispatch) to generate failure data.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 6.1,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3534,
+          "output_tokens": 178,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "curl exit code 6 (CURLE_COULDNT_RESOLVE_HOST) is a standard DNS resolution failure. Web sources confirm this occurs when curl cannot resolve a hostname to an IP address via DNS lookup. Common causes include invalid/nonexistent domains, DNS server issues, or network connectivity problems. This is expected behavior when attempting to reach a deliberately invalid domain.",
+          "notes": "GitHub status shows no current incidents (though this only reflects current status, not at time of failure). The domain 'this-domain-does-not-exist-gha-demo-test.invalid' appears intentionally crafted to be unresolvable (.invalid is a reserved TLD per RFC 2606). The workflow name 'network_failure_test.yml' and commit message 'Add network failure test workflow' strongly suggest this is an intentional test of failure scenarios, not a genuine bug. The error is working exactly as designed for testing negative cases."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 9.7,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3858,
+          "output_tokens": 321,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#58 CI Failure Diagnosis: .github/workflows/network_failure_test.yml #1"
+          ],
+          "notes": "Issue #58 is an open issue for the same workflow (network_failure_test.yml) with the same DNS resolution failure for the domain 'this-domain-does-not-exist-gha-demo-test.invalid' and curl exit code 6."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 7.4,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4379,
+          "output_tokens": 306,
+          "tool_calls": 4,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 18884,
+      "output_tokens": 1568,
+      "tool_calls": 9,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "network_test",
+    "duration_seconds": 27.8,
+    "failing_step": "Try to reach a non-existent host (simulates a real network/DNS failure)"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

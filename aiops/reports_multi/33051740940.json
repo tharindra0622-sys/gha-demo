@@ -1,0 +1,257 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/aiops_diagnose.yml_157_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/aiops_diagnose.yml",
+    "run_number": 157,
+    "run_attempt": 1,
+    "metadata_id": 33051740940,
+    "metadata_name": "AIOps Failure Diagnosis",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHsgmLDA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "479f17d55e401b4ee48f0721ff6b2992e298a0b8",
+    "metadata_path": ".github/workflows/aiops_diagnose.yml",
+    "metadata_display_title": "AIOps Failure Diagnosis",
+    "metadata_run_number": 157,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322066213,
+    "metadata_check_suite_id": 89546826788,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAU2WgkJA",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-08-27T07:55:10Z",
+    "metadata_updated_at": "2026-08-27T07:56:31Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-08-27T07:55:10Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "479f17d55e401b4ee48f0721ff6b2992e298a0b8",
+    "metadata_head_commit_tree_id": "0740e8501965bd440112d4ca20edf8a7441a315b",
+    "metadata_head_commit_message": "chore: append new CI/CD test-data rows + predictions [skip ci]",
+    "metadata_head_commit_timestamp": "2026-08-27T07:53:33Z",
+    "metadata_head_commit_author_name": "github-actions[bot]",
+    "metadata_head_commit_author_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_head_commit_committer_name": "github-actions[bot]",
+    "metadata_head_commit_committer_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/33051740940/logs.zip",
+    "total_logs_size": 8277,
+    "log_num_jobs": 1,
+    "log_total_steps": 7,
+    "log_total_duration_sec": 73.0,
+    "log_shell_steps": 3,
+    "log_action_steps": 4,
+    "log_error_steps": 1,
+    "log_total_lines": 364,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 14.0,
+    "log_early3_max_dur": 13.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 4.666666666666667,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.4285714285714285,
+    "log_avg_step_dur": 10.428571428571429,
+    "log_max_step_dur": 58.0,
+    "predicted_failure_probability": 0.4344994291523246,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The git push in the \"Commit & push diagnosis reports\" step was rejected because the remote branch (main) contains commits not present in the local working tree. The Log Analyst identified the exact error: \"! [rejected] main -> main (fetch first) / error: failed to push some refs\". This is a race condition: while this workflow was running, another process (likely a concurrent workflow run or another automated job) pushed commits to main. The Config & Change Analyst confirmed the workflow performs \"git push\" without first running \"git pull\" or \"git pull --rebase\", making it vulnerable to concurrent pushes. The History Analyst found this is a recurring problem in this repository, with at least three similar issues previously reported in the same workflow (issues #445, #444, #48). The External Analyst confirmed this is a well-known Git concurrency issue, not a platform or infrastructure problem.",
+    "category": "config_error",
+    "alternative_categories": [
+      "infrastructure_issue",
+      "flaky_test"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Modify the \"Commit & push diagnosis reports\" step in .github/workflows/aiops_diagnose.yml to pull remote changes before pushing. Add \"git pull --rebase origin main\" (or \"git pull origin main\") before the \"git push\" command. Alternatively, implement retry logic with a loop that catches push failures and re-attempts after pulling, or use a more robust approach like creating pull requests instead of direct pushes to avoid race conditions between concurrent workflow runs.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Commit & push diagnosis reports",
+          "error_excerpt": " ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/tharindra0622-sys/gha-demo'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to",
+          "error_type": "git push rejected",
+          "plain_summary": "The git push failed because the remote branch contains commits that are not present locally. Another process pushed to the same branch while this workflow was running, causing a merge conflict."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 8.2,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4881,
+          "output_tokens": 186,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Commits and pushes the diagnosis reports generated by the control agent to the aiops/ directory. It configures git user details, stages all changes in aiops/, and commits them with a '[skip ci]' message if there are changes; otherwise skips.",
+          "config_issue_found": true,
+          "config_issue": "The workflow file does not pull remote changes before attempting to push. The 'Commit diagnosis reports' step runs 'git push' without first running 'git pull' or 'git pull --rebase'. Since this workflow is triggered by another workflow ('Collect CI/CD Test Data') that also commits to the same repository (as evidenced by the recent commits showing automated bot commits), concurrent executions can cause push failures when the remote has moved ahead.",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 8.6,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3843,
+          "output_tokens": 252,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "This is a well-known Git error that occurs when the remote branch has commits that are not present locally. Multiple Stack Overflow threads and Git tutorials explain this happens when another process/user pushes to the same branch while the local work is in progress, creating a divergence. The standard resolution is to fetch and merge (or rebase) before pushing, or in CI/CD contexts with automatic commits, implement retry logic or handle race conditions between concurrent workflow runs.",
+          "notes": "GitHub status shows no platform incidents currently. This is a Git concurrency/race condition issue, not an external service problem. The error is application-level behavior (Git's push rejection to prevent data loss) rather than infrastructure failure. The workflow appears to auto-commit diagnosis reports, and concurrent runs or manual pushes could create this race condition. Status checks reflect current time only, not the failure timestamp (2026-08-27T07:55:10Z)."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 11.4,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3967,
+          "output_tokens": 313,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#445 CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #157",
+            "#444 CI Failure Diagnosis: .github/workflows/collect_test_data.yml #138",
+            "#48 CI Failure Diagnosis: .github/workflows/aiops_diagnose.yml #67"
+          ],
+          "notes": "This repository has multiple past issues with git push rejection errors in the same workflow (aiops_diagnose.yml) and similar workflows. The errors occur in the 'Commit & push diagnosis reports' step when the remote branch contains commits not present locally, indicating concurrent pushes to the same branch."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 8.3,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4339,
+          "output_tokens": 315,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 19569,
+      "output_tokens": 1542,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "diagnose",
+    "duration_seconds": 29.5,
+    "failing_step": "Commit diagnosis reports"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

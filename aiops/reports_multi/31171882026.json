@@ -1,0 +1,253 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_37_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 37,
+    "run_attempt": 1,
+    "metadata_id": 31171882026,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHQf0sKg",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "c499485ab73350d07723594197ff8213766e1e66",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Fix formatting by removing trailing newline",
+    "metadata_run_number": 37,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 84584862358,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATsaaSlg",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-08-07T10:53:28Z",
+    "metadata_updated_at": "2026-08-07T10:54:25Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-08-07T10:53:28Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "c499485ab73350d07723594197ff8213766e1e66",
+    "metadata_head_commit_tree_id": "4b13730a52b4d49d1f83f3aa8ee59b3f38a1c229",
+    "metadata_head_commit_message": "Fix formatting by removing trailing newline\n\nRemoved trailing newline at the end of the diagnosed_runs.json file.",
+    "metadata_head_commit_timestamp": "2026-08-07T10:53:26Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/31171882026/logs.zip",
+    "total_logs_size": 96849,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 91.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3262,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 9.0,
+    "log_early3_max_dur": 8.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 3.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.1666666666666665,
+    "log_max_step_dur": 23.0,
+    "predicted_failure_probability": 0.2554210658984137,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test collection failed with an ImportError because the test module could not import the 'add' function from the calculator module located at src/calculator.py. The Log Analyst extracted the exact error: \"ImportError: cannot import name 'add' from 'calculator' (/Users/runner/work/gha-demo/gha-demo/tests/../src/calculator.py)\". This indicates that the 'add' function is either missing, renamed, or not properly defined/exported in the calculator module.\n\nThe Config & Change Analyst identified commit 76ec4fd ('Enhance diagnosis process with failure tracking' by Tharindra Serasinghe on 2026-10-24T06:34:22Z) as the only recent commit modifying application or test code (as opposed to CI/CD data files). This commit is suspected of removing, renaming, or altering the 'add' function. The current commit message (\"Fix formatting by removing trailing newline\" in diagnosed_runs.json) only touches a data file unrelated to the calculator module, which suggests the failing code predates the current commit or was introduced in commit 76ec4fd.\n\nThe External Analyst confirmed this is a code-level issue, not an infrastructure or dependency problem, and noted that GitHub platform status shows no incidents.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "recent_code_change",
+      "syntax_error"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Inspect src/calculator.py to verify that the 'add' function is defined and properly exported. If the function was removed or renamed in commit 76ec4fd, either restore it or update tests/test_calculator.py to match the new function name. If the function exists but isn't exported, ensure it's at module level and not inside a class or conditional block that prevents import.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "pytest tests -v",
+          "error_excerpt": "E   ImportError: cannot import name 'add' from 'calculator' (/Users/runner/work/gha-demo/gha-demo/tests/../src/calculator.py)",
+          "error_type": "ImportError",
+          "plain_summary": "The test collection failed because the test module could not import the 'add' function from the calculator module. Pytest encountered an ImportError when trying to import 'add' from 'calculator' in tests/test_calculator.py."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.0,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4775,
+          "output_tokens": 167,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step 'pytest tests -v' is meant to run the project's test suite using pytest in verbose mode. It runs after installing dependencies (from requirements.txt) and uses the INJECT_FAILURE environment variable that can be set via workflow_dispatch input to deliberately inject failures for testing purposes.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": true,
+          "recent_change_detail": "Commit 76ec4fd 'Enhance diagnosis process with failure tracking' by Tharindra Serasinghe on 2026-10-24T06:34:22Z is suspected. This commit is the only recent commit that modifies application or test code (rather than just CI/CD data files or workflow configs). The ImportError indicates that the 'add' function is missing from the calculator module, which suggests this commit may have removed or renamed the function, or changed the module structure."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 8.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3926,
+          "output_tokens": 275,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "ImportError: cannot import name is a standard Python error that occurs when the module is found but the specific name being imported does not exist in that module. Common causes include: the function/class doesn't exist in the module, circular imports, typos in the import statement, or version mismatches. This is a code-level issue, not an infrastructure or dependency installation problem.",
+          "notes": "GitHub status check shows no active incidents currently (though this reflects current status, not status at time of failure on 2026-08-07T10:53:28Z). The error is clearly code-related: the 'add' function is missing or not defined in src/calculator.py. The commit message mentions 'Fix formatting by removing trailing newline' in diagnosed_runs.json, which is unrelated to the calculator module, suggesting this may be a pre-existing issue or the wrong code was committed. This is NOT an external infrastructure issue."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 10.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3836,
+          "output_tokens": 316,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": false,
+          "similar_issues": [],
+          "notes": "none"
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 6.2,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4442,
+          "output_tokens": 186,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 19396,
+      "output_tokens": 1499,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (macos-latest, 3.12)",
+    "duration_seconds": 26.1,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/server_error_test.yml_1_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/server_error_test.yml",
+    "run_number": 1,
+    "run_attempt": 1,
+    "metadata_id": 35162406663,
+    "metadata_name": "Server Error Test",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAIL9e_Bw",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "9350c3668fb6a74a978c51f16fe175c646995ddb",
+    "metadata_path": ".github/workflows/server_error_test.yml",
+    "metadata_display_title": "Server Error Test",
+    "metadata_run_number": 1,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 360071651,
+    "metadata_check_suite_id": 95228167840,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAWLAqGoA",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-09-16T23:27:58Z",
+    "metadata_updated_at": "2026-09-16T23:28:05Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-09-16T23:27:58Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "9350c3668fb6a74a978c51f16fe175c646995ddb",
+    "metadata_head_commit_tree_id": "7d84e7b07324533ff072d2b134929aec4e4c928c",
+    "metadata_head_commit_message": "Add three new tools to CI/CD diagnosis agent\n\nExpanded the multi-tool CI/CD diagnosis agent by adding three new tools for better error diagnosis. The new tools include web search for errors, registry status checks, and recent commit analysis.",
+    "metadata_head_commit_timestamp": "2026-09-16T23:24:04Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/35162406663/logs.zip",
+    "total_logs_size": 8879,
+    "log_num_jobs": 1,
+    "log_total_steps": 3,
+    "log_total_duration_sec": 1.0,
+    "log_shell_steps": 1,
+    "log_action_steps": 2,
+    "log_error_steps": 1,
+    "log_total_lines": 280,
+    "log_has_linux": true,
+    "log_has_macos": false,
+    "log_has_windows": false,
+    "log_num_os_types": 1,
+    "log_early3_total_dur": 1.0,
+    "log_early3_max_dur": 1.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 1,
+    "log_early3_avg_dur": 0.3333333333333333,
+    "log_error_rate": 0.3333333333333333,
+    "log_shell_ratio": 0.3333333333333333,
+    "log_avg_step_dur": 0.3333333333333333,
+    "log_max_step_dur": 1.0,
+    "predicted_failure_probability": 0.3725037413399028,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The curl command failed because the third-party testing service httpstat.us returned HTTP 404 instead of the expected HTTP 500 status code. The Log Analyst found the exact error: \"curl: (22) The requested URL returned error: 404\" when calling https://httpstat.us/500 with the --fail flag. This is an external service reliability issue, not a problem with the workflow code itself. The History Analyst confirms this same failure pattern has occurred multiple times before (issues #452, #140, #22), all involving httpstat.us returning 404 errors in the server_error_test.yml workflow. The External Analyst notes that httpstat.us is a known testing service that experiences outages, and the service was malfunctioning at the time of this run.",
+    "category": "infrastructure_issue",
+    "alternative_categories": [
+      "network_timeout",
+      "flaky_test"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Replace the unreliable httpstat.us service with a more stable alternative for testing HTTP error responses. Options include: (1) use httpbin.org/status/500 which is more reliable, (2) mock the HTTP response within the test rather than depending on an external service, or (3) add retry logic with --retry flags to curl to tolerate transient service failures. Given the recurring nature of this issue across multiple runs, switching to a more reliable service or mocking is recommended over retries.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "Run echo \"Calling a live endpoint that deliberately returns HTTP 500...\"",
+          "error_excerpt": "curl: (22) The requested URL returned error: 404\n##[error]Process completed with exit code 22.",
+          "error_type": "HTTP 404",
+          "plain_summary": "The curl command called https://httpstat.us/500 with the --fail flag but received an HTTP 404 error instead of the expected 500, causing curl to exit with code 22."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.1,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4800,
+          "output_tokens": 156,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The step is designed to call the https://httpstat.us/500 endpoint, which is expected to deliberately return an HTTP 500 (server error) response. The curl command uses the --fail flag to make curl exit with an error code when an HTTP error occurs.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 6.0,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3565,
+          "output_tokens": 161,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "httpstat.us is a third-party service for generating HTTP status codes for testing purposes. The workflow expected an HTTP 500 response but received HTTP 404 instead. Web search reveals httpstat.us is a known testing service but also shows multiple service monitoring sites tracking its uptime, suggesting it experiences outages. The 404 error indicates the httpstat.us service may have been down or malfunctioning at the time of the workflow run, returning 404 instead of the requested 500 status code.",
+          "notes": "This failure is caused by an external dependency (httpstat.us) not working as expected. GitHub status shows no current platform issues. The error is not related to package installation so registry status was not checked. The workflow is testing error handling by deliberately calling an endpoint that should return HTTP 500, but the service returned 404 instead, which suggests the httpstat.us service itself was experiencing issues at the time of the run."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 14.9,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 6375,
+          "output_tokens": 384,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#452 CI Failure Diagnosis: .github/workflows/server_error_test.yml #1",
+            "#140 CI Failure Diagnosis: .github/workflows/server_error_test.yml #3",
+            "#22 CI Failure Diagnosis: .github/workflows/ci.yml #29"
+          ],
+          "notes": "Multiple similar issues found involving curl exit code 22 and httpstat.us 404 errors, particularly in the same workflow (server_error_test.yml). Issue #452 is the most recent with identical workflow. Issue #22 was closed, suggesting past resolution."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 6.3,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 2826,
+          "output_tokens": 251,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 20016,
+      "output_tokens": 1436,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "server_error_test",
+    "duration_seconds": 31.3,
+    "failing_step": "Call an endpoint that returns a real HTTP 500 error"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

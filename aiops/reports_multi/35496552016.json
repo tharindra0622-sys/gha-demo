@@ -1,0 +1,265 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_61_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 61,
+    "run_attempt": 1,
+    "metadata_id": 35496552016,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAIQ8JmUA",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "7416b58f373bf7eb4b9a0d1a647f7b35a743b215",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "CI",
+    "metadata_run_number": 61,
+    "metadata_event": "workflow_dispatch",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 96116590326,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAAWYP7G9g",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-09-20T07:19:23Z",
+    "metadata_updated_at": "2026-09-20T07:20:26Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-09-20T07:19:23Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "7416b58f373bf7eb4b9a0d1a647f7b35a743b215",
+    "metadata_head_commit_tree_id": "12c19cacae66636368a956dcb288e3ccce4bf995",
+    "metadata_head_commit_message": "chore: add AIOps failure diagnosis reports [skip ci]",
+    "metadata_head_commit_timestamp": "2026-09-20T03:47:10Z",
+    "metadata_head_commit_author_name": "github-actions[bot]",
+    "metadata_head_commit_author_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_head_commit_committer_name": "github-actions[bot]",
+    "metadata_head_commit_committer_email": "github-actions[bot]@users.noreply.github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/35496552016/logs.zip",
+    "total_logs_size": 42034,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 83.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 1775,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 6.0,
+    "log_early3_max_dur": 5.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 2.0,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 1.9761904761904765,
+    "log_max_step_dur": 22.0,
+    "predicted_failure_probability": 0.5185005933112985,
+    "predicted_label": 1
+  },
+  "diagnosis": {
+    "root_cause": "The CI job failed due to two distinct test failures identified by the Log Analyst:\n\n1. **test_inject_failure** - Failed with \"AssertionError: Intentional failure triggered via INJECT_FAILURE\". This is deliberate, triggered by the INJECT_FAILURE environment variable set in the workflow to generate real failure data for testing purposes.\n\n2. **test_process_pipeline** - Failed with \"TypeError: unsupported operand type(s) for +=: 'int' and 'str'\" in the compute_average_score() function. This is a real code defect where the function attempts to perform arithmetic addition between incompatible types (integer and string).\n\nThe Config & Change Analyst confirmed that recent commits (last 5) are all automated bot commits for appending test-data or workflow enhancements, with no changes to application code (calculator.py, data_processor.py) or tests. The History Analyst found this exact TypeError pattern has occurred multiple times before in issues #453, #474, #127, #123, #466, #464, #465, #446, #472, and #458, indicating a persistent code defect in the data_processor module.\n\nThe External Analyst confirmed this is a standard Python programming error requiring type conversion, not an infrastructure or external dependency issue.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "flaky_test",
+      "recent_code_change"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "1. **For the intentional failure (test_inject_failure)**: If this failure is expected for testing purposes, either remove the INJECT_FAILURE trigger or skip this test in production CI runs by setting the input parameter `inject_failure` to false in workflow dispatch events.\n\n2. **For the real defect (test_process_pipeline)**: Fix the TypeError in the compute_average_score() function in data_processor.py by ensuring type consistency before performing arithmetic operations. Specifically, convert string values to integers/floats before adding them, or validate input types earlier in the pipeline. Example: use `int(value)` or `float(value)` conversion, or add type checking to reject incompatible inputs. This issue has recurred multiple times (seen in 11+ previous issues), suggesting the fix needs to be permanent and thoroughly tested.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "test (ubuntu-latest, 3.12)",
+          "error_excerpt": "AssertionError: Intentional failure triggered via INJECT_FAILURE\nFAILED tests/test_calculator.py::test_inject_failure - AssertionError: Intentional failure triggered via INJECT_FAILURE\nFAILED tests/test_data_processor.py::test_process_pipeline - TypeError: unsupported operand type(s) for +=: 'int' and 'str'",
+          "error_type": "test failures",
+          "plain_summary": "Two tests failed: test_inject_failure failed with an intentional assertion error triggered by the INJECT_FAILURE environment variable, and test_process_pipeline failed with a TypeError when trying to add an integer and a string in compute_average_score()."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 7.5,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4653,
+          "output_tokens": 234,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "The failing step 'Run tests' is meant to execute pytest tests in verbose mode. It has an environment variable INJECT_FAILURE that is set to the value of the workflow_dispatch input inject_failure, which when true deliberately causes test failures for generating real failure data.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none - the last 5 commits are all automated bot commits that only append test-data rows and predictions, or enhance the diagnosis process (workflow/agent changes). None of the commits indicate changes to the application code (calculator.py or data_processor.py) or test code that would introduce the TypeError in test_process_pipeline."
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 8.5,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4038,
+          "output_tokens": 230,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "The TypeError about unsupported operand types for int and str is a well-documented Python programming error that occurs when trying to use arithmetic operators between incompatible types. Multiple sources confirm this is a common Python type mismatch error requiring explicit type conversion, not an infrastructure or dependency issue.",
+          "notes": "GitHub status check shows no active incidents at the time of this check (though the failure occurred at 2026-09-20T07:19:23Z). The failures appear to be code-level issues: one is an intentional test failure triggered by an INJECT_FAILURE environment variable, and the other is a standard Python TypeError from attempting to add an int and a str. Both are application code problems, not external infrastructure issues. No package installation errors were reported, so registry status was not checked."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 9.9,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4023,
+          "output_tokens": 300,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#159 CI Failure Diagnosis: .github/workflows/ci.yml #10",
+            "#453 CI Failure Diagnosis: .github/workflows/ci.yml #60",
+            "#474 CI Failure Diagnosis: .github/workflows/ci.yml #81",
+            "#127 CI Failure Diagnosis: .github/workflows/ci.yml #93",
+            "#123 CI Failure Diagnosis: .github/workflows/ci.yml #89",
+            "#466 CI Failure Diagnosis: .github/workflows/ci.yml #73",
+            "#464 CI Failure Diagnosis: .github/workflows/ci.yml #71",
+            "#465 CI Failure Diagnosis: .github/workflows/ci.yml #72",
+            "#446 CI Failure Diagnosis: .github/workflows/ci.yml #55",
+            "#472 CI Failure Diagnosis: .github/workflows/ci.yml #79",
+            "#458 CI Failure Diagnosis: .github/workflows/ci.yml #65"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found for the same workflow. Issue #159 relates to INJECT_FAILURE intentional assertion error. Issues #453, #474, #127, #123, #466, #464, #465, #446, #472, and #458 relate to TypeError with unsupported operand types for int and str in test_process_pipeline/compute_average_score. Both error patterns have been seen multiple times before in this repository."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 9.8,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4788,
+          "output_tokens": 513,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 20243,
+      "output_tokens": 1950,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (ubuntu-latest, 3.12)",
+    "duration_seconds": 30.9,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}

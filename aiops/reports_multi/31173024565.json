@@ -1,0 +1,258 @@
+{
+  "run": {
+    "_id": "tharindra0622-sys/gha-demo_.github/workflows/ci.yml_41_1",
+    "repository_name": "tharindra0622-sys/gha-demo",
+    "workflow_path": ".github/workflows/ci.yml",
+    "run_number": 41,
+    "run_attempt": 1,
+    "metadata_id": 31173024565,
+    "metadata_name": "CI",
+    "metadata_node_id": "WFR_kwLOSbVT3s8AAAAHQg6bNQ",
+    "metadata_head_branch": "main",
+    "metadata_head_sha": "7a9b9a75140bb1f0bd074eb3f105f713f3332286",
+    "metadata_path": ".github/workflows/ci.yml",
+    "metadata_display_title": "Enhance log retrieval with debug output and checks",
+    "metadata_run_number": 41,
+    "metadata_event": "push",
+    "metadata_status": "completed",
+    "metadata_conclusion": "failure",
+    "metadata_workflow_id": 322046865,
+    "metadata_check_suite_id": 84588039048,
+    "metadata_check_suite_node_id": "CS_kwDOSbVT3s8AAAATsdcLiA",
+    "metadata_pull_requests": "[]",
+    "metadata_created_at": "2026-08-07T11:10:41Z",
+    "metadata_updated_at": "2026-08-07T11:11:35Z",
+    "metadata_actor_login": "tharindra0622-sys",
+    "metadata_actor_id": 227767157,
+    "metadata_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_actor_gravatar_id": NaN,
+    "metadata_actor_type": "User",
+    "metadata_actor_site_admin": false,
+    "metadata_run_attempt": 1,
+    "metadata_referenced_workflows": "[]",
+    "metadata_run_started_at": "2026-08-07T11:10:41Z",
+    "metadata_triggering_actor_login": "tharindra0622-sys",
+    "metadata_triggering_actor_id": 227767157,
+    "metadata_triggering_actor_node_id": "U_kgDODZNzdQ",
+    "metadata_triggering_actor_gravatar_id": NaN,
+    "metadata_triggering_actor_type": "User",
+    "metadata_triggering_actor_site_admin": false,
+    "metadata_head_commit_id": "7a9b9a75140bb1f0bd074eb3f105f713f3332286",
+    "metadata_head_commit_tree_id": "4eec911bf4b012d5577b0d0ae3df7e40cd1d54b9",
+    "metadata_head_commit_message": "Enhance log retrieval with debug output and checks\n\nAdded debug logging for fetched log text and handling of insufficient log content.",
+    "metadata_head_commit_timestamp": "2026-08-07T11:10:39Z",
+    "metadata_head_commit_author_name": "Tharindra Serasinghe",
+    "metadata_head_commit_author_email": "tharindra.0622@gmail.com",
+    "metadata_head_commit_committer_name": "GitHub",
+    "metadata_head_commit_committer_email": "noreply@github.com",
+    "metadata_repository_id": 1236620254,
+    "metadata_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_repository_name": "gha-demo",
+    "metadata_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_repository_private": false,
+    "metadata_repository_owner_login": "tharindra0622-sys",
+    "metadata_repository_owner_id": 227767157,
+    "metadata_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_repository_owner_gravatar_id": NaN,
+    "metadata_repository_owner_type": "User",
+    "metadata_repository_owner_site_admin": false,
+    "metadata_repository_description": NaN,
+    "metadata_repository_fork": false,
+    "metadata_head_repository_id": 1236620254,
+    "metadata_head_repository_node_id": "R_kgDOSbVT3g",
+    "metadata_head_repository_name": "gha-demo",
+    "metadata_head_repository_full_name": "tharindra0622-sys/gha-demo",
+    "metadata_head_repository_private": false,
+    "metadata_head_repository_owner_login": "tharindra0622-sys",
+    "metadata_head_repository_owner_id": 227767157,
+    "metadata_head_repository_owner_node_id": "U_kgDODZNzdQ",
+    "metadata_head_repository_owner_gravatar_id": NaN,
+    "metadata_head_repository_owner_type": "User",
+    "metadata_head_repository_owner_site_admin": false,
+    "metadata_head_repository_description": NaN,
+    "metadata_head_repository_fork": false,
+    "logs_archive_path": "tharindra0622-sys/gha-demo/31173024565/logs.zip",
+    "total_logs_size": 96837,
+    "log_num_jobs": 8,
+    "log_total_steps": 42,
+    "log_total_duration_sec": 110.0,
+    "log_shell_steps": 2,
+    "log_action_steps": 40,
+    "log_error_steps": 6,
+    "log_total_lines": 3262,
+    "log_has_linux": true,
+    "log_has_macos": true,
+    "log_has_windows": true,
+    "log_num_os_types": 3,
+    "log_early3_total_dur": 8.0,
+    "log_early3_max_dur": 7.0,
+    "log_early3_min_dur": 0.0,
+    "log_early3_shell_count": 1,
+    "log_early3_action_count": 2,
+    "log_early3_error_count": 0,
+    "log_early3_avg_dur": 2.6666666666666665,
+    "log_error_rate": 0.1428571428571428,
+    "log_shell_ratio": 0.0476190476190476,
+    "log_avg_step_dur": 2.619047619047619,
+    "log_max_step_dur": 18.0,
+    "predicted_failure_probability": 0.2468066020297868,
+    "predicted_label": 0
+  },
+  "diagnosis": {
+    "root_cause": "The test collection failed with an ImportError because pytest could not import the functions 'add', 'subtract', 'multiply', 'divide', and 'is_even' from the calculator module at src/calculator.py. The Log Analyst found the exact error: \"ImportError: cannot import name 'add' from 'calculator' (/Users/runner/work/gha-demo/gha-demo/tests/../src/calculator.py)\". This indicates that the test file test_calculator.py is attempting to import these functions, but they are not defined in the calculator.py source file. The External Analyst confirmed this is a code-level issue where the specified names don't exist in the target module, not a platform or dependency problem. The recent commit message (\"Enhance log retrieval with debug output and checks\") does not relate to calculator functions, suggesting the calculator.py file may have incomplete or missing function definitions. The History Analyst found similar calculator.py-related failures in the past (issues #167, #169, #26, #29), indicating this is a recurring pattern in this repository.",
+    "category": "test_failure",
+    "alternative_categories": [
+      "recent_code_change",
+      "syntax_error"
+    ],
+    "evidence_used": [
+      "check_github_status",
+      "get_failure_log",
+      "get_recent_commits",
+      "get_workflow_file",
+      "search_repo_issues",
+      "search_web_for_error"
+    ],
+    "suggested_fix": "Add the missing functions ('add', 'subtract', 'multiply', 'divide', 'is_even') to src/calculator.py with proper implementations that match what the tests in test_calculator.py expect. Review test_calculator.py to understand the expected function signatures and behavior, then implement those functions in the calculator module.",
+    "confidence": "high",
+    "agent_reports": [
+      {
+        "agent": "Log Analyst",
+        "ok": true,
+        "findings": {
+          "failing_step": "pytest tests -v",
+          "error_excerpt": "ImportError: cannot import name 'add' from 'calculator' (/Users/runner/work/gha-demo/gha-demo/tests/../src/calculator.py)",
+          "error_type": "ImportError",
+          "plain_summary": "The test collection failed because pytest could not import the name 'add' from the calculator module located at src/calculator.py. The test file test_calculator.py attempted to import 'add', 'subtract', 'multiply', 'divide', and 'is_even' functions that are not available in the calculator module."
+        },
+        "tools_used": [
+          "get_failure_log"
+        ],
+        "seconds": 6.3,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 4764,
+          "output_tokens": 186,
+          "tool_calls": 1,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_failure_log"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "Config & Change Analyst",
+        "ok": true,
+        "findings": {
+          "step_purpose": "Run pytest tests in verbose mode against the tests directory. The step installs dependencies from requirements.txt first and accepts an optional INJECT_FAILURE input to deliberately cause test failures for generating failure data.",
+          "config_issue_found": false,
+          "config_issue": "none",
+          "recent_change_suspected": false,
+          "recent_change_detail": "none"
+        },
+        "tools_used": [
+          "get_recent_commits",
+          "get_workflow_file"
+        ],
+        "seconds": 5.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3966,
+          "output_tokens": 145,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "get_workflow_file",
+            "get_recent_commits"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "External Analyst",
+        "ok": true,
+        "findings": {
+          "github_platform_issue": false,
+          "registry_issue": false,
+          "known_issue_on_web": "ImportError in pytest when a name cannot be imported from a module is a common issue. Web sources indicate this typically occurs when Python finds the module but the specified name doesn't exist inside it. Common pytest-specific causes include PATH/import configuration issues (e.g., missing conftest.py, wrong import mode) or the function/name simply not being defined in the target module. This is a code-level issue, not a platform or dependency problem.",
+          "notes": "GitHub status check shows no active incidents (but this only reflects current status, not status at failure time 2026-08-07T11:10:41Z). The error is a straightforward ImportError where test_calculator.py is trying to import functions ('add', 'subtract', 'multiply', 'divide', 'is_even') that don't exist in src/calculator.py. This is repository-specific code issue, not an external platform or registry problem. The commit message mentions 'Enhance log retrieval with debug output' which doesn't relate to calculator functions, suggesting possible incomplete code changes."
+        },
+        "tools_used": [
+          "check_github_status",
+          "search_web_for_error"
+        ],
+        "seconds": 10.8,
+        "telemetry": {
+          "llm_calls": 2,
+          "input_tokens": 3886,
+          "output_tokens": 347,
+          "tool_calls": 2,
+          "tool_errors": 0,
+          "tools_called": [
+            "check_github_status",
+            "search_web_for_error"
+          ],
+          "unknown_tool_calls": []
+        }
+      },
+      {
+        "agent": "History Analyst",
+        "ok": true,
+        "findings": {
+          "seen_before": true,
+          "similar_issues": [
+            "#167 CI Failure Diagnosis: .github/workflows/ci.yml #25",
+            "#169 CI Failure Diagnosis: .github/workflows/ci.yml #27",
+            "#26 CI Failure Diagnosis: .github/workflows/ci.yml #31",
+            "#29 CI Failure Diagnosis: .github/workflows/ci.yml #33"
+          ],
+          "notes": "Multiple past CI failure diagnosis issues found related to the ci.yml workflow and calculator.py test failures. Issues #26 and #29 were closed, while #167 and #169 remain open. The search did not return detailed resolution information for these issues."
+        },
+        "tools_used": [
+          "search_repo_issues"
+        ],
+        "seconds": 8.3,
+        "telemetry": {
+          "llm_calls": 3,
+          "input_tokens": 4450,
+          "output_tokens": 323,
+          "tool_calls": 3,
+          "tool_errors": 0,
+          "tools_called": [
+            "search_repo_issues",
+            "search_repo_issues",
+            "search_repo_issues"
+          ],
+          "unknown_tool_calls": []
+        }
+      }
+    ],
+    "mode": "multi",
+    "telemetry": {
+      "llm_calls": 10,
+      "input_tokens": 19548,
+      "output_tokens": 1509,
+      "tool_calls": 8,
+      "tool_errors": 0,
+      "tools_called": [
+        "get_failure_log",
+        "get_workflow_file",
+        "get_recent_commits",
+        "check_github_status",
+        "search_web_for_error",
+        "search_repo_issues",
+        "search_repo_issues",
+        "search_repo_issues"
+      ],
+      "unknown_tool_calls": []
+    },
+    "failing_job": "test (macos-latest, 3.10)",
+    "duration_seconds": 26.3,
+    "failing_step": "Run tests"
+  },
+  "control": {
+    "escalated": true,
+    "issue_url": null
+  }
+}
